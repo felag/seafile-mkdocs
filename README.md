@@ -9,8 +9,8 @@ $ git clone https://github.com/felag/seafile-mkdocs
 $ cd seafile-mkdocs
 $ git clone https://github.com/haiwen/seafile-docs docs
 […]
-$ createTOC.sh
-$ mkdocs server
+$ /create_TOC.sh
+$ mkdocs serve
 ```
 
 ## License
