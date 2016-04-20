@@ -4,7 +4,7 @@ output_toc=mkdocs.yml
 
 temp_file=temp_mydocs.yml
 
-input_toc=seafile-docs/docs/SUMMARY.md
+input_toc=docs/SUMMARY.md
 
 # Set name
 echo "site_name: Server Seafile Manual\n" > ${output_toc}
