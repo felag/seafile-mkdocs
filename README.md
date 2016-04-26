@@ -9,7 +9,7 @@ $ git clone https://github.com/felag/seafile-mkdocs
 $ cd seafile-mkdocs
 $ git clone https://github.com/haiwen/seafile-docs docs
 […]
-$ /create_TOC.sh
+$ ./create_TOC.sh
 $ mkdocs serve
 ```
 
