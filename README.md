@@ -7,7 +7,7 @@ To use it, please follow next lines:
 $ git clone https://github.com/felag/seafile-mkdocs
 […]
 $ cd seafile-mkdocs
-$ git clone https://github.com/haiwen/seafile-docs docs
+$ git clone https://github.com/felag/seafile-docs docs
 […]
 $ ./create_TOC.sh
 $ mkdocs serve
