@@ -17,9 +17,10 @@ echo "site_name: Server Seafile Manual\n" > ${output_toc}
 echo "\npages:" >> ${output_toc}
 
 # For default page
-cd "${MKDOCS_DIR}/docs"
-ln -sf SUMMARY.md index.md
-cd ..
+#cd "${MKDOCS_DIR}/docs"
+#ln -sf SUMMARY.md index.md
+#cd ..
+cp "${input_toc}" "${MKDOCS_DIR}/docs/index.md"
 echo "\n- Summary: index.md" >> ${output_toc}
 
 
