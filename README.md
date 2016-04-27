@@ -7,10 +7,12 @@ To use it, please follow next lines:
 $ git clone https://github.com/felag/seafile-mkdocs
 […]
 $ cd seafile-mkdocs
-$ git clone https://github.com/felag/seafile-docs docs
+$ git clone https://github.com/felag/seafile-docs
 […]
-$ ./create_TOC.sh
-$ mkdocs serve
+$ cd build_tools
+$ ./prepare_mkdocs.sh
+$ cd ..
+$ mkdoc serve
 ```
 
 ## License
