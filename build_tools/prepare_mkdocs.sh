@@ -1,9 +1,11 @@
 #!/bin/sh
 
-
 # Prepare mkdocs configuration files and docs folder for a specific language
 # (By default english)
 # It supposes that seafile-docs translations have already been compiled.
+
+# Uncomment to debug
+#set -x
 
 # Read Arguments
 # See <http://mywiki.wooledge.org/BashFAQ>
@@ -46,7 +48,7 @@ while :; do
 done
 
 # Environment definition
-MKDOCSDIR=..
+MKDOCSDIR="$PWD/.."
 MKDOCSDOCSDIR=${MKDOCSDIR}/docs
 SEAFILEDOCSDIR=${MKDOCSDIR}/seafile-docs
 # This file needs to exist
@@ -59,32 +61,57 @@ fi
 LOCALEDIR=${SEAFILEDOCSDIR}/locale
 # End of environment definition
 
-# Compute TARGET_LANGUAGE
+# Compute TARGETLANGUAGEDIR
 # When not defined English website will be built
-TARGETLANGUAGE=
+TARGETLANGUAGEDIR=
 if [ -n "${language}" ]; then
-   TARGETLANGUAGE=${LOCALEDIR}/${language}
+   TARGETLANGUAGEDIR=${LOCALEDIR}/${language}
 
    # Check for existing compiled pages
-   if [ ! -d "${TARGETLANGUAGE}" ]; then
-      echo "There is no translated pages in ${TARGETLANGUAGE} ! Please compile them. Aborting."
+   if [ ! -d "${TARGETLANGUAGEDIR}" ]; then
+      echo "There is no translated pages in TARGETLANGUAGEDIR: ${TARGETLANGUAGEDIR} ! Please compile them. Aborting."
       exit 2;
    fi
 fi
 
 
-# Main build
-# 1- Copy files to docs directory
-# 2- Create Table Of Content (and index.md file)
-
-if [ ! -n "${TARGETLANGUAGE}" ]; then
-   # 1- Copy English files to docs
+# To copy markdown files to mkdocs docs directory
+copy_official_md_files() {
+   rm -rf "${MKDOCSDOCSDIR}"
    mkdir "${MKDOCSDOCSDIR}"
    cd ${SEAFILEDOCSDIR}
    while IFS= read -r file; do
       cp -p --parents "${file}" "${MKDOCSDOCSDIR}"
    done < "${FILELIST}"
-   cd "$OLDPWD"
+}
+
+
+# Main preparation
+# 1- Copy files to docs directory
+# 2- Create Table Of Content (and index.md file)
+
+currentPWD="$PWD"
+if [ ! -n "${TARGETLANGUAGEDIR}" ]; then
+   # 1- Copy English files to docs
+   copy_official_md_files
+
    # 2- Create Table Of Content (and index.md file)
-   ./create_TOC.sh
+   cd "$currentPWD"
+#   ./create_TOC.sh
+else
+   # A specific language has been asked
+
+   # 1- Copy files to docs
+   # 1-a Use official files in case of partial locale files
+   copy_official_md_files
+
+   # 1-b Copy existing locale files
+   cd "$TARGETLANGUAGEDIR"
+   find . -type f | while IFS= read -r file; do
+       cp -p "${file}" "${MKDOCSDOCSDIR}"
+   done
+
+   # 2- Create Table Of Content (and index.md file)
+   cd "$currentPWD"
+#   ./create_TOC.sh
 fi

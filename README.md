@@ -9,6 +9,8 @@ $ git clone https://github.com/felag/seafile-mkdocs
 $ cd seafile-mkdocs
 $ git clone https://github.com/felag/seafile-docs
 […]
+$ cd seafile-docs
+$ git checkout translation
 $ cd build_tools
 $ ./prepare_mkdocs.sh
 $ cd ..
