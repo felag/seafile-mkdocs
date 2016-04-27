@@ -5,7 +5,7 @@
 # It supposes that seafile-docs translations have already been compiled.
 
 # Uncomment to debug
-#set -x
+set -x
 
 # Read Arguments
 # See <http://mywiki.wooledge.org/BashFAQ>
@@ -108,7 +108,7 @@ else
    # 1-b Copy existing locale files
    cd "$TARGETLANGUAGEDIR"
    find . -type f | while IFS= read -r file; do
-       cp -p "${file}" "${MKDOCSDOCSDIR}"
+       cp -p "${file}" "${MKDOCSDOCSDIR}/${file}"
    done
 
    # 2- Create Table Of Content (and index.md file)
