@@ -1,10 +1,15 @@
 #!/bin/sh
 
-output_toc=mkdocs.yml
+MKDOCS_DIR=..
 
-temp_file=temp_mydocs.yml
-
-input_toc=docs/SUMMARY.md
+output_toc="${MKDOCS_DIR}/mkdocs.yml"
+temp_file="${MKDOCS_DIR}/temp_mydocs.yml"
+# Following file needs to exist
+input_toc="${MKDOCS_DIR}/docs/SUMMARY.md"
+if [ ! -f ${input_toc} ]; then
+  echo "${input_toc} file does not exist ! Aborting."
+  exit 1
+fi
 
 # Set name
 echo "site_name: Server Seafile Manual\n" > ${output_toc}
@@ -12,7 +17,7 @@ echo "site_name: Server Seafile Manual\n" > ${output_toc}
 echo "\npages:" >> ${output_toc}
 
 # For default page
-cd docs
+cd "${MKDOCS_DIR}/docs"
 ln -sf SUMMARY.md index.md
 cd ..
 echo "\n- Summary: index.md" >> ${output_toc}
