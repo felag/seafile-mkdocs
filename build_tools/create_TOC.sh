@@ -11,16 +11,20 @@ if [ ! -f ${input_toc} ]; then
   exit 1
 fi
 
+# Following file needs to exist
+index="${MKDOCS_DIR}/docs/README.md"
+if [ ! -f ${index} ]; then
+  echo "${index} file does not exist ! Aborting."
+  exit 1
+fi
+
 # Set name
 echo "site_name: Server Seafile Manual\n" > ${output_toc}
 
 echo "\npages:" >> ${output_toc}
 
 # For default page
-#cd "${MKDOCS_DIR}/docs"
-#ln -sf SUMMARY.md index.md
-#cd ..
-cp "${input_toc}" "${MKDOCS_DIR}/docs/index.md"
+cp "${index}" "${MKDOCS_DIR}/docs/index.md"
 echo "\n- Summary: index.md" >> ${output_toc}
 
 
