@@ -47,7 +47,8 @@ pages:
    - '开启 Office/PDF 文件在线预览': deploy_pro/office_documents_preview.md
    - 'Office Web App 集成': deploy_pro/office_web_app.md
    - '文件搜索说明': deploy_pro/details_about_file_search.md
-   - '病毒扫描': deploy_pro/virus_scan.md
+   - '病毒扫描':
+       - deploy_pro/virus_scan.md
        - '卡巴斯基病毒扫描配置': deploy_pro/virus_scan_with_kav4fs.md
    - 'Web 文件断点续传': deploy_pro/web_resumable_upload.md
    - '存储后端':
