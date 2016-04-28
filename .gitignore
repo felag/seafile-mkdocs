@@ -1,2 +1,5 @@
 # To have git repo as subfolder
 seafile-docs
+
+# Built automatically (depending on language)
+docs
