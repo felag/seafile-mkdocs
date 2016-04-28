@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Apache https 활성화 - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Apache https 활성화";
+    var mkdocs_page_input_path = "deploy/https_with_apache.md";
+    var mkdocs_page_url = "/deploy/https_with_apache/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>도입부</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>둘러보기</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile 구성요소</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/file_permission_management/">파일 권한 관리</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../roadmap/">로드맵</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">자주 묻는 질문</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">기여하기</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Linux에서 Seafile 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_sqlite/">Seafile과 SQLite 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_mysql/">Seafile과 MySQL 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_nginx/">Seahub와 Nginx 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_nginx/">Nginx https 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_apache/">Seahub와 Apache 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Apache https 활성화</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#enabling-https-with-apache">Enabling Https with Apache</a></li>
+                
+                    <li><a class="toctree-l4" href="#generate-ssl-digital-certificate-with-openssl">Generate SSL digital certificate with OpenSSL</a></li>
+                
+                    <li><a class="toctree-l4" href="#enable-https-on-seahub">Enable https on Seahub</a></li>
+                
+                    <li><a class="toctree-l4" href="#https">https를 사용하도록 설정 수정</a></li>
+                
+                    <li><a class="toctree-l4" href="#seafile-seahub">Seafile 및 Seahub를 시작하십시오</a></li>
+                
+                    <li><a class="toctree-l4" href="#detailed-explanation">Detailed explanation</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_ldap/">Seafile LDAP 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../shibboleth_config/">Seafile 시볼레스 인증 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrade/">Seafile 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>기타 가동 참고서</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../start_seafile_at_system_bootup/">시스템 부팅시 Seafile 시작하기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_firewall/">방화벽 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_logrotate/">Logrotate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../add_memcached/">Memcached 추가</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seafile_behind_nat/">NAT망에서 Seafile 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seahub_at_non-root_domain/">비 루트 영역에서 Seafile 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../migrate_from_sqlite_to_mysql/">SQLite에서 MySQL로 이전</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">서버 설정 시 일반 문제</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../new_directory_layout_5_0_0/">Seafile 서버 5.0.0의 새 디렉터리 배치</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>윈도우에서 Seafile 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">Seafile 윈도우 서버 다운로드 및 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/using_ldap/">윈도우에서 Seafile LDAP 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_mysql/">Seafile과 MySQL 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Seafile과 Apache 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Seafile과 Nginx 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">윈도우 서비스로 Seafile 서버 설치</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">Seafile 윈도우 서버에서 사용하는 포트</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">Seafile 윈도우 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">윈도우에서 리눅스로 Seafile 옮기기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">Seafile 서버 미사용 블록 가비지 콜렉션</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_fsck/">손상된 저장소에 대해 seaf-fsck 실행</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Seafile 전문가판 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">Seafile 전문가 서버 다운로드 및 설치</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">Seafile 커뮤니티 서버에서 옮기기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">Seafile 전문가 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">Seafile 전문가판의 LDAP 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">LDAP에서 그룹 가져오기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">다중 단체 지원</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">Office/PDF 문서 온라인 미리 보기 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">오피스 웹 앱 통합</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">파일 검색 세부 안내</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>바이러스 검사</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">kav4fs로 바이러스 검사</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">재개 가능한 웹 기반 파일 업로드</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>저장소 백엔드</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">아마존 S3 백엔드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph 백엔드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_swift/">오픈스택 Swift 백엔드</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>클러스터 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">클러스터에서 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/clustering_with_mariadb_ceph/">MariaDB와 Ceph 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">NFS와 Seafile 클러스터 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">클러스터에서 검색 및 백그라운드 작업 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">클러스터 업그레이드</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/real_time_backup/">실시간 백업 서버</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">설정 가능 항목</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">자주 묻는 질문</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/seafile_professional_sdition_software_license_agreement/">라이선스</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>서버 설정 및 개별 설정</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">Seahub 개별 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/desktop_customization/">Desktop 클라이언트 개별 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">전자메일 보내기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/user_options/">사용자 관리 설정 항목</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">저장소 용량 제한 및 파일 크기 제한</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>관리</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">계정 관리</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">로그</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">백업 및 복원</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/clean_database/">데이터베이스 정리</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV 및 FUSE 확장 기능</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV 확장 기능</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE 확장 기능</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>보안 및 감사</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">보안 기능</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">접근 기록 및 감사</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>개발</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Seafile 빌드 방법</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/linux/">리눅스</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/freebsd/">FreeBSD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/windows/">윈도우</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/osx/">Mac OS X</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/server/">서버</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/rpi/">라즈베리 파이</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/env/">개발 환경</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/code_standard/">코딩 표준</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api/">웹 API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api_v2.1/">웹 API V2.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/python_api/">파이썬 API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/php_api/">PHP API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/data_model/">데이터 모델</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/server-components/">서버 구성 요소</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/sync_algorithm/">동기화 알고리즘</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Linux에서 Seafile 가동 &raquo;</li>
+        
+      
+    
+    <li>Apache https 활성화</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="enabling-https-with-apache">Enabling Https with Apache</h1>
+<h2 id="generate-ssl-digital-certificate-with-openssl">Generate SSL digital certificate with OpenSSL</h2>
+<p>Here we use self-signed SSL digital certificate for free. If you use a paid ssl certificate from some authority, just skip the this step.</p>
+<pre><code class="bash">    openssl genrsa -out privkey.pem 2048
+    openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
+</code></pre>
+
+<p>If you're using a custom CA to sign your SSL certificate, you have to enable certificate revocation list (CRL) in your certificate. Otherwise http syncing on Windows client may not work. See <a href="https://forum.seafile-server.org/t/https-syncing-on-windows-machine-using-custom-ca/898">this thread</a> for more information.</p>
+<h2 id="enable-https-on-seahub">Enable https on Seahub</h2>
+<p>Assume you have configured Apache as <a href="../deploy_with_apache/">Deploy Seafile with Apache</a>. To use https, you need to enable mod_ssl</p>
+<pre><code class="bash">    sudo a2enmod ssl
+</code></pre>
+
+<p>On Windows, you have to add ssl module to httpd.conf</p>
+<pre><code class="apache">LoadModule ssl_module modules/mod_ssl.so
+</code></pre>
+
+<p>Then modify your Apache configuration file. Here is a sample:</p>
+<pre><code class="apache">&lt;VirtualHost *:443&gt;
+  ServerName www.myseafile.com
+  DocumentRoot /var/www
+
+  SSLEngine On
+  SSLCertificateFile /path/to/cacert.pem
+  SSLCertificateKeyFile /path/to/privkey.pem
+
+  Alias /media  /home/user/haiwen/seafile-server-latest/seahub/media
+
+  &lt;Location /media&gt;
+    ProxyPass !
+    Require all granted
+  &lt;/Location&gt;
+
+  RewriteEngine On
+
+  #
+  # seafile fileserver
+  #
+  ProxyPass /seafhttp http://127.0.0.1:8082
+  ProxyPassReverse /seafhttp http://127.0.0.1:8082
+  RewriteRule ^/seafhttp - [QSA,L]
+
+  #
+  # seahub
+  #
+  SetEnvIf Request_URI . proxy-fcgi-pathinfo=unescape
+  SetEnvIf Authorization &quot;(.*)&quot; HTTP_AUTHORIZATION=$1
+  ProxyPass / fcgi://127.0.0.1:8000/
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<h2 id="https">https를 사용하도록 설정 수정</h2>
+<p>Seafile</p>
+<p>Since you change from http to https, you need to modify the value of "SERVICE_URL" in <a href="../../config/ccnet-conf/">ccnet.conf</a>:</p>
+<pre><code class="python">SERVICE_URL = https://www.myseafile.com
+</code></pre>
+
+<p>Seafile</p>
+<p>You need to add a line in seahub_settings.py to set the value of <code>FILE_SERVER_ROOT</code> (Or <code>HTTP_SERVER_ROOT</code> before version 3.1.0)</p>
+<pre><code class="python">FILE_SERVER_ROOT = 'https://www.myseafile.com/seafhttp'
+</code></pre>
+
+<h2 id="seafile-seahub">Seafile 및 Seahub를 시작하십시오</h2>
+<pre><code class="bash">./seafile.sh start
+./seahub.sh start-fastcgi
+</code></pre>
+
+<h2 id="detailed-explanation">Detailed explanation</h2>
+<p>The picture at the end of <a href="components.md">this document</a> may help you understand seafile server better</p>
+<p>There are two components in Seafile server, Seahub and FileServer. FileServer only servers for raw file uploading/downloading, it listens on 8082. Seahub, that serving all the other pages, is still listen on 8000. But under https, Seahub should listen as in fastcgi mode on 8000 (run as ./seahub.sh start-fastcgi). And as in fastcgi mode, when you visit  http://domain:8000 directly, it should return an error page.</p>
+<p>When a user visit https://example.com/home/my/, Apache receives this request and sends it to Seahub via fastcgi. This is controlled by the following config items:</p>
+<pre><code class="apache">    #
+    # seahub
+    #
+    SetEnvIf Request_URI . proxy-fcgi-pathinfo=unescape
+    SetEnvIf Authorization &quot;(.*)&quot; HTTP_AUTHORIZATION=$1
+    ProxyPass / fcgi://127.0.0.1:8000/
+</code></pre>
+
+<p>and</p>
+<pre><code class="apache">    FastCGIExternalServer /var/www/seahub.fcgi -host 127.0.0.1:8000
+</code></pre>
+
+<p>When a user click a file download link in Seahub, Seahub reads the value of <code>FILE_SERVER_ROOT</code> and redirects the user to address <code>https://example.com/seafhttp/xxxxx/</code>. <code>https://example.com/seafhttp</code> is the value of FILE_SERVER_ROOT. Here, the <code>FILE_SERVER</code> means the FileServer component of Seafile, which only serves for raw file downloading/uploading.</p>
+<p>When Apache receives the request at 'https://example.com/seafhttp/xxxxx/', it proxies the request to FileServer, which is listening at 127.0.0.1:8082. This is controlled by the following config items:</p>
+<pre><code class="apache">    #
+    # seafile fileserver
+    #
+    ProxyPass /seafhttp http://127.0.0.1:8082
+    ProxyPassReverse /seafhttp http://127.0.0.1:8082
+    RewriteRule ^/seafhttp - [QSA,L]
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../using_ldap/" class="btn btn-neutral float-right" title="Seafile LDAP 사용 설정">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../deploy_with_apache/" class="btn btn-neutral" title="Seahub와 Apache 설정"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../deploy_with_apache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../using_ldap/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

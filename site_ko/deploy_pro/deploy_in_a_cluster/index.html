@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>클러스터에서 가동 - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "클러스터에서 가동";
+    var mkdocs_page_input_path = "deploy_pro/deploy_in_a_cluster.md";
+    var mkdocs_page_url = "/deploy_pro/deploy_in_a_cluster/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>도입부</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>둘러보기</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile 구성요소</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/file_permission_management/">파일 권한 관리</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../roadmap/">로드맵</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">자주 묻는 질문</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">기여하기</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Linux에서 Seafile 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_sqlite/">Seafile과 SQLite 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_mysql/">Seafile과 MySQL 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_nginx/">Seahub와 Nginx 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_nginx/">Nginx https 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_apache/">Seahub와 Apache 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_apache/">Apache https 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_ldap/">Seafile LDAP 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/shibboleth_config/">Seafile 시볼레스 인증 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/upgrade/">Seafile 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>기타 가동 참고서</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/start_seafile_at_system_bootup/">시스템 부팅시 Seafile 시작하기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_firewall/">방화벽 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_logrotate/">Logrotate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/add_memcached/">Memcached 추가</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seafile_behind_nat/">NAT망에서 Seafile 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seahub_at_non-root_domain/">비 루트 영역에서 Seafile 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/migrate_from_sqlite_to_mysql/">SQLite에서 MySQL로 이전</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">서버 설정 시 일반 문제</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/new_directory_layout_5_0_0/">Seafile 서버 5.0.0의 새 디렉터리 배치</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>윈도우에서 Seafile 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">Seafile 윈도우 서버 다운로드 및 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/using_ldap/">윈도우에서 Seafile LDAP 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_mysql/">Seafile과 MySQL 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Seafile과 Apache 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Seafile과 Nginx 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">윈도우 서비스로 Seafile 서버 설치</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">Seafile 윈도우 서버에서 사용하는 포트</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">Seafile 윈도우 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">윈도우에서 리눅스로 Seafile 옮기기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">Seafile 서버 미사용 블록 가비지 콜렉션</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_fsck/">손상된 저장소에 대해 seaf-fsck 실행</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Seafile 전문가판 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../download_and_setup_seafile_professional_server/">Seafile 전문가 서버 다운로드 및 설치</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../migrate_from_seafile_community_server/">Seafile 커뮤니티 서버에서 옮기기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrading_seafile_professional_server/">Seafile 전문가 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_ldap_pro/">Seafile 전문가판의 LDAP 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ldap_group_sync/">LDAP에서 그룹 가져오기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configurable_options/">다중 단체 지원</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../office_documents_preview/">Office/PDF 문서 온라인 미리 보기 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../office_web_app/">오피스 웹 앱 통합</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../details_about_file_search/">파일 검색 세부 안내</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>바이러스 검사</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../virus_scan_with_kav4fs/">kav4fs로 바이러스 검사</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../web_resumable_upload/">재개 가능한 웹 기반 파일 업로드</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>저장소 백엔드</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_amazon_s3/">아마존 S3 백엔드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_ceph/">Ceph 백엔드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_swift/">오픈스택 Swift 백엔드</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>클러스터 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">클러스터에서 가동</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#deploy-in-a-cluster">Deploy in a cluster</a></li>
+                
+                    <li><a class="toctree-l4" href="#hardware">Hardware</a></li>
+                
+                    <li><a class="toctree-l4" href="#install-python-libraries">Install Python libraries</a></li>
+                
+                    <li><a class="toctree-l4" href="#setup-memcached">Setup Memcached</a></li>
+                
+                    <li><a class="toctree-l4" href="#optional-setup-mariadb-cluster">(Optional) Setup MariaDB Cluster</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#get-the-license">Get the license</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#downloaduncompress-seafile-professional-server">Download/Uncompress Seafile Professional Server</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#setup-seafile-config">Setup Seafile Config</a></li>
+                
+                    <li><a class="toctree-l4" href="#seafileconf">seafile.conf</a></li>
+                
+                    <li><a class="toctree-l4" href="#seahub_settingspy">seahub_settings.py</a></li>
+                
+                    <li><a class="toctree-l4" href="#seafeventsconf">seafevents.conf</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#update-seahub-database">Update Seahub Database</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#backend-storage-settings">Backend Storage Settings</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#run-and-test-the-single-node">Run and Test the Single Node</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#copy-the-config-to-all-seafile-servers">Copy the config to all Seafile servers</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#setup-nginxapache-and-https">Setup Nginx/Apache and Https</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#firewall-settings">Firewall Settings</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#aws-elastic-load-balancer-elb">AWS Elastic Load Balancer (ELB)</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#haproxy">HAProxy</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#see-how-it-runs">See how it runs</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../clustering_with_mariadb_ceph/">MariaDB와 Ceph 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_seafile_cluster_with_nfs/">NFS와 Seafile 클러스터 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../enable_search_and_background_tasks_in_a_cluster/">클러스터에서 검색 및 백그라운드 작업 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrade_a_cluster/">클러스터 업그레이드</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../real_time_backup/">실시간 백업 서버</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configurable_options/">설정 가능 항목</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../faq_for_seafile_pro_server/">자주 묻는 질문</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../seafile_professional_sdition_software_license_agreement/">라이선스</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>서버 설정 및 개별 설정</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">Seahub 개별 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/desktop_customization/">Desktop 클라이언트 개별 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">전자메일 보내기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/user_options/">사용자 관리 설정 항목</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">저장소 용량 제한 및 파일 크기 제한</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>관리</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">계정 관리</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">로그</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">백업 및 복원</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/clean_database/">데이터베이스 정리</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV 및 FUSE 확장 기능</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV 확장 기능</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE 확장 기능</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>보안 및 감사</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">보안 기능</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">접근 기록 및 감사</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>개발</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Seafile 빌드 방법</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/linux/">리눅스</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/freebsd/">FreeBSD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/windows/">윈도우</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/osx/">Mac OS X</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/server/">서버</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/rpi/">라즈베리 파이</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/env/">개발 환경</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/code_standard/">코딩 표준</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api/">웹 API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api_v2.1/">웹 API V2.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/python_api/">파이썬 API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/php_api/">PHP API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/data_model/">데이터 모델</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/server-components/">서버 구성 요소</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/sync_algorithm/">동기화 알고리즘</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Seafile 전문가판 가동 &raquo;</li>
+        
+      
+        
+          <li>클러스터 가동 &raquo;</li>
+        
+      
+    
+    <li>클러스터에서 가동</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="deploy-in-a-cluster">Deploy in a cluster</h1>
+<p><strong>Note</strong>: Since Seafile Server 5.0.0, all config files are moved to the central <strong>conf</strong> folder. <a href="../../deploy/new_directory_layout_5_0_0/">Read More</a>.</p>
+<h2 id="architecture"><a id="wiki-arch"></a> Architecture</h2>
+<p>The Seafile cluster solution employs a 3-tier architecture:</p>
+<ul>
+<li>Load balancer tier: Distribute incoming traffic to Seafile servers. HA can be achieved by deploying multiple load balancer instances.</li>
+<li>Seafile server cluster: a cluster of Seafile server instances. If one instance fails, the load balancer will stop handing traffic to it. So HA is achieved.</li>
+<li>Backend storage: Distributed storage cluster, such as S3, Openstack Swift, Ceph.</li>
+</ul>
+<p>This architecture scales horizontally. That is, you can handle more traffic by adding more machines. The architecture is presented in the following picture.</p>
+<p><img alt="seafile-cluster" src="../../images/seafile-cluster.png" /></p>
+<p>There are two main components on the Seafile server node: web server (Nginx/Apache) and Seafile app server. The web server passes requests from the clients to Seafile app server. The Seafile app servers work independently. They don't know about each other's state. That means each app server can fail independently without affecting other app server instances. The load balancer is responsible for detecting failure and re-routing requests.</p>
+<p>Even though Seafile app servers work independently, they still have to share some session information. All shared session information are stored in memcached. So all Seafile app servers have to connect to the same memcached (cluster). More details about memcached configuration will discussed later.</p>
+<p>All Seafile app servers access the same set of user data. The user data has two parts: in MySQL database and in backend storage cluster (S3, Ceph etc.). All app servers serve the data equally to the clients.</p>
+<p>For database, all app servers have to connect to the same database or database cluster. We recommend to use MariaDB Galera Cluster if you need a database cluster.</p>
+<p>There are a few steps to deploy a Seafile cluster:</p>
+<ol>
+<li>Prepare hardware, operating systems, memcached and database</li>
+<li>Setup a single Seafile server node</li>
+<li>Copy the deployment to other Seafile nodes</li>
+<li>Setup Nginx/Apache and firewall rules</li>
+<li>Setup load balancer</li>
+<li><a href="../enable_search_and_background_tasks_in_a_cluster/">Setup backgroup task node</a></li>
+</ol>
+<h2 id="preparation"><a id="wiki-preparation"></a>Preparation</h2>
+<h3 id="hardware">Hardware</h3>
+<p>At least 2 Linux server with at least 2GB RAM.</p>
+<h3 id="install-python-libraries">Install Python libraries</h3>
+<p>On each mode, you need to install some python libraries.</p>
+<p>First make sure your have installed python 2.6 or 2.7, then:</p>
+<pre><code>sudo easy_install pip
+sudo pip install boto
+</code></pre>
+
+<p>If you receive an error about "Wheel installs require setuptools &gt;= ...", run this between the pip and boto lines above</p>
+<pre><code>sudo pip install setuptools --no-use-wheel --upgrade
+</code></pre>
+
+<h3 id="setup-memcached">Setup Memcached</h3>
+<p>All seafile server instances will share the same memcached servers. Let's assume that the address of memcached server is 192.168.1.134, listening on port 11211 (the default).</p>
+<p>By default, memcached only listen on 127.0.0.1. So you should modify memcached.conf and restart memcached.</p>
+<pre><code># Specify which IP address to listen on. The default is to listen on all IP addresses
+# This parameter is one of the only security measures that memcached has, so make sure
+# it's listening on a firewalled interface.
+-l 0.0.0.0
+</code></pre>
+
+<p>It's also recommended to set a higher limit for memcached's memory, such as 256MB.</p>
+<pre><code># Start with a cap of 64 megs of memory. It's reasonable, and the daemon default
+# Note that the daemon will grow to this size, but does not start out holding this much
+# memory
+-m 256
+</code></pre>
+
+<p>Seafile servers share session information within memcached. If you set up a memcached cluster, please make sure all the seafile server nodes connects to all the memcached nodes.</p>
+<p>When setting up a memcached cluster, you can either run one memcached instance on each Seafile server node, or set up separate machines for the memcached cluster. It usually saves you some money if you run memcached on Seafile server nodes.</p>
+<h3 id="optional-setup-mariadb-cluster">(Optional) Setup MariaDB Cluster</h3>
+<p>MariaDB cluster helps you to remove single point of failure from the cluster architecture. Every update in the database cluster is synchronously replicated to all instances.</p>
+<p>It's recommended that you run one database instance on each Seafile server node. There are a few benefits about this approach:</p>
+<ul>
+<li>The Seafile app server always access its local database intance, which is faster.</li>
+<li>You don't have to set up another load balancer for the database instances.</li>
+</ul>
+<p>This architecture should scale well for a few tens of database nodes, since Seafile has no much write operations to the db. For bigger deployment, you'd better use more sophiscated load balancing techiques for the databases.</p>
+<p>Details about setting up MariaDB cluster is covered in <a href="../clustering_with_mariadb_ceph/">this document</a>.</p>
+<h2 id="configure-a-single-node"><a id="wiki-configure-single-node"></a> Configure a Single Node</h2>
+<p>You should make sure the config files on every Seafile server are consistent. <strong>It's critical that you don't set up seafile server on each machine separately. You should set up seafile server on one machine then copy the config directory to the other machines.</strong></p>
+<h3 id="get-the-license">Get the license</h3>
+<p>Put the license you get under the top level diretory. In our wiki, we use the diretory <code>/data/haiwen/</code> as the top level directory.</p>
+<h3 id="downloaduncompress-seafile-professional-server">Download/Uncompress Seafile Professional Server</h3>
+<pre><code>tar xf seafile-pro-server_2.1.3_x86-64.tar.gz
+</code></pre>
+
+<p>Now you have:</p>
+<pre><code>haiwen
+├── seafile-license.txt
+└── seafile-pro-server-2.1.3/
+</code></pre>
+
+<h3 id="setup-seafile-config">Setup Seafile Config</h3>
+<p>The setup process of Seafile Professional Server is the same as the Seafile Community Server. See <a href="../../deploy/using_mysql/">Download and Setup Seafile Server With MySQL</a> in the community wiki.</p>
+<p>Note: <strong>Use the load balancer's address or domain name for the server address. Don't use the local IP address of each Seafile server machine. This assures the user will always access your service via the load balancers.</strong></p>
+<p>After the setup process is done, you still have to do a few manually changes to the config files.</p>
+<h4 id="seafileconf">seafile.conf</h4>
+<p>You have to add the following configuration to <code>seafile.conf</code></p>
+<pre><code>[cluster]
+enabled = true
+memcached_options = --SERVER=192.168.1.134 --POOL-MIN=10 --POOL-MAX=100
+</code></pre>
+
+<p>If you have a memcached cluster, you need to specify all the memcached server addresses in seafile.conf. The format is</p>
+<pre><code>[cluster]
+enabled = true
+memcached_options = --SERVER=192.168.1.134 --SERVER=192.168.1.135 --SERVER=192.168.1.136 --POOL-MIN=10 --POOL-MAX=100
+</code></pre>
+
+<p>(Optional) The Seafile server also opens a port for the load balancers to run health checks. Seafile by default use port 11001. You can change this by adding the following config to <code>seafile.conf</code></p>
+<pre><code>[cluster]
+health_check_port = 12345
+</code></pre>
+
+<h4 id="seahub_settingspy">seahub_settings.py</h4>
+<p>Install python memcache library.</p>
+<p>On Debian/Ubuntu:</p>
+<pre><code>sudo apt-get install python-memcache
+</code></pre>
+
+<p>On CentOS/RedHat:</p>
+<pre><code>sudo yum install python-memcached
+</code></pre>
+
+<p>Add following configuration to <code>seahub_settings.py</code>. These settings tell Seahub to store avatar in database and cache avatar in memcached, and store css CACHE to local memory of every node.</p>
+<pre><code>CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '192.168.1.134:11211',
+    }
+}
+
+AVATAR_FILE_STORAGE = 'seahub.base.database_storage.DatabaseStorage'
+
+COMPRESS_CACHE_BACKEND = 'django.core.cache.backends.locmem.LocMemCache'
+
+</code></pre>
+
+<p>If you use memcached cluster, please replace the <code>CACHES</code> variable with the following:</p>
+<pre><code>CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': ['192.168.1.134:11211', '192.168.1.135:11211', '192.168.1.136:11211',],
+    }
+}
+</code></pre>
+
+<p>If you enable thumbnail feature, you'd better set thumbnail storage path to a <strong>Shared Folder</strong>, so that every node will create/get thumbnail through the same <strong>Shared Folder</strong>.</p>
+<pre><code>THUMBNAIL_ROOT = 'path/to/shared/folder/'
+</code></pre>
+
+<h4 id="seafeventsconf">seafevents.conf</h4>
+<p>Add following to <code>seafevents.conf</code> to disable file indexing service on the local server. The file indexing service should be started on a dedicated background server.</p>
+<pre><code>[INDEX FILES]
+external_es_server = true
+</code></pre>
+
+<h3 id="update-seahub-database">Update Seahub Database</h3>
+<p>In cluster environment, we have to store avatars in the database instead of in a local disk.</p>
+<pre><code>CREATE TABLE `avatar_uploaded` (`filename` TEXT NOT NULL, `filename_md5` CHAR(32) NOT NULL PRIMARY KEY, `data` MEDIUMTEXT NOT NULL, `size` INTEGER NOT NULL, `mtime` datetime NOT NULL);
+</code></pre>
+
+<h3 id="backend-storage-settings">Backend Storage Settings</h3>
+<p>You also need to add the settings for backend cloud storage systems to the config files.</p>
+<ul>
+<li>For NFS: <a href="../setup_seafile_cluster_with_nfs/">Setup Seafile cluster with NFS</a></li>
+<li>For S3: <a href="setup_with_mazon_S3.md">Setup With Amazon S3</a></li>
+<li>For OpenStack Swift: <a href="setup_with_OpenStackSwift.md">Setup With OpenStackSwift</a></li>
+<li>For Ceph: <a href="setup_with_Ceph.md">Setup With Ceph</a></li>
+</ul>
+<h3 id="run-and-test-the-single-node">Run and Test the Single Node</h3>
+<p>Once you have finished configuring this single node, start it to test if it can run correctly:</p>
+<pre><code>cd /data/haiwen/seafile-server-latest
+./seafile.sh start
+./seahub.sh start
+</code></pre>
+
+<p><em>Note:</em> The first time you start seahub, the script would prompt you to create an admin account for your seafile server. </p>
+<p>Open your browser and visit http://ip-address-of-this-node:8000, login with the admin account.</p>
+<h2 id="configure-other-nodes"><a id="wiki-configure-other-nodes"></a> Configure other nodes</h2>
+<p>Now you have one node working fine, let's continue to configure other nodes.</p>
+<h3 id="copy-the-config-to-all-seafile-servers">Copy the config to all Seafile servers</h3>
+<p>Supposed your seafile installation directory is <code>/data/haiwen</code>, compress this whole directory into a tar ball and copy the tar ball to all other Seafile server machines. You can simply uncompress the tar ball and use it.</p>
+<p>On each node, run <code>./seafile.sh</code> and <code>./seahub.sh</code> to start seafile server.</p>
+<h2 id="setup-nginxapache-and-https">Setup Nginx/Apache and Https</h2>
+<p>You'll usually want to use Nginx/Apache and https for web access. You need to set it up on each machine running Seafile server. <strong>Make sure the certificate on all the servers are the same.</strong></p>
+<ul>
+<li>For Nginx:</li>
+<li><a href="../../deploy/deploy_with_nginx/">Config Seahub with Nginx</a></li>
+<li><a href="../../deploy/https_with_nginx/">Enabling Https with Nginx</a></li>
+<li>For Apache:</li>
+<li><a href="../../deploy/deploy_with_apache/">Config Seahub with Apache</a></li>
+<li><a href="../../deploy/https_with_apache/">Enabling Https with Apache</a></li>
+</ul>
+<h2 id="firewall-settings">Firewall Settings</h2>
+<p>Beside <a href="../../deploy/using_firewall/">standard ports of a seafile server</a>, there are 2 firewall rule changes for Seafile cluster:</p>
+<ul>
+<li>On each Seafile server machine, you should open the health check port (default 11001);</li>
+<li>On the memcached server, you should open the port 11211. For security, only the Seafile servers should be allow to access this port.</li>
+</ul>
+<h2 id="load-balancer-setting"><a id="wiki-lb-settings"></a>Load Balancer Setting</h2>
+<p>Now that your cluster is already running, fire up the load balancer and welcome your users.</p>
+<h3 id="aws-elastic-load-balancer-elb">AWS Elastic Load Balancer (ELB)</h3>
+<p>In the AWS ELB management console, after you've added the Seafile server instances to the instance list, you should do two more configurations.</p>
+<p>First you should setup TCP listeners</p>
+<p><img alt="elb-listeners" src="../../images/elb-listeners.png" /></p>
+<p>Then you setup health check</p>
+<p><img alt="elb-health-check" src="../../images/elb-health-check.png" /></p>
+<h3 id="haproxy">HAProxy</h3>
+<p>This is a sample <code>/etc/haproxy/haproxy.cfg</code>:</p>
+<p>(Assume your health check port is <code>11001</code>)</p>
+<pre><code>global
+    log 127.0.0.1 local1 notice
+    maxconn 4096
+    user haproxy
+    group haproxy
+
+defaults
+    log global
+    mode http
+    retries 3
+    maxconn 2000
+    timeout connect 10000
+    timeout client 300000
+    timeout server 300000
+
+listen seahub 0.0.0.0:80
+    mode http
+    option httplog
+    option dontlognull
+    option forwardfor
+    server seahubserver01 192.168.1.165:80 check port 11001
+    server seahubserver02 192.168.1.200:80 check port 11001
+
+listen seahub-https 0.0.0.0:443
+    mode tcp
+    option tcplog
+    option dontlognull
+    server seahubserver01 192.168.1.165:443 check port 11001
+    server seahubserver02 192.168.1.200:443 check port 11001
+</code></pre>
+
+<h2 id="see-how-it-runs">See how it runs</h2>
+<p>Now you should be able to test your cluster. Open https://seafile.example.com in your browser and enjoy. You can also sync file with Seafile clients.</p>
+<p>If the above works, the next step would be <a href="../enable_search_and_background_tasks_in_a_cluster/">Enable search and background tasks in a cluster</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../clustering_with_mariadb_ceph/" class="btn btn-neutral float-right" title="MariaDB와 Ceph 설정">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../setup_with_swift/" class="btn btn-neutral" title="오픈스택 Swift 백엔드"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../setup_with_swift/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../clustering_with_mariadb_ceph/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

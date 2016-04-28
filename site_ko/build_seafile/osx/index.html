@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Mac OS X - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mac OS X";
+    var mkdocs_page_input_path = "build_seafile/osx.md";
+    var mkdocs_page_url = "/build_seafile/osx/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>도입부</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>둘러보기</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile 구성요소</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/file_permission_management/">파일 권한 관리</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../roadmap/">로드맵</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">자주 묻는 질문</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">기여하기</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Linux에서 Seafile 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_sqlite/">Seafile과 SQLite 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_mysql/">Seafile과 MySQL 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_nginx/">Seahub와 Nginx 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_nginx/">Nginx https 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_apache/">Seahub와 Apache 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_apache/">Apache https 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_ldap/">Seafile LDAP 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/shibboleth_config/">Seafile 시볼레스 인증 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/upgrade/">Seafile 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>기타 가동 참고서</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/start_seafile_at_system_bootup/">시스템 부팅시 Seafile 시작하기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_firewall/">방화벽 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_logrotate/">Logrotate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/add_memcached/">Memcached 추가</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seafile_behind_nat/">NAT망에서 Seafile 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seahub_at_non-root_domain/">비 루트 영역에서 Seafile 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/migrate_from_sqlite_to_mysql/">SQLite에서 MySQL로 이전</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">서버 설정 시 일반 문제</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/new_directory_layout_5_0_0/">Seafile 서버 5.0.0의 새 디렉터리 배치</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>윈도우에서 Seafile 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">Seafile 윈도우 서버 다운로드 및 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/using_ldap/">윈도우에서 Seafile LDAP 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_mysql/">Seafile과 MySQL 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Seafile과 Apache 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Seafile과 Nginx 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">윈도우 서비스로 Seafile 서버 설치</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">Seafile 윈도우 서버에서 사용하는 포트</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">Seafile 윈도우 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">윈도우에서 리눅스로 Seafile 옮기기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">Seafile 서버 미사용 블록 가비지 콜렉션</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_fsck/">손상된 저장소에 대해 seaf-fsck 실행</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Seafile 전문가판 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">Seafile 전문가 서버 다운로드 및 설치</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">Seafile 커뮤니티 서버에서 옮기기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">Seafile 전문가 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">Seafile 전문가판의 LDAP 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">LDAP에서 그룹 가져오기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">다중 단체 지원</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">Office/PDF 문서 온라인 미리 보기 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">오피스 웹 앱 통합</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">파일 검색 세부 안내</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>바이러스 검사</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">kav4fs로 바이러스 검사</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">재개 가능한 웹 기반 파일 업로드</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>저장소 백엔드</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">아마존 S3 백엔드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph 백엔드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_swift/">오픈스택 Swift 백엔드</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>클러스터 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">클러스터에서 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/clustering_with_mariadb_ceph/">MariaDB와 Ceph 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">NFS와 Seafile 클러스터 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">클러스터에서 검색 및 백그라운드 작업 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">클러스터 업그레이드</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/real_time_backup/">실시간 백업 서버</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">설정 가능 항목</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">자주 묻는 질문</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/seafile_professional_sdition_software_license_agreement/">라이선스</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>서버 설정 및 개별 설정</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">Seahub 개별 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/desktop_customization/">Desktop 클라이언트 개별 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">전자메일 보내기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/user_options/">사용자 관리 설정 항목</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">저장소 용량 제한 및 파일 크기 제한</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>관리</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">계정 관리</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">로그</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">백업 및 복원</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/clean_database/">데이터베이스 정리</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV 및 FUSE 확장 기능</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV 확장 기능</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE 확장 기능</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>보안 및 감사</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">보안 기능</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">접근 기록 및 감사</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>개발</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Seafile 빌드 방법</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../linux/">리눅스</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../freebsd/">FreeBSD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../windows/">윈도우</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Mac OS X</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#mac-os-x">Mac OS X</a></li>
+                
+                    <li><a class="toctree-l4" href="#1-homebrew-macports">선택지 1: Homebrew (macports와 겹침)</a></li>
+                
+                    <li><a class="toctree-l4" href="#2-macports-homebrew">선택지 2: Macports (homebrew와 겹침)</a></li>
+                
+                    <li><a class="toctree-l4" href="#libsearpc">libsearpc 컴파일</a></li>
+                
+                    <li><a class="toctree-l4" href="#ccnet">ccnet 컴파일</a></li>
+                
+                    <li><a class="toctree-l4" href="#seafile">seafile 컴파일</a></li>
+                
+                    <li><a class="toctree-l4" href="#seafile-client">seafile-client 컴파일 및 꾸러미 생성</a></li>
+                
+                    <li><a class="toctree-l4" href="#_1">직면할 수 있는 문제</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server/">서버</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../rpi/">라즈베리 파이</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/env/">개발 환경</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/code_standard/">코딩 표준</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api/">웹 API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api_v2.1/">웹 API V2.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/python_api/">파이썬 API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/php_api/">PHP API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/data_model/">데이터 모델</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/server-components/">서버 구성 요소</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/sync_algorithm/">동기화 알고리즘</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>개발 &raquo;</li>
+        
+      
+        
+          <li>Seafile 빌드 방법 &raquo;</li>
+        
+      
+    
+    <li>Mac OS X</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mac-os-x">Mac OS X</h1>
+<h2 id="1-homebrew-macports">선택지 1: Homebrew (macports와 겹침)</h2>
+<h3 id="homebrew">homebrew 환경 설정</h3>
+<ol>
+<li>
+<p>xcode를 설치하십시오</p>
+</li>
+<li>
+<p><a href="https://developer.apple.com/xcode/downloads/">웹 사이트</a> 또는 <a href="http://itunes.apple.com/us/app/xcode/id497799835?ls=1&amp;mt=12">App Store</a>에서 Xcode를 다운로드하십시오</p>
+</li>
+<li>
+<p>Seafile을 빌드할 때 Xcode 명령행 유틸리티로 충분할 수 있지만, 아직 시험해보진 않았습니다. :P</p>
+</li>
+<li>
+<p>homebrew를 설치하십시오</p>
+</li>
+<li>
+<p>아래 명령을 터미널에서 실행하십시오
+  <code>`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></p>
+</li>
+<li>초기 homebrew 환경을 갖췄는지 확인하십시오. <code>brew doctor</code>명령으로 다시 확인해볼 수 있습니다</li>
+</ol>
+<blockquote>
+<p>기타 정보는 http://brew.sh/ 주소를 방문하십시오</p>
+</blockquote>
+<p>그 다음 homebrew로 Seafile을 설치하십시오
+  <code>brew tap Chilledheart/seafile
+  brew install seafile-client</code></p>
+<p>설치상 문제가 있다면 homebrew 로그를 보내주십시오.
+- <a href="https://github.com/Homebrew/homebrew/wiki/Troubleshooting">Homebrew 문제 해결</a></p>
+<p>homebrew로 설치한 Seafile에 문제가 있다면 Seafile 로그를 보내주십시오.
+- <a href="../../faq/">Seafile 자주 묻는 질문</a></p>
+<h2 id="2-macports-homebrew">선택지 2: Macports (homebrew와 겹침)</h2>
+<h3 id="macports">macports 환경 설정</h3>
+<ol>
+<li>xcode를 설치하십시오</li>
+<li>
+<p><a href="https://developer.apple.com/xcode/downloads/">웹 사이트</a> 또는 <a href="http://itunes.apple.com/us/app/xcode/id497799835?ls=1&amp;mt=12">App Store</a>에서 Xcode를 다운로드하십시오</p>
+</li>
+<li>
+<p>macports를 설치하십시오</p>
+</li>
+<li>
+<p>https://www.macports.org/install.php에서 간단하게 시작</p>
+</li>
+</ol>
+<blockquote>
+<p>더 많은 내용은 https://www.macports.org/ 주소에 있습니다</p>
+</blockquote>
+<ol>
+<li>
+<p><code>port</code>로 다음 라이브러리 및 도구를 설치하십시오</p>
+<pre><code>sudo port install autoconf automake pkgconfig libtool glib2 \
+libevent vala openssl git qt4-mac jansson
+</code></pre>
+</li>
+<li>
+<p>파이썬을 설치하십시오</p>
+<pre><code>sudo port install python27
+sudo port select --set python python27
+
+sudo port install py27-pip
+sudo port select --set pip pip27
+</code></pre>
+</li>
+<li>
+<p>pkg config 환경을 설정하십시오</p>
+<pre><code>export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:/usr/local/lib/pkgconfig
+export LIBTOOL=glibtool
+export LIBTOOLIZE=glibtoolize
+export CPPFLAGS="-I/opt/local/include"
+export LDFLAGS="-L/opt/local/lib -L/usr/local/lib -Wl,-headerpad_max_install_names"
+</code></pre>
+</li>
+</ol>
+<h2 id="libsearpc">libsearpc 컴파일</h2>
+<p><a href="https://github.com/haiwen/libsearpc">libsearpc</a>를 다운로드한 후:</p>
+<pre><code>    ./autogen.sh
+    ./configure
+    make
+    sudo make install
+</code></pre>
+<h2 id="ccnet">ccnet 컴파일</h2>
+<p><a href="https://github.com/haiwen/ccnet">ccnet</a>을 다운로드한 후:</p>
+<pre><code>    ./autogen.sh
+    ./configure
+    make
+    sudo make install
+</code></pre>
+<h2 id="seafile">seafile 컴파일</h2>
+<ol>
+<li><a href="https://github.com/haiwen/seafile">seafile</a>을 다운로드하십시오</li>
+<li>컴파일 하십시오<pre><code>./autogen.sh
+./configure --disable-fuse
+make
+sudo make install
+</code></pre>
+</li>
+</ol>
+<h2 id="seafile-client">seafile-client 컴파일 및 꾸러미 생성</h2>
+<ol>
+<li>
+<p>빌드 스크립트를 실행하십시오:</p>
+<pre><code>./scripts/build.py
+</code></pre>
+</li>
+<li>
+<p>Go to Release directory and see if <code>seafile-applet.app</code> can run correctly.</p>
+</li>
+</ol>
+<h2 id="_1">직면할 수 있는 문제</h2>
+<ol>
+<li><code>install_name_tool</code>에서 "malformed object" "unknown load command" 메시지를 출력했다면, xcode 명령행 도구의 해당 버전이 <code>install_name_tool</code>와 맞지 않기 때문일 수도 있습니다.</li>
+<li>xcode에서 glib를 찾지 못했다면, xcode의 "build settings/search paths/header search" 설정을 올바르게 고치십시오.</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../server/" class="btn btn-neutral float-right" title="서버">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../windows/" class="btn btn-neutral" title="윈도우"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../windows/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../server/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

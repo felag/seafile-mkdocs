@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Seafile LDAP 사용 설정 - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Seafile LDAP 사용 설정";
+    var mkdocs_page_input_path = "deploy/using_ldap.md";
+    var mkdocs_page_url = "/deploy/using_ldap/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>도입부</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>둘러보기</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile 구성요소</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/file_permission_management/">파일 권한 관리</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../roadmap/">로드맵</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">자주 묻는 질문</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">기여하기</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Linux에서 Seafile 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_sqlite/">Seafile과 SQLite 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_mysql/">Seafile과 MySQL 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_nginx/">Seahub와 Nginx 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_nginx/">Nginx https 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_apache/">Seahub와 Apache 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_apache/">Apache https 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Seafile LDAP 사용 설정</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#seafile-ldap">Seafile LDAP 사용 설정</a></li>
+                
+                    <li><a class="toctree-l4" href="#seafile-ldap_1">Seafile의 LDAP 사용자 관리 동작 방식</a></li>
+                
+                    <li><a class="toctree-l4" href="#basic-ldapad-integration">Basic LDAP/AD Integration</a></li>
+                
+                    <li><a class="toctree-l4" href="#ldapad">고급 LDAP/AD 통합 옵션</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../shibboleth_config/">Seafile 시볼레스 인증 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrade/">Seafile 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>기타 가동 참고서</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../start_seafile_at_system_bootup/">시스템 부팅시 Seafile 시작하기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_firewall/">방화벽 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_logrotate/">Logrotate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../add_memcached/">Memcached 추가</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seafile_behind_nat/">NAT망에서 Seafile 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seahub_at_non-root_domain/">비 루트 영역에서 Seafile 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../migrate_from_sqlite_to_mysql/">SQLite에서 MySQL로 이전</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">서버 설정 시 일반 문제</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../new_directory_layout_5_0_0/">Seafile 서버 5.0.0의 새 디렉터리 배치</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>윈도우에서 Seafile 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">Seafile 윈도우 서버 다운로드 및 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/using_ldap/">윈도우에서 Seafile LDAP 사용 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_mysql/">Seafile과 MySQL 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Seafile과 Apache 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Seafile과 Nginx 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">윈도우 서비스로 Seafile 서버 설치</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">Seafile 윈도우 서버에서 사용하는 포트</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">Seafile 윈도우 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">윈도우에서 리눅스로 Seafile 옮기기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">Seafile 서버 미사용 블록 가비지 콜렉션</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_fsck/">손상된 저장소에 대해 seaf-fsck 실행</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Seafile 전문가판 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">Seafile 전문가 서버 다운로드 및 설치</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">Seafile 커뮤니티 서버에서 옮기기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">Seafile 전문가 서버 업그레이드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">Seafile 전문가판의 LDAP 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">LDAP에서 그룹 가져오기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">다중 단체 지원</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">Office/PDF 문서 온라인 미리 보기 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">오피스 웹 앱 통합</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">파일 검색 세부 안내</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>바이러스 검사</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">kav4fs로 바이러스 검사</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">재개 가능한 웹 기반 파일 업로드</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>저장소 백엔드</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">아마존 S3 백엔드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph 백엔드</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_swift/">오픈스택 Swift 백엔드</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>클러스터 가동</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">클러스터에서 가동</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/clustering_with_mariadb_ceph/">MariaDB와 Ceph 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">NFS와 Seafile 클러스터 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">클러스터에서 검색 및 백그라운드 작업 활성화</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">클러스터 업그레이드</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/real_time_backup/">실시간 백업 서버</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">설정 가능 항목</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">자주 묻는 질문</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/seafile_professional_sdition_software_license_agreement/">라이선스</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>서버 설정 및 개별 설정</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">Seahub 개별 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/desktop_customization/">Desktop 클라이언트 개별 설정</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">전자메일 보내기</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/user_options/">사용자 관리 설정 항목</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">저장소 용량 제한 및 파일 크기 제한</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>관리</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">계정 관리</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">로그</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">백업 및 복원</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/clean_database/">데이터베이스 정리</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV 및 FUSE 확장 기능</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV 확장 기능</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE 확장 기능</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>보안 및 감사</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">보안 기능</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">접근 기록 및 감사</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>개발</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Seafile 빌드 방법</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/linux/">리눅스</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/freebsd/">FreeBSD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/windows/">윈도우</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/osx/">Mac OS X</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/server/">서버</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/rpi/">라즈베리 파이</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/env/">개발 환경</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/code_standard/">코딩 표준</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api/">웹 API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api_v2.1/">웹 API V2.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/python_api/">파이썬 API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/php_api/">PHP API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/data_model/">데이터 모델</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/server-components/">서버 구성 요소</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/sync_algorithm/">동기화 알고리즘</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Linux에서 Seafile 가동 &raquo;</li>
+        
+      
+    
+    <li>Seafile LDAP 사용 설정</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="seafile-ldap">Seafile LDAP 사용 설정</h1>
+<p>Note: This documentation is for the Community Edition. If you're using Pro Edition, please refer to <a href="../../deploy_pro/using_ldap_pro/">the Seafile Pro documentation</a>.</p>
+<h2 id="seafile-ldap_1">Seafile의 LDAP 사용자 관리 동작 방식</h2>
+<p>When Seafile is integrated with LDAP/AD, users in the system can be divided into two tiers:</p>
+<ul>
+<li>Users within Seafile's internal user database. Some attributes are attached to these users, such as whether it's a system admin user, whether it's activated. This tier includes two types of users:<ul>
+<li>Native users: these users are created by the admin on Seafile's system admin interface. These users are stored in the <code>EmailUser</code> table of the <code>ccnet</code> database.</li>
+<li>Users imported from LDAP/AD server: When a user in LDAP/AD logs into Seafile, its information will be imported from LDAP/AD server into Seafile's database. These users are stored in the <code>LDAPUsers</code> table of the <code>ccnet</code> database.</li>
+</ul>
+</li>
+<li>Users in LDAP/AD server. These are all the intended users of Seafile inside the LDAP server. Seafile doesn't manipulate these users directly. It has to import them into its internal database before setting attributes on them.</li>
+</ul>
+<p>When Seafile counts the number of users in the system, it only counts the <strong>activated</strong> users in its internal database.</p>
+<p>When Seafile is integrated with LDAP/AD, it'll look up users from both the internal database and LDAP server. As long as the user exists in one of these two sources, they can log into the system.</p>
+<h2 id="basic-ldapad-integration">Basic LDAP/AD Integration</h2>
+<p>The only requirement for Seafile to use LDAP/AD for authentication is that there must be a unique identifier for each user in the LDAP/AD server. Seafile can only use email-address-format user identifiers. So there are usually only two options for this unique identifier:</p>
+<ul>
+<li>Email address: this is the most common choice. Most organizations assign unique email address for each member.</li>
+<li>UserPrincipalName: this is a user attribute only available in Active Directory. It's format is <code>user-login-name@domain-name</code>, e.g. <code>john@example.com</code>. It's not a real email address, but it works fine as the unique identifier.</li>
+</ul>
+<h3 id="_1">액티브 디렉터리에 연결</h3>
+<p>사용자 인증에 AD를 사용하려면, 다음 줄을 ccnet.conf에 추가하십시오.</p>
+<p>전자메일 주소를 유일 식별자로 사용할 경우:</p>
+<pre><code>[LDAP]
+HOST = ldap://192.168.1.123/
+BASE = cn=users,dc=example,dc=com
+USER_DN = administrator@example.local
+PASSWORD = secret
+LOGIN_ATTR = mail
+</code></pre>
+<p>유일 식별자 UserPrincipalName을 설정할 경우:</p>
+<pre><code>[LDAP]
+HOST = ldap://192.168.1.123/
+BASE = cn=users,dc=example,dc=com
+USER_DN = administrator@example.local
+PASSWORD = secret
+LOGIN_ATTR = userPrincipalName
+</code></pre>
+<p>각 설정 항목의 의미는 다음과 같습니다:</p>
+<ul>
+<li>HOST: LDAP URL for the host. ldap://, ldaps:// and ldapi:// are supported. You can also include a port number in the URL, like ldap://ldap.example.com:389. To use TLS, you should configure the LDAP server to listen on LDAPS port and specify ldaps:// here. More details about TLS will be covered below.</li>
+<li>BASE: The root distinguished name (DN) to use when running queries against the directory server. <strong>You cannot use the root DN (e.g. dc=example,dc=com) as BASE</strong>.</li>
+<li>USER_DN: The distinguished name of the user that Seafile will use when connecting to the directory server. This user should have sufficient privilege to access all the nodes under BASE. It's recommended to use a user in the administrator group.</li>
+<li>PASSWORD: Password of the above user.</li>
+<li>LOGIN_ATTR: The attribute used for user's unique identifier. Use <code>mail</code> or <code>userPrincipalName</code>.</li>
+</ul>
+<p>Tips for choosing BASE and USER_DN:</p>
+<ul>
+<li>To determine the BASE, you first have to navigate your organization hierachy on the domain controller GUI.<ul>
+<li>If you want to allow all users to use Seafile, you can use 'cn=users,dc=yourdomain,dc=com' as BASE (with proper adjustment for your own needs).</li>
+<li>If you want to limit users to a certain OU (Organization Unit), you run <code>dsquery</code> command on the domain controller to find out the DN for this OU. For example, if the OU is 'staffs', you can run 'dsquery ou -name staff'. More information can be found <a href="https://technet.microsoft.com/en-us/library/cc770509.aspx">here</a>.</li>
+</ul>
+</li>
+<li>AD supports 'user@domain.name' format for the USER_DN option. For example you can use administrator@example.com for USER_DN. Sometime the domain controller doesn't recognize this format. You can still use <code>dsquery</code> command to find out user's DN. For example, if the user name is 'seafileuser', run <code>dsquery user -name seafileuser</code>. More information <a href="https://technet.microsoft.com/en-us/library/cc725702.aspx">here</a>.</li>
+</ul>
+<h3 id="ldap">기타 LDAP 서버에 연결</h3>
+<p>Please add the following options to ccnet.conf:</p>
+<pre><code>[LDAP]
+HOST = ldap://192.168.1.123/
+BASE = ou=users,dc=example,dc=com
+USER_DN = cn=admin,dc=example,dc=com
+PASSWORD = secret
+LOGIN_ATTR = mail
+</code></pre>
+<p>The meaning of the options are the same as described in the previous section. With other LDAP servers, you can only use <code>mail</code> attribute as user's unique identifier.</p>
+<h2 id="ldapad">고급 LDAP/AD 통합 옵션</h2>
+<h3 id="base">다중 BASE</h3>
+<p>Multiple base DN is useful when your company has more than one OUs to use Seafile. You can specify a list of base DN in the "BASE" config. The DNs are separated by ";", e.g. <code>ou=developers,dc=example,dc=com;ou=marketing,dc=example,dc=com</code></p>
+<h3 id="_2">추가 검색 필터</h3>
+<p>Search filter is very useful when you have a large organization but only a portion of people want to use Seafile. The filter can be given by setting "FILTER" config. The value of this option follows standard LDAP search filter syntax (https://msdn.microsoft.com/en-us/library/aa746475(v=vs.85).aspx).</p>
+<p>The final filter used for searching for users is <code>(&amp;($LOGIN_ATTR=*)($FILTER))</code>. <code>$LOGIN_ATTR</code> and <code>$FILTER</code> will be replaced by your option values.</p>
+<p>For example, add the following line to LDAP config:</p>
+<pre><code>FILTER = memberOf=CN=group,CN=developers,DC=example,DC=com
+</code></pre>
+
+<p>The final search filter would be <code>(&amp;(mail=*)(memberOf=CN=group,CN=developers,DC=example,DC=com))</code></p>
+<p>Note that the case of attribute names in the above example is significant. The <code>memberOf</code> attribute is only available in Active Directory.</p>
+<h3 id="limiting-seafile-users-to-a-group-in-active-directory">Limiting Seafile Users to a Group in Active Directory</h3>
+<p>You can use the FILTER option to limit user scope to a certain AD group.</p>
+<ol>
+<li>우선, 그룹 DN을 찾으십시오. 다시 말해, 도메인 컨트롤러의 <code>dsquery</code> 명령을 사용합니다. 예를 들어, 그룹 이름이 <code>seafilegroup</code>이면,  <code>dsquery group -name seafilegroup</code>을 실행합니다.</li>
+<li>다음 줄을 LDAP 설정에 추가하십시오:</li>
+</ol>
+<pre><code>FILTER = memberOf={output of dsquery command}
+</code></pre>
+
+<h3 id="ldapad-tls">LDAP/AD 서버 연결에 TLS 사용</h3>
+<p>To use a TLS connection to the directory server, you should install a valid SSL certificate on the directory server.</p>
+<p>The current version of Seafile Linux server package is compiled on CentOS. We include the ldap client library in the package to maintain compatibility with older Linux distributions. But since different Linux distributions have different path or configuration for OpenSSL library, sometimes Seafile is unable to connect to the directory server with TLS.</p>
+<p>The ldap library (libldap) bundled in the Seafile package is of version 2.4. If your Linux distribution is new enough (like CentOS 6, Debian 7 or Ubuntu 12.04 or above), you can use system's libldap instead.</p>
+<p>On Ubuntu 14.04 and Debian 7/8, moving the bundled ldap related libraries out of the library path should make TLS connection work.</p>
+<pre><code>cd ${SEAFILE_INSTALLATION_DIR}/seafile-server-latest/seafile/lib
+mkdir disabled_libs_use_local_ones_instead
+mv liblber-2.4.so.2 libldap-2.4.so.2 libsasl2.so.2 libldap_r-2.4.so.2 disabled_libs_use_local_ones_instead/
+</code></pre>
+
+<p>On CentOS 6, you have to move the libnssutil library:</p>
+<pre><code>cd ${SEAFILE_INSTALLATION_DIR}/seafile-server-latest/seafile/lib
+mkdir disabled_libs_use_local_ones_instead
+mv libnssutil3.so disabled_libs_use_local_ones_instead/
+</code></pre>
+
+<p>This effectively removes the bundled libraries from the library search path. 
+When the server starts, it'll instead find and use the system libraries (if they are installed). 
+This change has to be repeated after each update of the Seafile installation.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../shibboleth_config/" class="btn btn-neutral float-right" title="Seafile 시볼레스 인증 사용 설정">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../https_with_apache/" class="btn btn-neutral" title="Apache https 활성화"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../https_with_apache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../shibboleth_config/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
