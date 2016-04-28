@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Start Seafile at System Bootup - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Start Seafile at System Bootup";
+    var mkdocs_page_input_path = "deploy/start_seafile_at_system_bootup.md";
+    var mkdocs_page_url = "/deploy/start_seafile_at_system_bootup/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Overview</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/file_permission_management/">File permission management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../roadmap/">Roadmap</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">Contribution</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploying Seafile under Linux</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_sqlite/">Deploying Seafile with SQLite</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_mysql/">Deploying Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_nginx/">Config Seahub with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_nginx/">Enabling Https with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_apache/">Config Seahub with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_apache/">Enabling Https with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_ldap/">Configure Seafile to use LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../shibboleth_config/">Configure Seafile to use Shibboleth Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrade/">Upgrade Seafile server</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Other Deployment Notes</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Start Seafile at System Bootup</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#start-seafile-at-system-bootup">Start Seafile at System Bootup</a></li>
+                
+                    <li><a class="toctree-l4" href="#for-ubuntu">For Ubuntu</a></li>
+                
+                    <li><a class="toctree-l4" href="#for-other-debian-based-linux">For other Debian based Linux</a></li>
+                
+                    <li><a class="toctree-l4" href="#for-rhelcentos">For RHEL/CentOS</a></li>
+                
+                    <li><a class="toctree-l4" href="#for-rhelcentos-run-as-service">For RHEL/CentOS run as service</a></li>
+                
+                    <li><a class="toctree-l4" href="#for-systems-running-systemd">For systems running systemd</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_firewall/">Firewall settings</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_logrotate/">Logrotate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../add_memcached/">Add Memcached</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seafile_behind_nat/">Deploy Seafile behind NAT</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seahub_at_non-root_domain/">Deploy Seahub at Non-root domain</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../migrate_from_sqlite_to_mysql/">Migrate From SQLite to MySQL</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Common Problems for Setting up Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../new_directory_layout_5_0_0/">New Directory Layout in Seafile Server 5.0.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile under Windows</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">Download and Setup Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/using_ldap/">Configure Seafile to use LDAP on Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_mysql/">Deploy Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Deploy Seafile with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_nginx/">Deploy Seafile with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">Install Seafile Server as a Windows Service</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">Ports used by Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">Upgrading Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">Migrate Seafile From Windows To Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">Garbage Collecting Unused Blocks on Seafile Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_fsck/">Running seaf-fsck on corrupted repositories</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile Pro Edition</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">Download and Setup Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">Migrate from Seafile Community Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">Upgrading Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">LDAP Configuration for Seafile Pro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">Importing Groups from LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/multi_institutions/">Multi-Institutions Support</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">Enable Office/PDF Documents Online Preview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">Integrating with Office Web App</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">Details about File Search</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Virus Scan</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">Virus Scan With Kav4fs</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">Web Resumable File Upload</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Storage Backends</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">Amazon S3 Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_swift/">OpenStack Swift Backend</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Cluster Deployment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">Deploy in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/clustering_with_mariadb_ceph/">Setup with MariaDB and Ceph</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">Setup Seafile cluster with NFS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">Enable search and background tasks in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">Upgrade a cluster</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/real_time_backup/">Real-time Backup Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">Configurable Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/seafile_professional_sdition_software_license_agreement/">License</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Configuration and Customization</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">Seahub customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/desktop_customization/">Desktop client customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">Email Sending</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/user_options/">User management options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">Storage Quota and File size limits</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Administration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">Account management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">Logs</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">Backup and Recovery</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/clean_database/">Clean database</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV and FUSE extensions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV extension</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE extension</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Security and Auditing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">Security features</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">Access logs and auditing</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Developing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>How to Build Seafile</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/linux/">Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/freebsd/">FreeBSD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/windows/">Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/osx/">Mac OS X</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/server/">Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/rpi/">Raspberry Pi</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/env/">Develop env</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/code_standard/">Code Standard</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api/">Web API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api_v2.1/">Web API V2.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/python_api/">Python API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/php_api/">PHP API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/data_model/">Data Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/server-components/">Server Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/sync_algorithm/">Sync algorithm</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deploying Seafile under Linux &raquo;</li>
+        
+      
+        
+          <li>Other Deployment Notes &raquo;</li>
+        
+      
+    
+    <li>Start Seafile at System Bootup</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="start-seafile-at-system-bootup">Start Seafile at System Bootup</h1>
+<h2 id="for-ubuntu">For Ubuntu</h2>
+<p>On Ubuntu, we make use of the <a href="https://help.ubuntu.com/community/UbuntuBootupHowto">/etc/init.d/</a> scripts to start seafile/seahub at system boot.</p>
+<h3 id="create-a-script-etcinitdseafile-server">Create a script <strong>/etc/init.d/seafile-server</strong></h3>
+<pre><code>sudo vim /etc/init.d/seafile-server
+</code></pre>
+<p>The content of this script is: (You need to modify the value of <strong>user</strong> and <strong>seafile_dir</strong> accordingly)</p>
+<pre><code>#!/bin/bash
+
+# Change the value of "user" to your linux user name
+user=haiwen
+
+# Change the value of "seafile_dir" to your path of seafile installation
+# usually the home directory of $user
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+seafile_init_log=${seafile_dir}/logs/seafile.init.log
+seahub_init_log=${seafile_dir}/logs/seahub.init.log
+
+# Change the value of fastcgi to falst if fastcgi is not used
+fastcgi=true
+# Set the port of fastcgi, default is 8000. Change it if you need different.
+fastcgi_port=8000
+#
+# Write a polite log message with date and time
+#
+echo -e "\n \n About to perform $1 for seafile at `date -Iseconds` \n " &gt;&gt; ${seafile_init_log}
+echo -e "\n \n About to perform $1 for seahub at `date -Iseconds` \n " &gt;&gt; ${seahub_init_log}
+case "$1" in
+        start)
+                sudo -u ${user} ${script_path}/seafile.sh ${1} &gt;&gt; ${seafile_init_log}
+                if [ $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh ${1}-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh ${1} &gt;&gt; ${seahub_init_log}
+                fi
+        ;;
+        restart)
+                sudo -u ${user} ${script_path}/seafile.sh ${1} &gt;&gt; ${seafile_init_log}
+                if [ $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh ${1}-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh ${1} &gt;&gt; ${seahub_init_log}
+                fi
+        ;;
+        stop)
+                sudo -u ${user} ${script_path}/seahub.sh ${1} &gt;&gt; ${seahub_init_log}
+                sudo -u ${user} ${script_path}/seafile.sh ${1} &gt;&gt; ${seafile_init_log}
+        ;;
+        *)
+                echo "Usage: /etc/init.d/seafile-server {start|stop|restart}"
+                exit 1
+        ;;
+esac
+</code></pre>
+<h3 id="create-a-file-etcinitseafile-serverconf">Create a file <strong>/etc/init/seafile-server.conf</strong></h3>
+<h4 id="if-youre-not-using-mysql-or-an-external-mysql-server">If you're not using MySQL or an external MySQL server</h4>
+<pre><code>start on (runlevel [2345])
+stop on (runlevel [016])
+
+pre-start script
+/etc/init.d/seafile-server start
+end script
+
+post-stop script
+/etc/init.d/seafile-server stop
+end script
+</code></pre>
+<h4 id="if-youre-using-mysql">If you're using MySQL</h4>
+<pre><code>start on (started mysql
+and runlevel [2345])
+stop on (runlevel [016])
+
+pre-start script
+/etc/init.d/seafile-server start
+end script
+
+post-stop script
+/etc/init.d/seafile-server stop
+end script
+</code></pre>
+<h3 id="make-the-seafile-sever-script-executable">Make the seafile-sever script executable</h3>
+<pre><code>sudo chmod +x /etc/init.d/seafile-server
+</code></pre>
+<h3 id="done">Done</h3>
+<p>Don't forget to update the value of <strong>script_path</strong> later if you update your seafile server.</p>
+<h2 id="for-other-debian-based-linux">For other Debian based Linux</h2>
+<h3 id="create-a-script-etcinitdseafile-server_1">Create a script <strong>/etc/init.d/seafile-server</strong></h3>
+<pre><code>sudo vim /etc/init.d/seafile-server
+</code></pre>
+<p>The content of this script is: (You need to modify the value of <strong>user</strong> and <strong>seafile_dir</strong> accordingly)</p>
+<pre><code>#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          seafile-server
+# Required-Start:    $local_fs $remote_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Starts Seafile Server
+# Description:       starts Seafile Server
+### END INIT INFO
+
+# Change the value of "user" to linux user name who runs seafile
+user=haiwen
+
+# Change the value of "seafile_dir" to your path of seafile installation
+# usually the home directory of $user
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+seafile_init_log=${seafile_dir}/logs/seafile.init.log
+seahub_init_log=${seafile_dir}/logs/seahub.init.log
+
+# Change the value of fastcgi to true if fastcgi is to be used
+fastcgi=false
+# Set the port of fastcgi, default is 8000. Change it if you need different.
+fastcgi_port=8000
+
+#
+# Write a polite log message with date and time
+#
+echo -e "\n \n About to perform $1 for seafile at `date -Iseconds` \n " &gt;&gt; ${seafile_init_log}
+echo -e "\n \n About to perform $1 for seahub at `date -Iseconds` \n " &gt;&gt; ${seahub_init_log}
+
+case "$1" in
+        start)
+                sudo -u ${user} ${script_path}/seafile.sh ${1} &gt;&gt; ${seafile_init_log}
+                if [ $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh ${1}-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh ${1} &gt;&gt; ${seahub_init_log}
+                fi
+        ;;
+        restart)
+                sudo -u ${user} ${script_path}/seafile.sh ${1} &gt;&gt; ${seafile_init_log}
+                if [ $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh ${1}-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh ${1} &gt;&gt; ${seahub_init_log}
+                fi
+        ;;
+        stop)
+                sudo -u ${user} ${script_path}/seahub.sh ${1} &gt;&gt; ${seahub_init_log}
+                sudo -u ${user} ${script_path}/seafile.sh ${1} &gt;&gt; ${seafile_init_log}
+        ;;
+        *)
+                echo "Usage: /etc/init.d/seafile-server {start|stop|restart}"
+                exit 1
+        ;;
+esac
+</code></pre>
+<p><strong>Note</strong>:</p>
+<ol>
+<li>If you want to start seahub in fastcgi, just change the <strong>fastcgi</strong> variable to <strong>true</strong></li>
+<li>If you deployed Seafile with MySQL, append "mysql" to the Required-Start line:</li>
+</ol>
+<!-- -->
+
+<pre><code># Required-Start: $local_fs $remote_fs $network mysql
+</code></pre>
+<h3 id="add-directory-for-logfiles">Add Directory for Logfiles</h3>
+<pre><code> mkdir /path/to/seafile/dir/logs
+</code></pre>
+<h3 id="make-the-seafile-sever-script-executable_1">Make the seafile-sever script executable</h3>
+<pre><code>sudo chmod +x /etc/init.d/seafile-server
+</code></pre>
+<h3 id="add-seafile-server-to-rcd">Add seafile-server to rc.d</h3>
+<pre><code>sudo update-rc.d seafile-server defaults
+</code></pre>
+<h3 id="done_1">Done</h3>
+<p>Don't forget to update the value of <strong>seafile_dir</strong> later if you update your seafile server.</p>
+<h2 id="for-rhelcentos">For RHEL/CentOS</h2>
+<p>On RHEL/CentOS, the script <a href="http://www.centos.org/docs/5/html/Installation_Guide-en-US/s1-boot-init-shutdown-run-boot.html">/etc/rc.local</a> is executed by the system at bootup, so we start seafile/seahub there.</p>
+<ul>
+<li>Locate your python executable (python 2.6 or 2.7)</li>
+</ul>
+<!-- -->
+
+<pre><code>which python2.6 # or "which python2.7"
+</code></pre>
+<ul>
+<li>In /etc/rc.local, add the directory of python2.6(2.7) to <strong>PATH</strong>,
+    and add the seafile/seahub start command</li>
+</ul>
+<!-- -->
+
+<pre><code>`
+# Assume the python 2.6(2.7) executable is in "/usr/local/bin"
+PATH=$PATH:/usr/local/bin/
+
+# Change the value of "user" to your linux user name
+user=haiwen
+
+# Change the value of "seafile_dir" to your path of seafile installation
+# usually the home directory of $user
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+
+sudo -u ${user} ${script_path}/seafile.sh start &gt; /tmp/seafile.init.log 2&gt;&amp;1
+sudo -u ${user} ${script_path}/seahub.sh start &gt; /tmp/seahub.init.log 2&gt;&amp;1
+</code></pre>
+<p><strong>Note</strong>: If you want to start seahub in fastcgi, just change the <strong>"seahub.sh start"</strong> in the last line above to <strong>"seahub.sh start-fastcgi"</strong></p>
+<ul>
+<li>Done. Don't forget to update the value of <strong>seafile_dir</strong> later if you update your seafile server.</li>
+</ul>
+<h2 id="for-rhelcentos-run-as-service">For RHEL/CentOS run as service</h2>
+<p>On RHEL/CentOS , we make use of the /etc/init.d/ scripts to start seafile/seahub at system boot as service.</p>
+<h3 id="create-a-file-etcsysconfigseafile">Create a file <strong>/etc/sysconfig/seafile</strong></h3>
+<pre><code># Change the value of "user" to your linux user name
+user=haiwen
+
+# Change the value of "seafile_dir" to your path of seafile installation
+# usually the home directory of $user
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+seafile_init_log=${seafile_dir}/logs/seafile.init.log
+seahub_init_log=${seafile_dir}/logs/seahub.init.log
+
+# Change the value of fastcgi to true if fastcgi is to be used
+fastcgi=false
+
+# Set the port of fastcgi, default is 8000. Change it if you need different.
+fastcgi_port=8000
+</code></pre>
+<h3 id="create-a-script-etcinitdseafile">Create a script <strong>/etc/init.d/seafile</strong></h3>
+<pre><code>#!/bin/bash
+#
+# seafile
+
+#
+# chkconfig: - 68 32
+# description: seafile
+
+# Source function library.
+. /etc/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+if [ -f /etc/sysconfig/seafile ];then
+        . /etc/sysconfig/seafile
+        else
+            echo "Config file /etc/sysconfig/seafile not found! Bye."
+            exit 200
+        fi
+
+RETVAL=0
+
+start() {
+        # Start daemons.
+        echo -n $"Starting seafile: "
+        ulimit -n 30000
+        su - ${user} -c"${script_path}/seafile.sh start &gt;&gt; ${seafile_init_log} 2&gt;&amp;1"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] &amp;&amp; touch /var/lock/subsys/seafile
+        return $RETVAL
+}
+
+stop() {
+        echo -n $"Shutting down seafile: "
+        su - ${user} -c"${script_path}/seafile.sh stop &gt;&gt; ${seafile_init_log} 2&gt;&amp;1"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] &amp;&amp; rm -f /var/lock/subsys/seafile
+        return $RETVAL
+}
+
+#
+# Write a polite log message with date and time
+#
+echo -e "\n \n About to perform $1 for seafile at `date -Iseconds` \n " &gt;&gt; ${seafile_init_log}
+
+# See how we were called.
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart|reload)
+        stop
+        start
+        RETVAL=$?
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart}"
+        RETVAL=3
+esac
+
+exit $RETVAL
+</code></pre>
+<h3 id="create-a-script-etcinitdseahub">Create a script <strong>/etc/init.d/seahub</strong></h3>
+<pre><code>#!/bin/bash
+#
+# seahub
+
+#
+# chkconfig: - 69 31
+# description: seahub
+
+# Source function library.
+. /etc/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+if [ -f /etc/sysconfig/seafile ];then
+        . /etc/sysconfig/seafile
+        else
+            echo "Config file /etc/sysconfig/seafile not found! Bye."
+            exit 200
+        fi
+
+RETVAL=0
+
+start() {
+        # Start daemons.
+        echo -n $"Starting seahub: "
+        ulimit -n 30000
+        if [  $fastcgi = true ];
+                then
+                su - ${user} -c"${script_path}/seahub.sh start-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log} 2&gt;&amp;1"
+                else
+                su - ${user} -c"${script_path}/seahub.sh start &gt;&gt; ${seahub_init_log} 2&gt;&amp;1"
+                fi
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] &amp;&amp; touch /var/lock/subsys/seahub
+        return $RETVAL
+}
+
+stop() {
+        echo -n $"Shutting down seahub: "
+        su - ${user} -c"${script_path}/seahub.sh stop &gt;&gt; ${seahub_init_log} 2&gt;&amp;1"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] &amp;&amp; rm -f /var/lock/subsys/seahub
+        return $RETVAL
+}
+
+#
+# Write a polite log message with date and time
+#
+echo -e "\n \n About to perform $1 for seahub at `date -Iseconds` \n " &gt;&gt; ${seahub_init_log}
+
+# See how we were called.
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart|reload)
+        stop
+        start
+        RETVAL=$?
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart}"
+        RETVAL=3
+esac
+
+exit $RETVAL
+</code></pre>
+<p>Next, enable services:</p>
+<pre><code>chmod 550 /etc/init.d/seafile
+chmod 550 /etc/init.d/seahub
+chkconfig --add seafile
+chkconfig --add seahub
+chkconfig seahub on
+chkconfig seafile on
+</code></pre>
+<p>and run:</p>
+<pre><code>service seafile start
+service seahub start
+</code></pre>
+<h2 id="for-systems-running-systemd">For systems running systemd</h2>
+<p>Create systemd service files, change <strong>${seafile_dir}</strong> to your <strong>seafile</strong> installation location and <strong>seafile</strong> to user, who runs <strong>seafile</strong> (if appropriate). Then you need to reload systemd's daemons: <strong>systemctl daemon-reload</strong>.</p>
+<h3 id="create-systemd-service-file-etcsystemdsystemseafileservice">Create systemd service file /etc/systemd/system/seafile.service</h3>
+<pre><code>[Unit]
+Description=Seafile
+# add mysql.service or postgresql.service depending on your database to the line below
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=${seafile_dir}/seafile-server-latest/seafile.sh start
+ExecStop=${seafile_dir}/seafile-server-latest/seafile.sh stop
+RemainAfterExit=yes
+User=seafile
+Group=seafile
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h3 id="create-systemd-service-file-etcsystemdsystemseahubservice">Create systemd service file /etc/systemd/system/seahub.service</h3>
+<pre><code>[Unit]
+Description=Seafile hub
+After=network.target seafile.service
+
+[Service]
+# change start to start-fastcgi if you want to run fastcgi
+ExecStart=${seafile_dir}/seafile-server-latest/seahub.sh start
+ExecStop=${seafile_dir}/seafile-server-latest/seahub.sh stop
+User=seafile
+Group=seafile
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h3 id="create-systemd-service-file-etcsystemdsystemseafile-clientservice-optional">Create systemd service file /etc/systemd/system/seafile-client.service (optional)</h3>
+<p>You need to create this service file only if you have <strong>seafile</strong> console client and you want to run it on system boot.</p>
+<pre><code>[Unit]
+Description=Seafile client
+# Uncomment the next line you are running seafile client on the same computer as server
+# After=seafile.service
+# Or the next one in other case
+# After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/seaf-cli start
+ExecStop=/usr/bin/seaf-cli stop
+RemainAfterExit=yes
+User=seafile
+Group=seafile
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h3 id="done_2">Done</h3>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../using_firewall/" class="btn btn-neutral float-right" title="Firewall settings">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../upgrade/" class="btn btn-neutral" title="Upgrade Seafile server"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../upgrade/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../using_firewall/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

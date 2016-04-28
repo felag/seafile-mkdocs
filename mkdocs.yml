@@ -61,7 +61,8 @@ pages:
    - 'Enable Office/PDF Documents Online Preview': deploy_pro/office_documents_preview.md
    - 'Integrating with Office Web App': deploy_pro/office_web_app.md
    - 'Details about File Search': deploy_pro/details_about_file_search.md
-   - 'Virus Scan': deploy_pro/virus_scan.md
+   - 'Virus Scan':
+       - deploy_pro/virus_scan.md
        - 'Virus Scan With Kav4fs': deploy_pro/virus_scan_with_kav4fs.md
    - 'Web Resumable File Upload': deploy_pro/web_resumable_upload.md
    - 'Storage Backends':
@@ -106,7 +107,8 @@ pages:
    - 'Access logs and auditing': security/auditing.md
 - 'Developing':
    - develop/README.md
-   - 'How to Build Seafile': build_seafile/README.md
+   - 'How to Build Seafile':
+       - build_seafile/README.md
        - 'Linux': build_seafile/linux.md
        - 'FreeBSD': build_seafile/freebsd.md
        - 'Windows': build_seafile/windows.md
