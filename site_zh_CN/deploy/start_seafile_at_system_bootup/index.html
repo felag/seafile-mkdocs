@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>开机启动 Seafile - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "开机启动 Seafile";
+    var mkdocs_page_input_path = "deploy/start_seafile_at_system_bootup.md";
+    var mkdocs_page_url = "/deploy/start_seafile_at_system_bootup/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>概览</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile 组件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">常见问题解答</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">我要参与</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Linux 下部署 Seafile 服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_sqlite/">部署 Seafile 服务器（使用 SQLite）</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_mysql/">部署 Seafile 服务器（使用 MySQL）</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_nginx/">Nginx 下配置 Seahub</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_nginx/">Nginx 下启用 Https</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_apache/">Apache 下配置 Seahub</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_apache/">Apache 下启用 Https</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrade/">升级</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>其他部署说明</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">开机启动 Seafile</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#seafile">开机启动 Seafile</a></li>
+                
+                    <li><a class="toctree-l4" href="#ubuntu">Ubuntu 系统</a></li>
+                
+                    <li><a class="toctree-l4" href="#debian-linux">其他 Debian 系的 Linux 下</a></li>
+                
+                    <li><a class="toctree-l4" href="#rhelcentos-1">RHEL/CentOS 系统统方法 1</a></li>
+                
+                    <li><a class="toctree-l4" href="#rhelcentos-2">RHEL/CentOS 系统方法 2</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_firewall/">防火墙设置</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_logrotate/">Logrotate 管理系统日志</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../add_memcached/">使用 Memcached</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seafile_behind_nat/">使用 NAT</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../migrate_from_sqlite_to_mysql/">从 SQLite 迁移至 MySQL</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">安装常见问题</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../new_directory_layout_5_0_0/">Seafile 服务器 5.0 中配置文件新位置</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Windows 下部署 Seafile 服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">下载安装 Windows 版 Seafile 服务器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">安装 Seafile 为 Windows 服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">所用端口说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">升级</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">从 Windows 迁移到 Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">垃圾回收</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>部署 Seafile 专业版服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">下载安装 Seafile 专业版服务器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">从社区版迁移至专业版</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">升级</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">专业版 AD/LDAP 配置</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">同步 AD 群组</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">开启 Office/PDF 文件在线预览</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">Office Web App 集成</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">文件搜索说明</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>病毒扫描</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">卡巴斯基病毒扫描配置</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">Web 文件断点续传</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>存储后端</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">Amazon S3 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_openstackswift/">OpenStackSwift 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_oss/">使用阿里云OSS存储</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>集群部署</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">集群部署</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">集群中启用搜索和后台服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">NFS 下集群安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">升级集群</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">配置选项</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">常见问题解答</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/license-pro-edition/">软件许可协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>服务器个性化配置</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">发送邮件提醒</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/customize_email_notifications/">个性化邮件提醒</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">存储容量与文件上传/下载大小限制</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">自定义 Web</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>日常维护</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">账户管理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">日志</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">备份与恢复</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV 和 FUSE 扩展</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV 扩展</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE 扩展</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>安全选项</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">安全特性</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">日志和审计</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>开发文档</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Linux 下部署 Seafile 服务器 &raquo;</li>
+        
+      
+        
+          <li>其他部署说明 &raquo;</li>
+        
+      
+    
+    <li>开机启动 Seafile</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="seafile">开机启动 Seafile</h1>
+<h2 id="ubuntu">Ubuntu 系统</h2>
+<p>使用 <a href="https://help.ubuntu.com/community/UbuntuBootupHowto">/etc/init.d/</a> 来配置 Seafile/Seahub 开机启动.</p>
+<h3 id="etcinitdseafile-server">创建<strong>/etc/init.d/seafile-server</strong>脚本</h3>
+<pre><code>sudo vim /etc/init.d/seafile-server
+</code></pre>
+<p>脚本内容为: (同时需要修改相应的<code>user</code>和<code>script\_path</code>字段的值)</p>
+<pre><code>#!/bin/sh
+
+# 请将 user 改为你的Linux用户名
+user=haiwen
+
+# 请将 script_dir 改为你的 Seafile 文件安装路径
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+seafile_init_log=${seafile_dir}/logs/seafile.init.log
+seahub_init_log=${seafile_dir}/logs/seahub.init.log
+
+# 若使用 Nginx/Apache, 请将其设置为true, 否者为 false
+fastcgi=true
+# fastcgi 端口, 默认为 8000. 
+fastcgi_port=8000
+
+case "$1" in
+        start)
+                sudo -u ${user} ${script_path}/seafile.sh start &gt;&gt; ${seafile_init_log}
+                if [  $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh start-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh start &gt;&gt; ${seahub_init_log}
+                fi
+        ;;
+        restart)
+                sudo -u ${user} ${script_path}/seafile.sh restart &gt;&gt; ${seafile_init_log}
+                if [  $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh restart-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh restart &gt;&gt; ${seahub_init_log}
+                fi
+        ;;
+        stop)
+                sudo -u ${user} ${script_path}/seafile.sh $1 &gt;&gt; ${seafile_init_log}
+                sudo -u ${user} ${script_path}/seahub.sh $1 &gt;&gt; ${seahub_init_log}
+        ;;
+        *)
+                echo "Usage: /etc/init.d/seafile-server {start|stop|restart}"
+                exit 1
+        ;;
+esac
+</code></pre>
+<h3 id="etcinitseafile-serverconf">创建<strong>/etc/init/seafile-server.conf</strong>文件</h3>
+<h4 id="mysql">非使用 MySQL</h4>
+<pre><code>start on (runlevel [2345])
+stop on (runlevel [016])
+
+pre-start script
+/etc/init.d/seafile-server start
+end script
+
+post-stop script
+/etc/init.d/seafile-server stop
+end script
+</code></pre>
+<h4 id="mysql_1">使用 MySQL</h4>
+<pre><code>start on (started mysql
+and runlevel [2345])
+stop on (runlevel [016])
+
+pre-start script
+/etc/init.d/seafile-server start
+end script
+
+post-stop script
+/etc/init.d/seafile-server stop
+end script
+</code></pre>
+<h3 id="seafile-sever">设置 seafile-sever 脚本为可执行文件</h3>
+<pre><code>sudo chmod +x /etc/init.d/seafile-server
+</code></pre>
+<h3 id="_1">完成</h3>
+<h2 id="debian-linux">其他 Debian 系的 Linux 下</h2>
+<h3 id="etcinitdseafile-server_1">创建脚本<strong>/etc/init.d/seafile-server</strong></h3>
+<pre><code>sudo vim /etc/init.d/seafile-server
+</code></pre>
+<p>脚本内容为: (同时需要修改相应的<code>user</code>和<code>script\_path</code>字段的值)</p>
+<pre><code>#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          seafile-server
+# Required-Start:    $local_fs $remote_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Starts Seafile Server
+# Description:       starts Seafile Server
+### END INIT INFO
+
+# 请将 user 改为你的Linux用户名
+user=haiwen
+
+# 请将 script_path 改为你的 Seafile 文件安装路径
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+seafile_init_log=${seafile_dir}/logs/seafile.init.log
+seahub_init_log=${seafile_dir}/logs/seahub.init.log
+
+# 若使用 fastcgi, 请将其设置为true
+fastcgi=false
+# fastcgi 端口, 默认为 8000. 
+fastcgi_port=8000
+
+case "$1" in
+        start)
+                sudo -u ${user} ${script_path}/seafile.sh start &gt;&gt; ${seafile_init_log}
+                if [  $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh start-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh start &gt;&gt; ${seahub_init_log}
+                fi
+        ;;
+        restart)
+                sudo -u ${user} ${script_path}/seafile.sh restart &gt;&gt; ${seafile_init_log}
+                if [  $fastcgi = true ];
+                then
+                        sudo -u ${user} ${script_path}/seahub.sh restart-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log}
+                else
+                        sudo -u ${user} ${script_path}/seahub.sh restart &gt;&gt; ${seahub_init_log}
+                fi
+        ;;
+        stop)
+                sudo -u ${user} ${script_path}/seafile.sh $1 &gt;&gt; ${seafile_init_log}
+                sudo -u ${user} ${script_path}/seahub.sh $1 &gt;&gt; ${seahub_init_log}
+        ;;
+        *)
+                echo "Usage: /etc/init.d/seafile {start|stop|restart}"
+                exit 1
+        ;;
+esac
+</code></pre>
+<p><strong>注意</strong>: 如果你想在 fastcgi 下运行 Seahub,请设置<code>fastcgi</code>变量为<code>true</code></p>
+<h3 id="_2">为日志文件创建目录</h3>
+<pre><code>mkdir /path/to/seafile/dir/logs
+</code></pre>
+<h3 id="seafile-sever_1">设置 seafile-sever 脚本为可执行文件</h3>
+<pre><code>sudo chmod +x /etc/init.d/seafile-server
+</code></pre>
+<h3 id="rcd-seafile-server">在 rc.d 中新增 seafile-server</h3>
+<pre><code>sudo update-rc.d seafile-server defaults
+</code></pre>
+<h3 id="_3">完成</h3>
+<h2 id="rhelcentos-1">RHEL/CentOS 系统统方法 1</h2>
+<p>RHEL/CentOS 下,<a href="http://www.centos.org/docs/5/html/Installation_Guide-en-US/s1-boot-init-shutdown-run-boot.html">/etc/rc.local</a> 脚本会随系统开机自动执行,所以我们在这个脚本中设置启动 Seafile/Seahub.</p>
+<ul>
+<li>定位 python(python 2.6 or 2.7)</li>
+</ul>
+<!-- -->
+
+<pre><code>which python2.6 # or "which python2.7"
+</code></pre>
+<ul>
+<li>在 /etc/rc.local 脚本中, 将 python2.6(2.7)路径加入到<strong>PATH</strong>字段中,
+    并增加 Seafile/Seahub 启动命令</li>
+</ul>
+<!-- -->
+
+<pre><code>`
+# 假设 python 2.6(2.7) 可执行文件在 /usr/local/bin 目录下
+PATH=$PATH:/usr/local/bin/
+
+# 请将 user 改为你的Linux用户名
+user=haiwen
+
+# 请将 script_path 改为你的 Seafile 文件安装路径
+seafile_dir=/data/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+
+sudo -u ${user} ${script_path}/seafile.sh start &gt; /tmp/seafile.init.log 2&gt;&amp;1
+sudo -u ${user} ${script_path}/seahub.sh start &gt; /tmp/seahub.init.log 2&gt;&amp;1
+</code></pre>
+<p><strong>注意</strong>: 如果你想在fastcgi下启动Seahub,只需将上文中最后一行<strong>"seahub.sh start"</strong>改为<strong>"seahub.sh
+start-fastcgi"</strong></p>
+<h2 id="rhelcentos-2">RHEL/CentOS 系统方法 2</h2>
+<p>RHEL/CentOS 下 , 我们通过 /etc/init.d/ 脚本将 Seafile/Seahub作为服务程序随开机启动.</p>
+<h3 id="etcsysconfigseafile">创建<strong>/etc/sysconfig/seafile</strong>文件</h3>
+<pre><code># 请将 user 改为你的Linux用户名
+user=haiwen
+
+# 请将 script_path 改为你的 Seafile 文件安装路径
+seafile_dir=/home/haiwen
+script_path=${seafile_dir}/seafile-server-latest
+seafile_init_log=${seafile_dir}/logs/seafile.init.log
+seahub_init_log=${seafile_dir}/logs/seahub.init.log
+
+# 若使用 fastcgi, 请将其设置true
+fastcgi=false
+
+# fastcgi 端口, 默认为 8000. 
+fastcgi_port=8000
+</code></pre>
+<h3 id="etcinitdseafile">创建<strong>/etc/init.d/seafile</strong>文件</h3>
+<pre><code>#!/bin/bash
+#
+# seafile
+
+#
+# chkconfig: - 68 32
+# description: seafile
+
+# Source function library.
+. /etc/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+if [ -f /etc/sysconfig/seafile ];then
+        . /etc/sysconfig/seafile
+        else
+            echo "Config file /etc/sysconfig/seafile not found! Bye."
+            exit 200
+        fi
+
+RETVAL=0
+
+start() {
+        # Start daemons.
+        echo -n $"Starting seafile: "
+        ulimit -n 30000
+        su - ${user} -c"${script_path}/seafile.sh start &gt;&gt; ${seafile_init_log} 2&gt;&amp;1"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] &amp;&amp; touch /var/lock/subsys/seafile
+        return $RETVAL
+}
+
+stop() {
+        echo -n $"Shutting down seafile: "
+        su - ${user} -c"${script_path}/seafile.sh stop &gt;&gt; ${seafile_init_log} 2&gt;&amp;1"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] &amp;&amp; rm -f /var/lock/subsys/seafile
+        return $RETVAL
+}
+
+# See how we were called.
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart|reload)
+        stop
+        start
+        RETVAL=$?
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart}"
+        RETVAL=3
+esac
+
+exit $RETVAL
+</code></pre>
+<h3 id="etcinitdseahub">创建<strong>/etc/init.d/seahub</strong>脚本</h3>
+<pre><code>#!/bin/bash
+#
+# seahub
+
+#
+# chkconfig: - 69 31
+# description: seahub
+
+# Source function library.
+. /etc/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+if [ -f /etc/sysconfig/seafile ];then
+        . /etc/sysconfig/seafile
+        else
+            echo "Config file /etc/sysconfig/seafile not found! Bye."
+            exit 200
+        fi
+
+RETVAL=0
+
+start() {
+        # Start daemons.
+        echo -n $"Starting seahub: "
+        ulimit -n 30000
+        if [  $fastcgi = true ];
+                then
+                su - ${user} -c"${script_path}/seahub.sh start-fastcgi ${fastcgi_port} &gt;&gt; ${seahub_init_log} 2&gt;&amp;1"
+                else
+                su - ${user} -c"${script_path}/seahub.sh start &gt;&gt; ${seahub_init_log} 2&gt;&amp;1"
+                fi
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] &amp;&amp; touch /var/lock/subsys/seahub
+        return $RETVAL
+}
+
+stop() {
+        echo -n $"Shutting down seafile: "
+        su - ${user} -c"${script_path}/seahub.sh stop &gt;&gt; ${seahub_init_log} 2&gt;&amp;1"
+        RETVAL=$?
+        echo
+        [ $RETVAL -eq 0 ] &amp;&amp; rm -f /var/lock/subsys/seahub
+        return $RETVAL
+}
+
+# See how we were called.
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart|reload)
+        stop
+        start
+        RETVAL=$?
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart}"
+        RETVAL=3
+esac
+
+exit $RETVAL
+</code></pre>
+<p>接下来启动服务程序:</p>
+<pre><code>chmod 550 /etc/init.d/seafile
+chmod 550 /etc/init.d/seahub
+chkconfig --add seafile
+chkconfig --add seahub
+chkconfig seahub on
+chkconfig seafile on
+</code></pre>
+<p>执行:</p>
+<pre><code>service seafile start
+service seahub start
+</code></pre>
+<h3 id="_4">完成</h3>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../using_firewall/" class="btn btn-neutral float-right" title="防火墙设置">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../upgrade/" class="btn btn-neutral" title="升级"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../upgrade/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../using_firewall/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

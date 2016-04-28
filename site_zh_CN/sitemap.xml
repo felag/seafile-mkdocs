@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>None/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>None/overview/README/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/overview/components/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/faq/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/contribution/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/deploy/README/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy/using_sqlite/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy/using_mysql/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy/deploy_with_nginx/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy/https_with_nginx/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy/deploy_with_apache/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy/https_with_apache/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy/upgrade/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/faq/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy/new_directory_layout_5_0_0/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/deploy_windows/deploy_with_windows/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_windows/download_and_setup_seafile_windows_server/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_windows/install_seafile_server_as_a_windows_service/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_windows/ports_used_by_seafile_windows_server/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_windows/upgrading_seafile_windows_server/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_windows/migrate_from_win_to_linux/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_windows/windows_gc/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/deploy_pro/README/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/download_and_setup_seafile_professional_server/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/migrate_from_seafile_community_server/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/upgrading_seafile_professional_server/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/using_ldap_pro/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/ldap_group_sync/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/office_documents_preview/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/office_web_app/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/details_about_file_search/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/web_resumable_upload/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/configurable_options/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/faq_for_seafile_pro_server/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/deploy_pro/license-pro-edition/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/config/README/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/config/ccnet-conf/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/config/seafile-conf/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/config/seahub_settings_py/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/config/sending_email/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/config/customize_email_notifications/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/config/quota_and_size_options/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/config/seahub_customization/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/maintain/README/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/maintain/account/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/maintain/logs/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/maintain/backup_recovery/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/maintain/seafile_fsck/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/maintain/seafile_gc/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/extension/README/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/extension/webdav/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/extension/fuse/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/security/README/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/security/security_features/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/security/auditing/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/develop/README/</loc>
+     <lastmod>2016-04-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>

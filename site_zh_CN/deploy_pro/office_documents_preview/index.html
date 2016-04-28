@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>开启 Office/PDF 文件在线预览 - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "开启 Office/PDF 文件在线预览";
+    var mkdocs_page_input_path = "deploy_pro/office_documents_preview.md";
+    var mkdocs_page_url = "/deploy_pro/office_documents_preview/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>概览</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile 组件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">常见问题解答</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">我要参与</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Linux 下部署 Seafile 服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_sqlite/">部署 Seafile 服务器（使用 SQLite）</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_mysql/">部署 Seafile 服务器（使用 MySQL）</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_nginx/">Nginx 下配置 Seahub</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_nginx/">Nginx 下启用 Https</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_apache/">Apache 下配置 Seahub</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_apache/">Apache 下启用 Https</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/upgrade/">升级</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>其他部署说明</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/start_seafile_at_system_bootup/">开机启动 Seafile</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_firewall/">防火墙设置</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_logrotate/">Logrotate 管理系统日志</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/add_memcached/">使用 Memcached</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seafile_behind_nat/">使用 NAT</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/migrate_from_sqlite_to_mysql/">从 SQLite 迁移至 MySQL</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">安装常见问题</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/new_directory_layout_5_0_0/">Seafile 服务器 5.0 中配置文件新位置</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Windows 下部署 Seafile 服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">下载安装 Windows 版 Seafile 服务器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">安装 Seafile 为 Windows 服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">所用端口说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">升级</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">从 Windows 迁移到 Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">垃圾回收</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>部署 Seafile 专业版服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../download_and_setup_seafile_professional_server/">下载安装 Seafile 专业版服务器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../migrate_from_seafile_community_server/">从社区版迁移至专业版</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrading_seafile_professional_server/">升级</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_ldap_pro/">专业版 AD/LDAP 配置</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ldap_group_sync/">同步 AD 群组</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">开启 Office/PDF 文件在线预览</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#libreofficeuno">安装 Libreoffice/UNO</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_1">开启配置项</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_2">其他配置选项</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#office">Office 预览不能工作，日志文件在哪?</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../office_web_app/">Office Web App 集成</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../details_about_file_search/">文件搜索说明</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>病毒扫描</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../virus_scan_with_kav4fs/">卡巴斯基病毒扫描配置</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../web_resumable_upload/">Web 文件断点续传</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>存储后端</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_amazon_s3/">Amazon S3 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_openstackswift/">OpenStackSwift 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_ceph/">Ceph 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_oss/">使用阿里云OSS存储</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>集群部署</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_in_a_cluster/">集群部署</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../enable_search_and_background_tasks_in_a_cluster/">集群中启用搜索和后台服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_seafile_cluster_with_nfs/">NFS 下集群安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrade_a_cluster/">升级集群</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configurable_options/">配置选项</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../faq_for_seafile_pro_server/">常见问题解答</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../license-pro-edition/">软件许可协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>服务器个性化配置</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">发送邮件提醒</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/customize_email_notifications/">个性化邮件提醒</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">存储容量与文件上传/下载大小限制</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">自定义 Web</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>日常维护</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">账户管理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">日志</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">备份与恢复</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV 和 FUSE 扩展</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV 扩展</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE 扩展</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>安全选项</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">安全特性</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">日志和审计</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>开发文档</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>部署 Seafile 专业版服务器 &raquo;</li>
+        
+      
+    
+    <li>开启 Office/PDF 文件在线预览</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Seafile 专业版服务器支持在线预览 office 文件，配置方法如下。</p>
+<h3 id="libreofficeuno">安装 Libreoffice/UNO</h3>
+<p>Office 预览依赖于 Libreoffice 4.1+ 和 Python-uno 库。</p>
+<p>Ubuntu/Debian:</p>
+<pre><code>sudo apt-get install libreoffice libreoffice-script-provider-python
+</code></pre>
+
+<blockquote>
+<p>For older version of Ubuntu: <code>sudo apt-get install libreoffice python-uno</code></p>
+</blockquote>
+<p>Centos/RHEL:</p>
+<pre><code>sudo yum install libreoffice libreoffice-headless libreoffice-pyuno
+</code></pre>
+
+<p>其他 Linux 发行版可以参考: <a href="http://www.libreoffice.org/get-help/installation/linux/">Installation of LibreOffice on Linux</a></p>
+<p>你还需要安装字体文件:</p>
+<pre><code># For ubuntu/debian
+sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
+</code></pre>
+
+<h3 id="_1">开启配置项</h3>
+<ol>
+<li>打开 <code>conf/seafevents.conf</code>, 添加:</li>
+</ol>
+<pre><code class="conf">[OFFICE CONVERTER]
+enabled = true
+</code></pre>
+
+<ol>
+<li>保存后 <code>seafevents.conf</code> 重启 Seafile 服务 <code>./seafile.sh restart</code></li>
+</ol>
+<h3 id="_2">其他配置选项</h3>
+<pre><code class="conf">[OFFICE CONVERTER]
+
+## How many libreoffice worker processes to run concurrenlty
+workers = 1
+
+## where to store the converted office/pdf files. Deafult is /tmp/.
+outputdir = /tmp/
+
+## how many pages are allowed to be previewed online. Default is 50 pages
+max-pages = 50
+
+## the max size of documents to allow to be previewed online, in MB. Default is 2 MB
+## Preview a large file (for example &gt;30M) online will freeze the browser.
+max-size = 2
+
+</code></pre>
+
+<h2 id="faq"><a id="wiki-doc-preview"></a>FAQ</h2>
+<h4 id="office">Office 预览不能工作，日志文件在哪?</h4>
+<p>你可以查看 logs/seafevents.log</p>
+<p>Office 预览不能工作的一个可能原因是你的机器上的 libreoffice 版本太低，可以用以下方法修复</p>
+<p>删除安装的 libreoffice:</p>
+<pre><code>sudo apt-get remove libreoffice* python-uno python3-uno
+</code></pre>
+
+<p>从官网下载最新版 <a href="http://sourceforge.net/projects/libreoffice.mirror/files/LibreOffice%204.1.6/">libreoffice official site</a>，并安装</p>
+<pre><code>tar xf LibreOffice_4.1.6_Linux_x86-64_deb.tar.gz
+cd LibreOffice_4.1.6.2_Linux_x86-64_deb
+cd DEBS
+sudo dpkg -i *.deb
+</code></pre>
+
+<p>重启 Seafile 服务</p>
+<pre><code>./seafile.sh restart
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../office_web_app/" class="btn btn-neutral float-right" title="Office Web App 集成">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../ldap_group_sync/" class="btn btn-neutral" title="同步 AD 群组"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../ldap_group_sync/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../office_web_app/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

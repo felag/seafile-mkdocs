@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>专业版 AD/LDAP 配置 - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "专业版 AD/LDAP 配置";
+    var mkdocs_page_input_path = "deploy_pro/using_ldap_pro.md";
+    var mkdocs_page_url = "/deploy_pro/using_ldap_pro/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>概览</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile 组件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">常见问题解答</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">我要参与</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Linux 下部署 Seafile 服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_sqlite/">部署 Seafile 服务器（使用 SQLite）</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_mysql/">部署 Seafile 服务器（使用 MySQL）</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_nginx/">Nginx 下配置 Seahub</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_nginx/">Nginx 下启用 Https</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_apache/">Apache 下配置 Seahub</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_apache/">Apache 下启用 Https</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/upgrade/">升级</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>其他部署说明</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/start_seafile_at_system_bootup/">开机启动 Seafile</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_firewall/">防火墙设置</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_logrotate/">Logrotate 管理系统日志</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/add_memcached/">使用 Memcached</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seafile_behind_nat/">使用 NAT</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/migrate_from_sqlite_to_mysql/">从 SQLite 迁移至 MySQL</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">安装常见问题</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/new_directory_layout_5_0_0/">Seafile 服务器 5.0 中配置文件新位置</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Windows 下部署 Seafile 服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">下载安装 Windows 版 Seafile 服务器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">安装 Seafile 为 Windows 服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">所用端口说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">升级</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">从 Windows 迁移到 Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">垃圾回收</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>部署 Seafile 专业版服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../download_and_setup_seafile_professional_server/">下载安装 Seafile 专业版服务器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../migrate_from_seafile_community_server/">从社区版迁移至专业版</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrading_seafile_professional_server/">升级</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">专业版 AD/LDAP 配置</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#seafile-ldap-active-directory">Seafile 企业版 LDAP 和 Active Directory 配置</a></li>
+                
+                    <li><a class="toctree-l4" href="#seafile-ldap">Seafile 是如何管理 LDAP 用户的</a></li>
+                
+                    <li><a class="toctree-l4" href="#ldapad">基本的 LDAP/AD 集成配置</a></li>
+                
+                    <li><a class="toctree-l4" href="#ldap_2">LDAP 高级配置选项</a></li>
+                
+                    <li><a class="toctree-l4" href="#ad_1">【可选】配置 AD 用户同步</a></li>
+                
+                    <li><a class="toctree-l4" href="#ad-seafile">【可选】导入 AD 中的群组到 Seafile</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ldap_group_sync/">同步 AD 群组</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../office_documents_preview/">开启 Office/PDF 文件在线预览</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../office_web_app/">Office Web App 集成</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../details_about_file_search/">文件搜索说明</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>病毒扫描</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../virus_scan_with_kav4fs/">卡巴斯基病毒扫描配置</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../web_resumable_upload/">Web 文件断点续传</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>存储后端</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_amazon_s3/">Amazon S3 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_openstackswift/">OpenStackSwift 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_ceph/">Ceph 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_with_oss/">使用阿里云OSS存储</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>集群部署</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_in_a_cluster/">集群部署</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../enable_search_and_background_tasks_in_a_cluster/">集群中启用搜索和后台服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_seafile_cluster_with_nfs/">NFS 下集群安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrade_a_cluster/">升级集群</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../configurable_options/">配置选项</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../faq_for_seafile_pro_server/">常见问题解答</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../license-pro-edition/">软件许可协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>服务器个性化配置</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">发送邮件提醒</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/customize_email_notifications/">个性化邮件提醒</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">存储容量与文件上传/下载大小限制</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">自定义 Web</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>日常维护</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">账户管理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">日志</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">备份与恢复</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV 和 FUSE 扩展</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV 扩展</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE 扩展</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>安全选项</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">安全特性</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">日志和审计</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>开发文档</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>部署 Seafile 专业版服务器 &raquo;</li>
+        
+      
+    
+    <li>专业版 AD/LDAP 配置</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="seafile-ldap-active-directory">Seafile 企业版 LDAP 和 Active Directory 配置</h1>
+<p>LDAP (Light-weight Directory Access Protocol) 是企业广泛部署的用户信息管理服务器，微软的活动目录服务器（Active Directory）完全兼容 LDAP。这个文档假定您已经了解了 LDAP 相关的知识和术语。</p>
+<h2 id="seafile-ldap">Seafile 是如何管理 LDAP 用户的</h2>
+<p>Seafile 中的用户分为两类：</p>
+<ul>
+<li>保存在 Seafile 内部数据库中的用户。这些用户关联了一些属性，比如是否管理员，是否已激活等。这类用户又分为两个子类别：<ul>
+<li>系统管理员直接创建的用户。这些用户保存在 ccnet 数据库里面的 EmailUser 表中。</li>
+<li>由 LDAP 导入的用户。当 LDAP 里的用户第一次登录 Seafile 时，Seafile 会把该用户的信息导入到内部数据库。</li>
+</ul>
+</li>
+<li>在 LDAP 中存在的用户。管理员可以通过配置文件指定 LDAP 中可以使用 Seafile 服务的用户范围。这些用户在第一次登录时被导入到 Seafile 数据库中。Seafile 只会直接操作存在数据库中的用户。</li>
+</ul>
+<p>Seafile 会自动从内部数据库和 LDAP 中查找用户，只要用户存在于任何一个来源，他们都能登录。</p>
+<h2 id="ldapad">基本的 LDAP/AD 集成配置</h2>
+<p>Seafile 要求 LDAP/AD 服务器中每个用户都有一个唯一的 ID。这个 ID 只能使用邮箱地址格式。一般来说，AD 有两个用户属性可以用作 Seafile 用户的 ID：</p>
+<ul>
+<li>email 地址：一般的机构都会给每个成员分配唯一的 email 地址，所以这是最常见配置。</li>
+<li>UserPrincipalName (UPN)：这个 AD 赋予给每个用户的一个唯一 ID。它的格式为 <code>用户登录名@域名</code>。尽管这个不是真实的 email 地址，但是它也能作为 Seafile 的用户 ID。如果机构的用户没有 email 地址，可以使用这个属性。</li>
+</ul>
+<h3 id="ad">与 AD 集成</h3>
+<p>把下面的配置添加到 ccnet.conf 中。</p>
+<p>如果你使用 email 地址作为用户唯一 ID：</p>
+<pre><code>[LDAP]
+HOST = ldap://192.168.1.123/
+BASE = cn=users,dc=example,dc=com
+USER_DN = administrator@example.local
+PASSWORD = secret
+LOGIN_ATTR = mail
+</code></pre>
+
+<p>如果你使用 UserPrincipalName 作为用户 ID：</p>
+<pre><code>[LDAP]
+HOST = ldap://192.168.1.123/
+BASE = cn=users,dc=example,dc=com
+USER_DN = administrator@example.local
+PASSWORD = secret
+LOGIN_ATTR = userPrincipalName
+</code></pre>
+
+<p>各个配置选项的含义如下：</p>
+<ul>
+<li>HOST: LDAP 服务器的地址 URL。如果您的 LDAP 服务器监听在非标准端口上，您也可以在 URL 里面包含端口号，如 ldap://ldap.example.com:389。</li>
+<li>BASE: 在 LDAP 服务器的组织架构中，用于查询用户的根节点的唯一名称（Distingushed Name，简称 DN）。这个节点下面的所有用户都可以访问 Seafile。注意这里必须使用 <em>OU</em> 或 <em>CN</em>，即 <code>BASE = cn=users,dc=example,dc=com</code> 或者 <code>BASE = ou=users,dc=example,dc=com</code> 可以工作。但是 <code>BASE = dc=example,dc=com</code> 不能工作。<code>BASE</code> 中可以填多个 OU, 用 <code>;</code> 分隔。</li>
+<li>USER_DN: 用于查询 LDAP 服务器中信息的用户的 DN。这个用户应该有足够的权限访问 BASE 以下的所有信息。通常建议使用 LDAP/AD 的管理员用户。</li>
+<li>PASSWORD: USER_DN 对应的用户的密码。</li>
+<li>LOGIN_ATTR: 用作 Seafile 中用户登录 ID 的 LDAP 属性，可以使用 <code>mail</code> 或者 <code>userPrincipalName</code>。</li>
+</ul>
+<p><strong>注意：如果配置项包含中文，需要确保配置文件使用 UTF8 编码保存。</strong></p>
+<p>关于如何选定 BASE 和 USER_DN 的一些技巧：</p>
+<ul>
+<li>要确定您的 BASE 属性，您首先需要打开域管理器的图形界面，并浏览您的组织架构。<ul>
+<li>如果您想要让系统中所有用户都能够访问 Seafile，您可以用 'cn=users,dc=yourdomain,dc=com' 作为 BASE 选项（需要替换成你们的域名）。</li>
+<li>如果您只想要某个部门的人能访问，您可以把范围限定在某个 OU （Organization Unit）中。您可以使用 <code>dsquery</code> 命令行工具来查找相应 OU 的 DN。比如，如果 OU 的名字是 'staffs'，您可以运行 <code>dsquery ou -name staff</code>。更多的信息可以参考<a href="https://technet.microsoft.com/en-us/library/cc770509.aspx">这里</a>。</li>
+</ul>
+</li>
+<li>AD 支持使用 'user@domain.com' 格式的用户名作为 <code>USER_DN</code>。比如您可以使用 administrator@example.com 作为 <code>USER_DN</code>。有些时候 AD 不能正确识别这种格式。此时您可以使用 <code>dsquery</code> 来查找用户的 DN。比如，假设用户名是 'seafileuser'，运行 <code>dsquery user -name seafileuser</code> 来找到该用户的 DN。更多的信息可以参考<a href="https://technet.microsoft.com/en-us/library/cc725702.aspx">这里</a>。</li>
+</ul>
+<h3 id="ldap">与其他 LDAP 服务器集成</h3>
+<p>把以下配置添加到 ccnet.conf 中：</p>
+<pre><code>[LDAP]
+HOST = ldap://192.168.1.123/
+BASE = ou=users,dc=example,dc=com
+USER_DN = cn=admin,dc=example,dc=com
+PASSWORD = secret
+LOGIN_ATTR = mail
+</code></pre>
+
+<p>配置选项的含义与 AD 配置相同。不过，你只能使用 mail 作为用户的 ID，因为其他 LDAP 服务器不支持 UserPrincipalName。</p>
+<h3 id="ldap_1">测试你的 LDAP 配置</h3>
+<p>从专业版 5.0.0 开始，我们提供了一个测试你的 LDAP 配置合法性的命令行工具。</p>
+<p>使用这个工具之前，请先确定你使用的是专业版而且 Linux 系统中安装了 <code>python-ldap</code> 这个包。</p>
+<pre><code>sudo apt-get install python-ldap
+</code></pre>
+
+<p>然后你可以执行测试：</p>
+<pre><code>cd seafile-server-latest
+./pro/pro.py ldapsync --test
+</code></pre>
+
+<p>测试脚本会检查 ccnet.conf 里面 <code>[LDAP]</code> 下面的配置。如果一切正常工作，它会打印出搜索的前十个用户。如果出错，它会打印出可能出错的配置信息。</p>
+<p>注意当前这个脚本并不支持测试 <code>[LDAP_SYNC]</code> 下面的 LDAP 同步配置。</p>
+<h2 id="ldap_2">LDAP 高级配置选项</h2>
+<h3 id="base-dn">使用多个 BASE DN</h3>
+<p>当您想把公司中多个 OU 加入 Seafile 中时，您可以使用在配置中指定多个 BASE DN。您可以在"BASE"配置中指定一个 DN 的列表，标识名由";"分开, 比如： <code>cn=developers,dc=example,dc=com;cn=marketing,dc=example,dc=com</code></p>
+<h3 id="_1">用户过滤选项</h3>
+<p>当你的公司组织庞大，但是只有一小部分人使用 Seafile 的时候，搜索过滤器（Search filter）会很有用处. 过滤器可以通过修改"FILTER"配置来实现，例如，在 LDAP 配置中增加以下语句:</p>
+<pre><code>FILTER = memberOf=CN=group,CN=developers,DC=example,DC=com
+</code></pre>
+
+<p>请注意上面的示例只是象征性的简介. <code>memberOf</code>只有在活动目录(Active Directory)中才适用.</p>
+<h3 id="seafile-ad">把 Seafile 用户限定在 AD 的一个组中</h3>
+<p>您可以利用用户过滤器选项来只允许 AD 某个组中的用户使用 Seafile。</p>
+<ol>
+<li>首先，您需要找到这个组的 DN。我们再次使用 <code>dsquery</code> 命令。比如，如果组的名字是 'seafilegroup'，那么您可以运行 <code>dsquery group -name seafilegroup</code>。</li>
+<li>然后您可以把一下配置加入 ccnet.conf 的 LDAP 配置中：</li>
+</ol>
+<pre><code>FILTER = memberOf={dsquery 命令的输出}
+</code></pre>
+
+<h3 id="paged-results-extension">使用结果分页扩展（paged results extension）</h3>
+<p>LDAP 协议 v3 支持一个称为 "paged results" 的扩展功能。当您在 LDAP 中有大量用户的时候，这个选项能够大大提高列出用户的速度。而且，AD 限制了单次请求中返回的用户条目数量，您需要启用这个选项才能避免查询错误。</p>
+<p>在 Seafile 企业版中，在 LDAP 配置中加入以下设置：</p>
+<pre><code>USE_PAGED_RESULT = true
+</code></pre>
+
+<h2 id="ad_1">【可选】配置 AD 用户同步</h2>
+<p>在企业版中，你还可以把 AD 中用户的其他信息导入到 Seafile 的内部数据库。这些信息包括：</p>
+<ul>
+<li>用户的全名，部门等。这些信息可以用户方便地根据人名+部门来查找用户，在共享文件的时候比较有用。</li>
+<li>用户的 Windows 登录名。导入到数据库之后，用户可以直接使用 Windows 用户名来登录 Seafile。</li>
+<li>当用户在 AD 中被删除之后（比如离职），Seafile 会自动禁用他的账户。</li>
+</ul>
+<h3 id="ad_2">AD 用户同步配置</h3>
+<p>把以下配置添加到 ccnet.conf 里：</p>
+<pre><code>[LDAP]
+......
+
+[LDAP_SYNC]
+ENABLE_USER_SYNC = true
+SYNC_INTERVAL = 60
+USER_OBJECT_CLASS = person
+ENABLE_EXTRA_USER_INFO_SYNC = true
+FIRST_NAME_ATTR = givenName
+LAST_NAME_ATTR = sn
+USER_NAME_REVERSE = true
+DEPT_ATTR = department
+UID_ATTR = sAMAccountName
+</code></pre>
+
+<p>各个选项的含义：</p>
+<ul>
+<li><strong>ENABLE_USER_SYNC</strong>: 设置为 true 以启用用户同步功能</li>
+<li><strong>SYNC_INTERVAL</strong>: 以分钟为单位的同步间隔。默认为 60 分钟同步一次。</li>
+<li><strong>USER_OBJECT_CLASS</strong>: 用户对象的 class 名字。在 AD 中一般是 "person"。默认值也是 "person"。</li>
+<li><strong>ENABLE_EXTRA_USER_INFO_SYNC</strong>: 同步用户的额外信息，包括用户的全名，部门，Windows 登录名。</li>
+<li><strong>FIRST_NAME_ATTR</strong>: 用户名字对应的属性，默认使用 "givenName" 属性。</li>
+<li><strong>LAST_NAME_ATTR</strong>: 用户的姓氏属性。默认使用 "sn" 属性。</li>
+<li><strong>USER_NAME_REVERSE</strong>: 中文的人名里面姓氏和名字与西方的习惯相反，所以对中文名字，需要把这个选项设置为 true。</li>
+<li><strong>DEPT_ATTR</strong>: 用户的部门属性。默认使用 "department" 属性。</li>
+<li><strong>UID_ATTR</strong>: 用户的 Windows 登录名属性。一般使用 "sAMAccountName" 属性。</li>
+</ul>
+<p>如果你选择了 "userPrincipalName" 作为用户的唯一 ID，Seafile 不能使用这个 ID 作为 email 地址来发送通知邮件给用户。如果你的 AD 中也有用户的 email 地址属性，你可以把这个属性同步到 Seafile 的内部数据库中。配置的选项是：</p>
+<ul>
+<li><strong>CONTACT_EMAIL_ATTR</strong>: 一般来说你可以把它设置为 "mail" 属性。</li>
+</ul>
+<h3 id="ad_3">手工执行 AD 同步</h3>
+<p>在配置完成后，你可以手工执行同步来测试配置是否有效。</p>
+<pre><code>cd seafile-server-lastest
+./pro/pro.py ldapsync
+</code></pre>
+
+<h3 id="ad_4">让 AD 同步不要自动导入新用户到数据库中</h3>
+<p>在默认情况下，AD 同步会把 AD 中检测到的新用户自动同步到 Seafile 的数据库中。这些新创建的用户会被自动设置为“已激活”。这些用户会被算入 license 用户数量中。</p>
+<p>我们考虑以下场景：你在 AD 中有很多用户。但是你不想一次购买足够多的 license 把所有用户一次全部加入 Seafile。此时自动导入新用户的功能就会很容易把你的 license 消耗完毕，导致系统不可用。解决方案是：新用户只有在第一次登录的时候创建，而 AD 同步不会自动创建新用户。我们提供了一个选项来满足这种需求：</p>
+<pre><code>[LDAP_SYNC]
+IMPORT_NEW_USER = false
+</code></pre>
+
+<h2 id="ad-seafile">【可选】导入 AD 中的群组到 Seafile</h2>
+<p>请参考<a href="http://manual.seafile.com/deploy_pro/ldap_group_sync.html">英文的文档</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ldap_group_sync/" class="btn btn-neutral float-right" title="同步 AD 群组">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../upgrading_seafile_professional_server/" class="btn btn-neutral" title="升级"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../upgrading_seafile_professional_server/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ldap_group_sync/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

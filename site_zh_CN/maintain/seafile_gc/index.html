@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Seafile GC - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Seafile GC";
+    var mkdocs_page_input_path = "maintain/seafile_gc.md";
+    var mkdocs_page_url = "/maintain/seafile_gc/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>概览</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile 组件</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">常见问题解答</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">我要参与</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Linux 下部署 Seafile 服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_sqlite/">部署 Seafile 服务器（使用 SQLite）</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_mysql/">部署 Seafile 服务器（使用 MySQL）</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_nginx/">Nginx 下配置 Seahub</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_nginx/">Nginx 下启用 Https</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_apache/">Apache 下配置 Seahub</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_apache/">Apache 下启用 Https</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/upgrade/">升级</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>其他部署说明</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/start_seafile_at_system_bootup/">开机启动 Seafile</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_firewall/">防火墙设置</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_logrotate/">Logrotate 管理系统日志</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/add_memcached/">使用 Memcached</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seafile_behind_nat/">使用 NAT</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/migrate_from_sqlite_to_mysql/">从 SQLite 迁移至 MySQL</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">安装常见问题</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/new_directory_layout_5_0_0/">Seafile 服务器 5.0 中配置文件新位置</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Windows 下部署 Seafile 服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">下载安装 Windows 版 Seafile 服务器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">安装 Seafile 为 Windows 服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">所用端口说明</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">升级</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">从 Windows 迁移到 Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">垃圾回收</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>部署 Seafile 专业版服务器</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">下载安装 Seafile 专业版服务器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">从社区版迁移至专业版</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">升级</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">专业版 AD/LDAP 配置</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">同步 AD 群组</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">开启 Office/PDF 文件在线预览</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">Office Web App 集成</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">文件搜索说明</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>病毒扫描</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">卡巴斯基病毒扫描配置</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">Web 文件断点续传</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>存储后端</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">Amazon S3 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_openstackswift/">OpenStackSwift 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph 下安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_oss/">使用阿里云OSS存储</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>集群部署</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">集群部署</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">集群中启用搜索和后台服务</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">NFS 下集群安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">升级集群</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">配置选项</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">常见问题解答</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/license-pro-edition/">软件许可协议</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>服务器个性化配置</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">发送邮件提醒</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/customize_email_notifications/">个性化邮件提醒</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">存储容量与文件上传/下载大小限制</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">自定义 Web</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>日常维护</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../account/">账户管理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logs/">日志</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../backup_recovery/">备份与恢复</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Seafile GC</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#seafile-gc">Seafile GC</a></li>
+                
+                    <li><a class="toctree-l4" href="#411">4.1.1 及之后的版本</a></li>
+                
+                    <li><a class="toctree-l4" href="#312">3.1.2 及之后版本</a></li>
+                
+                    <li><a class="toctree-l4" href="#312_1">3.1.2 及之前版本</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV 和 FUSE 扩展</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV 扩展</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE 扩展</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>安全选项</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">安全特性</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">日志和审计</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>开发文档</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>日常维护 &raquo;</li>
+        
+      
+    
+    <li>Seafile GC</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="seafile-gc">Seafile GC</h1>
+<p>Seafile 利用存储去重技术来减少存储资源的利用。
+简单来说，这包含如下两层含义：</p>
+<ul>
+<li>不同版本的文件或许会共享一些数据块。</li>
+<li>不同的资料库也或许会共享一些数据块。</li>
+</ul>
+<p>运用这项技术之后，在你删除一个资料库时，会导致底层数据块不会被立即删除，因此 Seafile 服务器端没用的数据块将会增多。</p>
+<p>通过运行<strong>垃圾回收</strong>程序，可以清理无用的数据块，释放无用数据块所占用的存储空间。</p>
+<p>垃圾回收程序将会清理如下两种无用数据块：</p>
+<ol>
+<li>未被资料库所引用的数据块即数据块属于被删除的资料库。</li>
+<li>设置了历史长度限制的资料库的过期数据块。</li>
+</ol>
+<p><strong>如果使用社区版服务器，运行垃圾回收程序之前，请先在服务器端停掉 Seafile 程序。这是因为垃圾回收程序，会错误的删除刚刚写入 Seafile 的新的数据块。对于专业版，3.1.11 及之后的版本，支持在线垃圾回收即如果使用 MySQL 或 PostgreSQL 数据库，你不需要暂停 Seafile 程序来进行垃圾回收。</strong></p>
+<h2 id="411">4.1.1 及之后的版本</h2>
+<p>从社区版 4.1.1 和 专业版 4.1.0开始， 我们改善了垃圾回收的命令参数和执行结果输出。</p>
+<h3 id="dry-run">Dry-run 模式</h3>
+<p>如果仅为了查看有多少垃圾可以回收而不进行删除操作，用 dry-run 选项：</p>
+<pre><code>seaf-gc.sh --dry-run [repo-id1] [repo-id2] ...
+</code></pre>
+
+<p>运行输出如下所示:</p>
+<pre><code>[03/19/15 19:41:49] seafserv-gc.c(115): GC version 1 repo My Library(ffa57d93)
+[03/19/15 19:41:49] gc-core.c(394): GC started. Total block number is 265.
+[03/19/15 19:41:49] gc-core.c(75): GC index size is 1024 Byte.
+[03/19/15 19:41:49] gc-core.c(408): Populating index.
+[03/19/15 19:41:49] gc-core.c(262): Populating index for repo ffa57d93.
+[03/19/15 19:41:49] gc-core.c(308): Traversed 5 commits, 265 blocks.
+[03/19/15 19:41:49] gc-core.c(440): Scanning unused blocks.
+[03/19/15 19:41:49] gc-core.c(472): GC finished. 265 blocks total, about 265 reachable blocks, 0 blocks can be removed.
+
+[03/19/15 19:41:49] seafserv-gc.c(115): GC version 1 repo aa(f3d0a8d0)
+[03/19/15 19:41:49] gc-core.c(394): GC started. Total block number is 5.
+[03/19/15 19:41:49] gc-core.c(75): GC index size is 1024 Byte.
+[03/19/15 19:41:49] gc-core.c(408): Populating index.
+[03/19/15 19:41:49] gc-core.c(262): Populating index for repo f3d0a8d0.
+[03/19/15 19:41:49] gc-core.c(308): Traversed 8 commits, 5 blocks.
+[03/19/15 19:41:49] gc-core.c(264): Populating index for sub-repo 9217622a.
+[03/19/15 19:41:49] gc-core.c(308): Traversed 4 commits, 4 blocks.
+[03/19/15 19:41:49] gc-core.c(440): Scanning unused blocks.
+[03/19/15 19:41:49] gc-core.c(472): GC finished. 5 blocks total, about 9 reachable blocks, 0 blocks can be removed.
+
+[03/19/15 19:41:49] seafserv-gc.c(115): GC version 1 repo test2(e7d26d93)
+[03/19/15 19:41:49] gc-core.c(394): GC started. Total block number is 507.
+[03/19/15 19:41:49] gc-core.c(75): GC index size is 1024 Byte.
+[03/19/15 19:41:49] gc-core.c(408): Populating index.
+[03/19/15 19:41:49] gc-core.c(262): Populating index for repo e7d26d93.
+[03/19/15 19:41:49] gc-core.c(308): Traversed 577 commits, 507 blocks.
+[03/19/15 19:41:49] gc-core.c(440): Scanning unused blocks.
+[03/19/15 19:41:49] gc-core.c(472): GC finished. 507 blocks total, about 507 reachable blocks, 0 blocks can be removed.
+
+[03/19/15 19:41:50] seafserv-gc.c(124): === Repos deleted by users ===
+[03/19/15 19:41:50] seafserv-gc.c(145): === GC is finished ===
+
+[03/19/15 19:41:50] Following repos have blocks to be removed:
+repo-id1
+repo-id2
+repo-id3
+</code></pre>
+
+<p>如果在参数中指定资料库 ID，则程序只检查指定的资料库，否则所有的资料库将会被检查。</p>
+<p>在程序输出的结尾，你会看到 "repos have blocks to be removed" 部分，这部分内容会列出含有可回收垃圾块的资料库的 ID，后续你可以运行程序不加 --dry-run 选项来回收这些资料库的垃圾数据块。</p>
+<h3 id="_1">删除垃圾数据块</h3>
+<p>运行垃圾回收程序，不加 --dry-run 选项来删除垃圾数据块：</p>
+<pre><code>seaf-gc.sh [repo-id1] [repo-id2] ...
+</code></pre>
+
+<p>如果在参数中指定资料库 ID, 则程序只检查和删除指定的资料库。</p>
+<p>正如前面所说，有两种类型的垃圾数据块可被回收，有时仅删除第一类无用数据块（属于删除的资料库）便可达到回收的目的，这种情况下，垃圾回收程序将不会检查未被删除的资料库，加入 “-r” 选项便可实现这个功能：</p>
+<pre><code>seaf-gc.sh -r
+</code></pre>
+
+<p><strong>Seafile 4.1.1 及之后的版本，被用户删除的资料库不会直接从系统中删除，它们会被转移到系统管理员界面的</strong>垃圾箱<strong>。垃圾箱中的资料库，只有在从垃圾箱中清除以后，它们的数据块才可被回收。</strong></p>
+<h2 id="312">3.1.2 及之后版本</h2>
+<p>运行垃圾回收程序</p>
+<pre><code>./seaf-gc.sh run
+</code></pre>
+<p>程序结束之后，运行以下命令，检查是否误删了还在使用的数据块，如果误删，会显示警告信息。</p>
+<pre><code>./seaf-gc.sh verify
+</code></pre>
+<p>可以通过 <code>dry-run</code> 选项，设置在运行垃圾回收程序前，进行完整性检查</p>
+<p>程序将会显示 <em>所有的数据块数量</em> 和 <em>将要被删除的数据块数量</em></p>
+<pre><code>./seaf-gc.sh dry-run
+</code></pre>
+<p>如果资料库已损坏，因为无法判断数据块是否还在被其他资料库使用，所以垃圾回收程序将会停止运行。</p>
+<p>可以通过 <code>force</code> 选项，强制删除已损坏资料库的数据。通过将已损坏资料库的数据块标记为“未使用”，来将其删除。</p>
+<pre><code>./seaf-gc.sh force
+</code></pre>
+<h2 id="312_1">3.1.2 及之前版本</h2>
+<p>运行垃圾回收程序</p>
+<pre><code>cd seafile-server-{version}/seafile
+export LD_LIBRARY_PATH=./lib:${LD_LIBRARY_PATH}
+./bin/seafserv-gc -c ../../ccnet -d ../../seafile-data
+</code></pre>
+<p>如果你<a href="../build_seafile/linux.md">源码编译安装 Seafile 服务器</a>，仅仅运行</p>
+<pre><code>seafserv-gc -c ../../ccnet -d ../../seafile-data
+</code></pre>
+<p>当垃圾回收程序结束后，你也可以检查是否一些有用的数据块被错误的删除：</p>
+<pre><code>seafserv-gc -c ../../ccnet -d ../../seafile-data --verify
+</code></pre>
+<p>如果一些有用的数据块丢失，它将会打印一些警告信息。</p>
+<p>如果你想在真正删除一些数据块之前，做一些常规检查，可以使用--dry-run选项</p>
+<pre><code>seafserv-gc -c ../../ccnet -d ../../seafile-data --dry-run
+</code></pre>
+<p>这将会向你展示数据块总数量和将被删除数据块数量。</p>
+<p>如果在服务器端一些库的元数据被毁坏，垃圾回收程序将会停止处理，因为它无法识别是否一个数据块被一些毁坏的资料库所使用。如果你不想保留毁坏库的数据块，可以运行垃圾回收程序并使用--ignore-errors或-i选项。</p>
+<pre><code>seafserv-gc -c ../../ccnet -d ../../seafile-data --ignore-errors
+</code></pre>
+<p>这将会屏蔽毁坏资料库的数据块为无用状态并删除掉它们。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../extension/README/" class="btn btn-neutral float-right" title="README">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../seafile_fsck/" class="btn btn-neutral" title="Seafile FSCK"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../seafile_fsck/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../extension/README/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
