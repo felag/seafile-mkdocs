@@ -18,8 +18,18 @@ if [ ! -f ${index} ]; then
   exit 1
 fi
 
-# Set name
-echo "site_name: Server Seafile Manual\n" > ${output_toc}
+# Set 'static' information
+echo > ${output_toc} << EOF
+site_name: Server Seafile Manual
+
+repo_url: https://github.com/haiwen/seafile
+repo_name: Seafile Server
+
+theme: readthedocs
+
+extra_javascript: [extra.js]
+EOF
+
 
 echo "\npages:" >> ${output_toc}
 
