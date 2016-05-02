@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Configure Seafile to use LDAP - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Configure Seafile to use LDAP";
+    var mkdocs_page_input_path = "deploy/using_ldap.md";
+    var mkdocs_page_url = "/deploy/using_ldap/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../extra.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Overview</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/file_permission_management/">File permission management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../roadmap/">Roadmap</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">Contribution</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploying Seafile under Linux</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_sqlite/">Deploying Seafile with SQLite</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_mysql/">Deploying Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_nginx/">Config Seahub with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_nginx/">Enabling Https with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_apache/">Config Seahub with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_apache/">Enabling Https with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Configure Seafile to use LDAP</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#configure-seafile-to-use-ldap">Configure Seafile to use LDAP</a></li>
+                
+                    <li><a class="toctree-l4" href="#how-does-ldap-user-management-work-in-seafile">How does LDAP User Management work in Seafile</a></li>
+                
+                    <li><a class="toctree-l4" href="#basic-ldapad-integration">Basic LDAP/AD Integration</a></li>
+                
+                    <li><a class="toctree-l4" href="#advanced-ldapad-integration-options">Advanced LDAP/AD Integration Options</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../shibboleth_config/">Configure Seafile to use Shibboleth Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrade/">Upgrade Seafile server</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Other Deployment Notes</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../start_seafile_at_system_bootup/">Start Seafile at System Bootup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_firewall/">Firewall settings</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_logrotate/">Logrotate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../add_memcached/">Add Memcached</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seafile_behind_nat/">Deploy Seafile behind NAT</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seahub_at_non-root_domain/">Deploy Seahub at Non-root domain</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../migrate_from_sqlite_to_mysql/">Migrate From SQLite to MySQL</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Common Problems for Setting up Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../new_directory_layout_5_0_0/">New Directory Layout in Seafile Server 5.0.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile under Windows</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">Download and Setup Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/using_ldap/">Configure Seafile to use LDAP on Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_mysql/">Deploy Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Deploy Seafile with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_nginx/">Deploy Seafile with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">Install Seafile Server as a Windows Service</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">Ports used by Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">Upgrading Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">Migrate Seafile From Windows To Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">Garbage Collecting Unused Blocks on Seafile Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_fsck/">Running seaf-fsck on corrupted repositories</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile Pro Edition</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">Download and Setup Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">Migrate from Seafile Community Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">Upgrading Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">LDAP Configuration for Seafile Pro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">Importing Groups from LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/multi_institutions/">Multi-Institutions Support</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">Enable Office/PDF Documents Online Preview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">Integrating with Office Web App</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">Details about File Search</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Virus Scan</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">Virus Scan With Kav4fs</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">Web Resumable File Upload</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Storage Backends</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">Amazon S3 Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_swift/">OpenStack Swift Backend</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Cluster Deployment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">Deploy in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/clustering_with_mariadb_ceph/">Setup with MariaDB and Ceph</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">Setup Seafile cluster with NFS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">Enable search and background tasks in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">Upgrade a cluster</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/real_time_backup/">Real-time Backup Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">Configurable Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/seafile_professional_sdition_software_license_agreement/">License</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Configuration and Customization</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">Seahub customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/desktop_customization/">Desktop client customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">Email Sending</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/user_options/">User management options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">Storage Quota and File size limits</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Administration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">Account management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">Logs</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">Backup and Recovery</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/clean_database/">Clean database</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV and FUSE extensions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV extension</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE extension</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Security and Auditing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">Security features</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">Access logs and auditing</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Developing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>How to Build Seafile</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/linux/">Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/freebsd/">FreeBSD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/windows/">Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/osx/">Mac OS X</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/server/">Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/rpi/">Raspberry Pi</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/env/">Develop env</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/code_standard/">Code Standard</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api/">Web API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api_v2.1/">Web API V2.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/python_api/">Python API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/php_api/">PHP API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/data_model/">Data Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/server-components/">Server Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/sync_algorithm/">Sync algorithm</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deploying Seafile under Linux &raquo;</li>
+        
+      
+    
+    <li>Configure Seafile to use LDAP</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="configure-seafile-to-use-ldap">Configure Seafile to use LDAP</h1>
+<p>Note: This documentation is for the Community Edition. If you're using Pro Edition, please refer to <a href="../../deploy_pro/using_ldap_pro/">the Seafile Pro documentation</a>.</p>
+<h2 id="how-does-ldap-user-management-work-in-seafile">How does LDAP User Management work in Seafile</h2>
+<p>When Seafile is integrated with LDAP/AD, users in the system can be divided into two tiers:</p>
+<ul>
+<li>Users within Seafile's internal user database. Some attributes are attached to these users, such as whether it's a system admin user, whether it's activated. This tier includes two types of users:<ul>
+<li>Native users: these users are created by the admin on Seafile's system admin interface. These users are stored in the <code>EmailUser</code> table of the <code>ccnet</code> database.</li>
+<li>Users imported from LDAP/AD server: When a user in LDAP/AD logs into Seafile, its information will be imported from LDAP/AD server into Seafile's database. These users are stored in the <code>LDAPUsers</code> table of the <code>ccnet</code> database.</li>
+</ul>
+</li>
+<li>Users in LDAP/AD server. These are all the intended users of Seafile inside the LDAP server. Seafile doesn't manipulate these users directly. It has to import them into its internal database before setting attributes on them.</li>
+</ul>
+<p>When Seafile counts the number of users in the system, it only counts the <strong>activated</strong> users in its internal database.</p>
+<p>When Seafile is integrated with LDAP/AD, it'll look up users from both the internal database and LDAP server. As long as the user exists in one of these two sources, they can log into the system.</p>
+<h2 id="basic-ldapad-integration">Basic LDAP/AD Integration</h2>
+<p>The only requirement for Seafile to use LDAP/AD for authentication is that there must be a unique identifier for each user in the LDAP/AD server. Seafile can only use email-address-format user identifiers. So there are usually only two options for this unique identifier:</p>
+<ul>
+<li>Email address: this is the most common choice. Most organizations assign unique email address for each member.</li>
+<li>UserPrincipalName: this is a user attribute only available in Active Directory. It's format is <code>user-login-name@domain-name</code>, e.g. <code>john@example.com</code>. It's not a real email address, but it works fine as the unique identifier.</li>
+</ul>
+<h3 id="connecting-to-active-directory">Connecting to Active Directory</h3>
+<p>To use AD to authenticate user, please add the following lines to ccnet.conf.</p>
+<p>If you choose email address as unique identifier:</p>
+<pre><code>[LDAP]
+HOST = ldap://192.168.1.123/
+BASE = cn=users,dc=example,dc=com
+USER_DN = administrator@example.local
+PASSWORD = secret
+LOGIN_ATTR = mail
+</code></pre>
+<p>If you choose UserPrincipalName as unique identifier:</p>
+<pre><code>[LDAP]
+HOST = ldap://192.168.1.123/
+BASE = cn=users,dc=example,dc=com
+USER_DN = administrator@example.local
+PASSWORD = secret
+LOGIN_ATTR = userPrincipalName
+</code></pre>
+<p>Meaning of each config options:</p>
+<ul>
+<li>HOST: LDAP URL for the host. ldap://, ldaps:// and ldapi:// are supported. You can also include a port number in the URL, like ldap://ldap.example.com:389. To use TLS, you should configure the LDAP server to listen on LDAPS port and specify ldaps:// here. More details about TLS will be covered below.</li>
+<li>BASE: The root distinguished name (DN) to use when running queries against the directory server. <strong>You cannot use the root DN (e.g. dc=example,dc=com) as BASE</strong>.</li>
+<li>USER_DN: The distinguished name of the user that Seafile will use when connecting to the directory server. This user should have sufficient privilege to access all the nodes under BASE. It's recommended to use a user in the administrator group.</li>
+<li>PASSWORD: Password of the above user.</li>
+<li>LOGIN_ATTR: The attribute used for user's unique identifier. Use <code>mail</code> or <code>userPrincipalName</code>.</li>
+</ul>
+<p>Tips for choosing BASE and USER_DN:</p>
+<ul>
+<li>To determine the BASE, you first have to navigate your organization hierachy on the domain controller GUI.<ul>
+<li>If you want to allow all users to use Seafile, you can use 'cn=users,dc=yourdomain,dc=com' as BASE (with proper adjustment for your own needs).</li>
+<li>If you want to limit users to a certain OU (Organization Unit), you run <code>dsquery</code> command on the domain controller to find out the DN for this OU. For example, if the OU is 'staffs', you can run 'dsquery ou -name staff'. More information can be found <a href="https://technet.microsoft.com/en-us/library/cc770509.aspx">here</a>.</li>
+</ul>
+</li>
+<li>AD supports 'user@domain.name' format for the USER_DN option. For example you can use administrator@example.com for USER_DN. Sometime the domain controller doesn't recognize this format. You can still use <code>dsquery</code> command to find out user's DN. For example, if the user name is 'seafileuser', run <code>dsquery user -name seafileuser</code>. More information <a href="https://technet.microsoft.com/en-us/library/cc725702.aspx">here</a>.</li>
+</ul>
+<h3 id="connecting-to-other-ldap-servers">Connecting to other LDAP servers</h3>
+<p>Please add the following options to ccnet.conf:</p>
+<pre><code>[LDAP]
+HOST = ldap://192.168.1.123/
+BASE = ou=users,dc=example,dc=com
+USER_DN = cn=admin,dc=example,dc=com
+PASSWORD = secret
+LOGIN_ATTR = mail
+</code></pre>
+<p>The meaning of the options are the same as described in the previous section. With other LDAP servers, you can only use <code>mail</code> attribute as user's unique identifier.</p>
+<h2 id="advanced-ldapad-integration-options">Advanced LDAP/AD Integration Options</h2>
+<h3 id="multiple-base">Multiple BASE</h3>
+<p>Multiple base DN is useful when your company has more than one OUs to use Seafile. You can specify a list of base DN in the "BASE" config. The DNs are separated by ";", e.g. <code>ou=developers,dc=example,dc=com;ou=marketing,dc=example,dc=com</code></p>
+<h3 id="additional-search-filter">Additional Search Filter</h3>
+<p>Search filter is very useful when you have a large organization but only a portion of people want to use Seafile. The filter can be given by setting "FILTER" config. The value of this option follows standard LDAP search filter syntax (https://msdn.microsoft.com/en-us/library/aa746475(v=vs.85).aspx).</p>
+<p>The final filter used for searching for users is <code>(&amp;($LOGIN_ATTR=*)($FILTER))</code>. <code>$LOGIN_ATTR</code> and <code>$FILTER</code> will be replaced by your option values.</p>
+<p>For example, add the following line to LDAP config:</p>
+<pre><code>FILTER = memberOf=CN=group,CN=developers,DC=example,DC=com
+</code></pre>
+
+<p>The final search filter would be <code>(&amp;(mail=*)(memberOf=CN=group,CN=developers,DC=example,DC=com))</code></p>
+<p>Note that the case of attribute names in the above example is significant. The <code>memberOf</code> attribute is only available in Active Directory.</p>
+<h3 id="limiting-seafile-users-to-a-group-in-active-directory">Limiting Seafile Users to a Group in Active Directory</h3>
+<p>You can use the FILTER option to limit user scope to a certain AD group.</p>
+<ol>
+<li>First, you should find out the DN for the group. Again, we'll use the <code>dsquery</code> command on the domain controller. For example, if group name is 'seafilegroup', run <code>dsquery group -name seafilegroup</code>.</li>
+<li>Add the following line to LDAP config:</li>
+</ol>
+<pre><code>FILTER = memberOf={output of dsquery command}
+</code></pre>
+
+<h3 id="using-tls-connection-to-ldapad-server">Using TLS connection to LDAP/AD server</h3>
+<p>To use a TLS connection to the directory server, you should install a valid SSL certificate on the directory server.</p>
+<p>The current version of Seafile Linux server package is compiled on CentOS. We include the ldap client library in the package to maintain compatibility with older Linux distributions. But since different Linux distributions have different path or configuration for OpenSSL library, sometimes Seafile is unable to connect to the directory server with TLS.</p>
+<p>The ldap library (libldap) bundled in the Seafile package is of version 2.4. If your Linux distribution is new enough (like CentOS 6, Debian 7 or Ubuntu 12.04 or above), you can use system's libldap instead.</p>
+<p>On Ubuntu 14.04 and Debian 7/8, moving the bundled ldap related libraries out of the library path should make TLS connection work.</p>
+<pre><code>cd ${SEAFILE_INSTALLATION_DIR}/seafile-server-latest/seafile/lib
+mkdir disabled_libs_use_local_ones_instead
+mv liblber-2.4.so.2 libldap-2.4.so.2 libsasl2.so.2 libldap_r-2.4.so.2 disabled_libs_use_local_ones_instead/
+</code></pre>
+
+<p>On CentOS 6, you have to move the libnssutil library:</p>
+<pre><code>cd ${SEAFILE_INSTALLATION_DIR}/seafile-server-latest/seafile/lib
+mkdir disabled_libs_use_local_ones_instead
+mv libnssutil3.so disabled_libs_use_local_ones_instead/
+</code></pre>
+
+<p>This effectively removes the bundled libraries from the library search path. 
+When the server starts, it'll instead find and use the system libraries (if they are installed). 
+This change has to be repeated after each update of the Seafile installation.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../shibboleth_config/" class="btn btn-neutral float-right" title="Configure Seafile to use Shibboleth Authentication">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../https_with_apache/" class="btn btn-neutral" title="Enabling Https with Apache"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../https_with_apache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../shibboleth_config/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Python API - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Python API";
+    var mkdocs_page_input_path = "develop/python_api.md";
+    var mkdocs_page_url = "/develop/python_api/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../extra.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Overview</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/file_permission_management/">File permission management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../roadmap/">Roadmap</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">Contribution</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploying Seafile under Linux</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_sqlite/">Deploying Seafile with SQLite</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_mysql/">Deploying Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_nginx/">Config Seahub with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_nginx/">Enabling Https with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_apache/">Config Seahub with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_apache/">Enabling Https with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_ldap/">Configure Seafile to use LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/shibboleth_config/">Configure Seafile to use Shibboleth Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/upgrade/">Upgrade Seafile server</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Other Deployment Notes</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/start_seafile_at_system_bootup/">Start Seafile at System Bootup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_firewall/">Firewall settings</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_logrotate/">Logrotate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/add_memcached/">Add Memcached</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seafile_behind_nat/">Deploy Seafile behind NAT</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seahub_at_non-root_domain/">Deploy Seahub at Non-root domain</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/migrate_from_sqlite_to_mysql/">Migrate From SQLite to MySQL</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Common Problems for Setting up Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/new_directory_layout_5_0_0/">New Directory Layout in Seafile Server 5.0.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile under Windows</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">Download and Setup Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/using_ldap/">Configure Seafile to use LDAP on Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_mysql/">Deploy Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Deploy Seafile with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_nginx/">Deploy Seafile with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">Install Seafile Server as a Windows Service</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">Ports used by Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">Upgrading Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">Migrate Seafile From Windows To Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">Garbage Collecting Unused Blocks on Seafile Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_fsck/">Running seaf-fsck on corrupted repositories</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile Pro Edition</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">Download and Setup Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">Migrate from Seafile Community Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">Upgrading Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">LDAP Configuration for Seafile Pro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">Importing Groups from LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/multi_institutions/">Multi-Institutions Support</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">Enable Office/PDF Documents Online Preview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">Integrating with Office Web App</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">Details about File Search</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Virus Scan</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">Virus Scan With Kav4fs</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">Web Resumable File Upload</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Storage Backends</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">Amazon S3 Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_swift/">OpenStack Swift Backend</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Cluster Deployment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">Deploy in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/clustering_with_mariadb_ceph/">Setup with MariaDB and Ceph</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">Setup Seafile cluster with NFS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">Enable search and background tasks in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">Upgrade a cluster</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/real_time_backup/">Real-time Backup Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">Configurable Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/seafile_professional_sdition_software_license_agreement/">License</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Configuration and Customization</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">Seahub customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/desktop_customization/">Desktop client customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">Email Sending</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/user_options/">User management options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">Storage Quota and File size limits</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Administration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">Account management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">Logs</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">Backup and Recovery</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/clean_database/">Clean database</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV and FUSE extensions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV extension</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE extension</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Security and Auditing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">Security features</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">Access logs and auditing</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Developing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>How to Build Seafile</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/linux/">Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/freebsd/">FreeBSD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/windows/">Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/osx/">Mac OS X</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/server/">Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/rpi/">Raspberry Pi</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../env/">Develop env</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../code_standard/">Code Standard</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../web_api/">Web API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../web_api_v2.1/">Web API V2.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Python API</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#python-api">Python API</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../php_api/">PHP API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../data_model/">Data Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-components/">Server Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sync_algorithm/">Sync algorithm</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Developing &raquo;</li>
+        
+      
+    
+    <li>Python API</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="python-api">Python API</h1>
+<p><div class="toc">
+<ul>
+<li><a href="#Seafile Python API">Seafile Python API</a></li>
+<li><a href="#Install Seafile Server">Install Seafile Server</a></li>
+<li><a href="#Example: Copy Library">Example: Copy Library</a></li>
+  <ul>
+  <li><a href="#Set Environment Variable">Set Environment Variable</a></li>
+  <li><a href="#Copy Library">Copy Library</a></li>
+  <li><a href="#List Of Seafile-API">List Of Seafile-API</a></li>
+  </ul>
+</ul>
+</p>
+
+<h1 id="seafile-python-api"><a id="Seafile Python API"></a>Seafile Python API</h1>
+<p>This tutorial show you how to use seafile-api, and will accomplish a "library copy" work under <strong>Ubuntu</strong> as example.</p>
+<h2 id="install-seafile-server"><a id="Install Seafile Server"></a>Install Seafile Server</h2>
+<p>First of all, make sure you have <a href="https://github.com/haiwen/seafile/wiki/Download-and-setup-seafile-server">Download and Setup Seafile Server</a> successfully. And your directory layout will be like this:</p>
+<pre><code># tree . -L 3
+.
+├── ccnet
+│   ├── ccnet.conf
+│   ├── ......
+│......
+├── seafile-server-3.0.3
+│   ├── seafile
+│   ├── seafile.sh
+│   ├── seahub
+│   ├── seahub.sh
+│   ├── setup-seafile.sh
+│   ├── upgrade
+│       ├── README
+│       ├── seaf_migrate_3.py
+│       ├── seaf_migrate_3.sh
+│       ├── ......
+│   ├── ......
+│......
+</code></pre>
+<h2 id="example-copy-library"><a id="Example: Copy Library"></a>Example: Copy Library</h2>
+<p>In this example, two script files will be used: <code>seaf_migrate_3.sh</code> and <code>seaf_migrate_3.py</code>. We put them in the <strong>upgrade</strong> directory as you see above.</p>
+<h3 id="set-environment-variable"><a id="Set Environment Variable"></a>Set Environment Variable</h3>
+<p>If you want use Seafile-API, set environment variable first. That's what <code>seaf_migrate_3.sh</code> does:</p>
+<ol>
+<li>get ccnet/seafile config file path and export them;</li>
+<li>export Python path;</li>
+<li>call <code>seaf_migrate_3.py</code>.</li>
+</ol>
+<p>Example code</p>
+<pre><code class="sh">#!/bin/bash
+
+#get path of ccnet.conf
+SCRIPT=$(readlink -f &quot;$0&quot;) # haiwen/seafile-server-3.0.3/upgrade/seaf_migrate_3.sh
+UPGRADE_DIR=$(dirname &quot;$SCRIPT&quot;) # haiwen/seafile-server-3.0.3/upgrade/
+INSTALLPATH=$(dirname &quot;$UPGRADE_DIR&quot;) # haiwen/seafile-server-3.0.3/
+TOPDIR=$(dirname &quot;${INSTALLPATH}&quot;) # haiwen/
+default_ccnet_conf_dir=${TOPDIR}/ccnet
+
+#get path of seafile.conf
+function read_seafile_data_dir () {
+    seafile_ini=${default_ccnet_conf_dir}/seafile.ini
+    if [[ ! -f ${seafile_ini} ]]; then
+        echo &quot;${seafile_ini} not found. Now quit&quot;
+        exit 1
+    fi
+    seafile_data_dir=$(cat &quot;${seafile_ini}&quot;)
+    if [[ ! -d ${seafile_data_dir} ]]; then
+        echo &quot;Your seafile server data directory \&quot;${seafile_data_dir}\&quot; is invalid or doesn't exits.&quot;
+        echo &quot;Please check it first, or create this directory yourself.&quot;
+        echo &quot;&quot;
+        exit 1;
+    fi
+
+    export SEAFILE_CONF_DIR=$seafile_data_dir
+}
+
+export CCNET_CONF_DIR=${default_ccnet_conf_dir}
+read_seafile_data_dir;
+
+export PYTHONPATH=${INSTALLPATH}/seafile/lib/python2.6/site-packages:${INSTALLPATH}/seafile/lib64/python2.6/site-packages:${INSTALLPATH}/seafile/lib/python2.7/site-packages:${INSTALLPATH}/seahub/thirdpart:$PYTHONPATH
+export PYTHONPATH=${INSTALLPATH}/seafile/lib/python2.7/site-packages:${INSTALLPATH}/seafile/lib64/python2.7/site-packages:$PYTHONPATH
+
+function usage () {
+    echo &quot;Usage: `basename $0` &lt;repo-id&gt;&quot;
+    echo &quot;exit.&quot;
+    exit 1
+}
+if [ $# != 1 ]; then
+    usage
+fi
+
+python seaf_migrate_3.py $1
+</code></pre>
+
+<blockquote>
+<p><strong>NOTE:</strong>
+You can get <code>repo_id</code> at address bar of Seahub or through <a href="https://github.com/haiwen/seafile/wiki/Seafile-web-API#list-libraries">Seafile web API</a></p>
+</blockquote>
+<h3 id="copy-library"><a id="Copy Library"></a>Copy Library</h3>
+<p>Then <code>seaf_migrate_3.py</code> will call Seafile-API to copy library:</p>
+<ol>
+<li>Get library ID from input.</li>
+<li>Get origin_repo object.</li>
+<li>Create a new library, set name, desc and owner.</li>
+<li>Copy stuffs from old library to new library.</li>
+</ol>
+<p>Example code</p>
+<pre><code class="python">#!/usr/bin/env python
+
+import os
+import stat
+import sys
+from seaserv import seafile_api
+
+def count_files_recursive(repo_id, path='/'):
+    num_files = 0
+    for e in seafile_api.list_dir_by_path(repo_id, path):
+        if stat.S_ISDIR(e.mode):
+            num_files += count_files_recursive(repo_id,
+                                               os.path.join(path, e.obj_name))
+        else:
+            num_files += 1
+    return num_files
+
+#Get library ID from input
+origin_repo_id = sys.argv[1]
+
+#Get origin_repo object
+origin_repo = seafile_api.get_repo(origin_repo_id)
+username = seafile_api.get_repo_owner(origin_repo_id)
+
+#Create a new library, set name, desc and owner
+new_repo_id = seafile_api.create_repo(name=origin_repo.name,
+                                      desc=origin_repo.desc,
+                                      username=username, passwd=None)
+
+#Copy stuffs from old library to new library
+dirents = seafile_api.list_dir_by_path(origin_repo_id, '/')
+for e in dirents:
+    print &quot;copying: &quot; + e.obj_name
+    obj_name = e.obj_name
+    seafile_api.copy_file(origin_repo_id, '/', obj_name, new_repo_id, '/',
+                          obj_name, username, 0, 1)
+
+print &quot;*&quot; * 60
+print &quot;OK, verifying...&quot;
+print &quot;Origin library(%s): %d files. New Library(%s): %d files.&quot; % (
+    origin_repo_id[:8], count_files_recursive(origin_repo_id),
+    new_repo_id[:8], count_files_recursive(new_repo_id))
+print &quot;*&quot; * 60
+</code></pre>
+
+<p>If you execute script file successfully, you will see these output, and of course a new library at myhome page of Seahub.</p>
+<pre><code>foo@foo:~/haiwen/seafile-server-3.0.3/upgrade$ ./seaf_migrate_test.sh c8bbb088-cbaf-411d-8bd8-9870763f0e5f
+Loading ccnet config from /home/foo/haiwen/ccnet
+Loading seafile config from /home/foo/haiwen/seafile-data
+copying: test.html
+copying: test-dir-2
+copying: test-dir
+copying: solar.html
+copying: examples.desktop
+************************************************************
+OK, verifying...
+Origin library(c8bbb088): 10 files. New Library(4d6f4837): 10 files.
+************************************************************
+</code></pre>
+<h2 id="list-of-seafile-api"><a id="List Of Seafile-API"></a>List Of Seafile-API</h2>
+<p>This list is based on <strong>seafile-server-3.0.3</strong>, and parameter was omitted.</p>
+<p>For more infomation about Seafile-API, please see <a href="https://github.com/haiwen/seafile/blob/master/python/seaserv/api.py">api.py</a>.</p>
+<blockquote>
+<ul>
+<li>seafile_api.add_inner_pub_repo()</li>
+<li>seafile_api.cancel_copy_task()</li>
+<li>seafile_api.change_repo_passwd()</li>
+<li>seafile_api.check_passwd()</li>
+<li>seafile_api.check_permission()</li>
+<li>seafile_api.check_quota()</li>
+<li>seafile_api.check_repo_access_permission()</li>
+<li>seafile_api.copy_file()</li>
+<li>seafile_api.count_inner_pub_repos()</li>
+<li>seafile_api.create_enc_repo()</li>
+<li>seafile_api.create_repo()</li>
+<li>seafile_api.create_virtual_repo()</li>
+<li>seafile_api.del_file()</li>
+<li>seafile_api.delete_repo_token()</li>
+<li>seafile_api.delete_repo_tokens_by_peer_id()</li>
+<li>seafile_api.diff_commits()</li>
+<li>seafile_api.edit_repo()</li>
+<li>seafile_api.generate_repo_token()</li>
+<li>seafile_api.get_commit_list()</li>
+<li>seafile_api.get_copy_task()</li>
+<li>seafile_api.get_decrypt_key()</li>
+<li>seafile_api.get_deleted()</li>
+<li>seafile_api.get_dir_id_by_commit_and_path()</li>
+<li>seafile_api.get_dir_id_by_path()</li>
+<li>seafile_api.get_file_id_by_commit_and_path()</li>
+<li>seafile_api.get_file_id_by_path()</li>
+<li>seafile_api.get_file_revisions()</li>
+<li>seafile_api.get_file_size()</li>
+<li>seafile_api.get_files_last_modified()</li>
+<li>seafile_api.get_group_repo_list()</li>
+<li>seafile_api.get_group_repoids()</li>
+<li>seafile_api.get_group_repos_by_owner()</li>
+<li>seafile_api.get_fileserver_access_token()</li>
+<li>seafile_api.get_inner_pub_repo_list()</li>
+<li>seafile_api.get_orphan_repo_list()</li>
+<li>seafile_api.get_owned_repo_list()</li>
+<li>seafile_api.get_repo()</li>
+<li>seafile_api.get_repo_list()</li>
+<li>seafile_api.get_repo_owner()</li>
+<li>seafile_api.get_repo_size()</li>
+<li>seafile_api.get_share_in_repo_list()</li>
+<li>seafile_api.get_share_out_repo_list()</li>
+<li>seafile_api.get_shared_groups_by_repo()</li>
+<li>seafile_api.get_user_quota()</li>
+<li>seafile_api.get_user_self_usage()</li>
+<li>seafile_api.get_user_share_usage()</li>
+<li>seafile_api.get_virtual_repo()</li>
+<li>seafile_api.get_virtual_repos_by_owner()</li>
+<li>seafile_api.group_share_repo()</li>
+<li>seafile_api.group_unshare_repo()</li>
+<li>seafile_api.is_inner_pub_repo()</li>
+<li>seafile_api.is_password_set()</li>
+<li>seafile_api.is_repo_owner()</li>
+<li>seafile_api.is_valid_filename()</li>
+<li>seafile_api.list_dir_by_commit_and_path()</li>
+<li>seafile_api.list_dir_by_dir_id()</li>
+<li>seafile_api.list_dir_by_path()</li>
+<li>seafile_api.list_file_by_file_id()</li>
+<li>seafile_api.list_repo_tokens()</li>
+<li>seafile_api.list_repo_tokens_by_email()</li>
+<li>seafile_api.move_file()</li>
+<li>seafile_api.post_dir()</li>
+<li>seafile_api.post_empty_file()</li>
+<li>seafile_api.post_file()</li>
+<li>seafile_api.put_file()</li>
+<li>seafile_api.query_fileserver_access_token()</li>
+<li>seafile_api.remove_inner_pub_repo()</li>
+<li>seafile_api.remove_repo()</li>
+<li>seafile_api.remove_share()</li>
+<li>seafile_api.rename_file()</li>
+<li>seafile_api.revert_dir()</li>
+<li>seafile_api.revert_file()</li>
+<li>seafile_api.revert_repo()</li>
+<li>seafile_api.set_group_repo_permission()</li>
+<li>seafile_api.set_passwd()</li>
+<li>seafile_api.set_repo_owner()</li>
+<li>seafile_api.set_share_permission()</li>
+<li>seafile_api.set_user_quota()</li>
+<li>seafile_api.share_repo()</li>
+<li>seafile_api.unset_passwd()</li>
+</ul>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../php_api/" class="btn btn-neutral float-right" title="PHP API">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../web_api_v2.1/" class="btn btn-neutral" title="Web API V2.1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../web_api_v2.1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../php_api/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

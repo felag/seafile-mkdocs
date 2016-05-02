@@ -1,0 +1,2999 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Web API - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Web API";
+    var mkdocs_page_input_path = "develop/web_api.md";
+    var mkdocs_page_url = "/develop/web_api/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../extra.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Overview</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/file_permission_management/">File permission management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../roadmap/">Roadmap</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">Contribution</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploying Seafile under Linux</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_sqlite/">Deploying Seafile with SQLite</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_mysql/">Deploying Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_nginx/">Config Seahub with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_nginx/">Enabling Https with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_with_apache/">Config Seahub with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/https_with_apache/">Enabling Https with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_ldap/">Configure Seafile to use LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/shibboleth_config/">Configure Seafile to use Shibboleth Authentication</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/upgrade/">Upgrade Seafile server</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Other Deployment Notes</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/start_seafile_at_system_bootup/">Start Seafile at System Bootup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_firewall/">Firewall settings</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/using_logrotate/">Logrotate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/add_memcached/">Add Memcached</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seafile_behind_nat/">Deploy Seafile behind NAT</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/deploy_seahub_at_non-root_domain/">Deploy Seahub at Non-root domain</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/migrate_from_sqlite_to_mysql/">Migrate From SQLite to MySQL</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Common Problems for Setting up Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy/new_directory_layout_5_0_0/">New Directory Layout in Seafile Server 5.0.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile under Windows</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">Download and Setup Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/using_ldap/">Configure Seafile to use LDAP on Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_mysql/">Deploy Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Deploy Seafile with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_nginx/">Deploy Seafile with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">Install Seafile Server as a Windows Service</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">Ports used by Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">Upgrading Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">Migrate Seafile From Windows To Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">Garbage Collecting Unused Blocks on Seafile Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_fsck/">Running seaf-fsck on corrupted repositories</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile Pro Edition</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">Download and Setup Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">Migrate from Seafile Community Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">Upgrading Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">LDAP Configuration for Seafile Pro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">Importing Groups from LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/multi_institutions/">Multi-Institutions Support</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">Enable Office/PDF Documents Online Preview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">Integrating with Office Web App</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">Details about File Search</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Virus Scan</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">Virus Scan With Kav4fs</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">Web Resumable File Upload</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Storage Backends</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">Amazon S3 Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_swift/">OpenStack Swift Backend</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Cluster Deployment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">Deploy in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/clustering_with_mariadb_ceph/">Setup with MariaDB and Ceph</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">Setup Seafile cluster with NFS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">Enable search and background tasks in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">Upgrade a cluster</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/real_time_backup/">Real-time Backup Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">Configurable Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/seafile_professional_sdition_software_license_agreement/">License</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Configuration and Customization</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">Seahub customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/desktop_customization/">Desktop client customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">Email Sending</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/user_options/">User management options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">Storage Quota and File size limits</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Administration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">Account management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">Logs</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">Backup and Recovery</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/clean_database/">Clean database</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV and FUSE extensions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV extension</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE extension</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Security and Auditing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">Security features</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">Access logs and auditing</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Developing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>How to Build Seafile</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/linux/">Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/freebsd/">FreeBSD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/windows/">Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/osx/">Mac OS X</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/server/">Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/rpi/">Raspberry Pi</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../env/">Develop env</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../code_standard/">Code Standard</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Web API</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#web-api">Web API</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#directory">Directory</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#multiple-files-directories">Multiple Files / Directories</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../web_api_v2.1/">Web API V2.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../python_api/">Python API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../php_api/">PHP API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../data_model/">Data Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-components/">Server Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sync_algorithm/">Sync algorithm</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Developing &raquo;</li>
+        
+      
+    
+    <li>Web API</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="web-api">Web API</h1>
+<p><p><div class="toc">
+<ul>
+<li><a href="#seafile-web-api-v2">Seafile Web API V2</a><ul>
+<li><a href="#api-basics">API Basics</a></li>
+<li><a href="#status-code">Status Code</a></li>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#account">Account</a><ul>
+<li><a href="#list-accounts">List Accounts(Admin only)</a></li>
+<li><a href="#get-account">Get Account Info(Admin only)</a></li>
+<li><a href="#create-account">Create Account(Admin only)</a></li>
+<li><a href="#update-account">Update Account(Admin only)</a></li>
+<li><a href="#migrate-account">Migrate Account(Admin only)</a></li>
+<li><a href="#delete-account">Delete Account(Admin only)</a></li>
+<li><a href="#check-account-info">Check Account Info</a></li>
+<li><a href="#server-info">Get Server Information</a></li>
+</ul>
+</li>
+<li><a href="#starred-files">Starred Files</a><ul>
+<li><a href="#list-starred-files">List starred files</a></li>
+<li><a href="#star-a-file">Star A File</a></li>
+<li><a href="#unstar-a-file">Unstar A File</a></li>
+</ul>
+</li>
+<li><a href="#group">Group</a><ul>
+<li><a href="#list-groups">List Groups</a></li>
+<li><a href="#add-a-group">Add A Group</a></li>
+<li><a href="#delete-group">Delete Group</a></li>
+<li><a href="#rename-group">Rename Group</a></li>
+<li><a href="#group-member">Group Member</a><ul>
+<li><a href="#add-a-group-member">Add A Group Member</a></li>
+<li><a href="#delete-a-group-member">Delete A Group Member</a></li>
+</ul>
+</li>
+<li><a href="#group-message">Group Message</a><ul>
+<li><a href="#get-group-messages">Get Group Messages</a></li>
+<li><a href="#get-group-message-detail">Get Group Message Detail</a></li>
+<li><a href="#send-a-group-message">Send A Group Message</a></li>
+<li><a href="#reply-a-group-message">Reply A Group Message</a></li>
+<li><a href="#get-group-message-replies">Get Group Message Replies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#share">Share</a><ul>
+<li><a href="#file-share-link">File Share Link</a><ul>
+<li><a href="#list-file-share-links">List File Share Links</a></li>
+<li><a href="#create-file-share-link">Create File Share Link</a></li>
+<li><a href="#delete-file-share-link">Delete File Share Link</a></li>
+<li><a href="#send-share-link-email">Send Share Link Email</a></li>
+<li><a href="#send-upload-link-email">Send Upload Link Email</a></li>
+<li><a href="#list-direntry-in-dir-download-link">List Direntry in Dir Download Link</a></li>
+</ul>
+</li>
+<li><a href="#shared-libraries">Shared Libraries</a><ul>
+<li><a href="#list-shared-libraries">List Shared Libraries</a></li>
+<li><a href="#list-be-shared-libraries">List Be Shared Libraries</a></li>
+<li><a href="#share-a-library">Share A Library</a></li>
+<li><a href="#unshare-a-library">Unshare A Library</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#library">Library</a><ul>
+<li><a href="#library-1">Library</a><ul>
+<li><a href="#get-default-lib">Get Default Library</a></li>
+<li><a href="#create-default-lib">Create Default Library</a></li>
+<li><a href="#list-libraries">List Libraries</a></li>
+<li><a href="#get-library-info">Get Library Info</a></li>
+<li><a href="#get-library-owner">Get Library Owner</a></li>
+<li><a href="#get-library-history">Get Library History</a></li>
+<li><a href="#create-library">Create Library</a></li>
+<li><a href="#check/create-sub-library">Check/Create Sub Library</a></li>
+<li><a href="#delete-library">Delete Library</a></li>
+<li><a href="#rename-library">Rename Library</a></li>
+<li><a href="#decrypt-library">Decrypt Library</a></li>
+<li><a href="#create-public-lib">Create Public Library</a></li>
+<li><a href="#remove-public-lib">Remove Public Library</a></li>
+<li><a href="#fetch-library-download-info">Fetch library download info</a></li>
+<li><a href="#list-virtual-libraries">List Virtual Libraries</a></li>
+<li><a href="#search-libraries">Search Libraries</a></li>
+</ul>
+</li>
+<li><a href="#file">File</a><ul>
+<li><a href="#view-file-through-owa">View File Through Owa</a></li>
+<li><a href="#download-file">Download File</a></li>
+<li><a href="#get-file-detail">Get File Detail</a></li>
+<li><a href="#get-file-history">Get File History</a></li>
+<li><a href="#download-file-revision">Download File From a Revision</a></li>
+<li><a href="#create-file">Create File</a></li>
+<li><a href="#rename-file">Rename File</a></li>
+<li><a href="#lock-file">Lock File</a></li>
+<li><a href="#unlock-file">Unlock File</a></li>
+<li><a href="#move-file">Move File</a></li>
+<li><a href="#copy-file">Copy File</a></li>
+<li><a href="#revert-file">Revert File</a></li>
+<li><a href="#delete-file">Delete File</a></li>
+<li><a href="#upload-file">Upload File</a><ul>
+<li><a href="#get-upload-link">Get Upload Link</a></li>
+<li><a href="#upload-file-1">Upload File</a></li>
+</ul>
+</li>
+<li><a href="#update-file">Update file</a><ul>
+<li><a href="#get-update-link">Get Update Link</a></li>
+<li><a href="#update-file-1">Update File</a></li>
+</ul>
+</li>
+<li><a href="#get-upload-blocks-link">Get Upload Blocks Link</a></li>
+<li><a href="#get-update-blocks-link">Get Update Blocks Link</a></li>
+</ul>
+</li>
+<li><a href="#directory">Directory</a><ul>
+<li><a href="#list-directory-entries">List Directory Entries</a></li>
+<li><a href="#create-new-directory">Create New Directory</a></li>
+<li><a href="#rename-directory">Rename Directory</a></li>
+<li><a href="#delete-directory">Delete Directory</a></li>
+<li><a href="#download-directory">Download Directory</a></li>
+<li><a href="#share-directory">Share Directory</a></li>
+</ul>
+</li>
+<li><a href="#multiple-files-directories">Multiple Files / Directories</a><ul>
+<li><a href="#multiple-files-directories-copy">Copy</a></li>
+<li><a href="#multiple-files-directories-move">Move</a></li>
+<li><a href="#multiple-files-directories-delete">Delete</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#avatar">Avatar</a><ul>
+<li><a href="#get-user-avatar">Get User Avatar</a></li>
+<li><a href="#get-group-avatar">Get Group Avatar</a></li>
+</ul>
+</li>
+<li><a href="#get-file-activities">Get File Activities</a></li>
+<li><a href="#get-thumbnail-image">Get Thumbnail Image</a></li>
+<li><a href="#add-organization">Add Organization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p></p>
+<h1 id="seafile-web-api-v2"><a id="seafile-web-api-v2"></a>Seafile Web API V2</h1>
+<h2 id="api-basics"><a id="api-basics"></a>API Basics</h2>
+<p>All API calls must be authenticated with a valid Seafile API key.</p>
+<pre><code>curl -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' https://cloud.seafile.com/api2/auth/ping/
+</code></pre>
+<p>The api key can be retrieved by the obtain auth api. See the <a href="#quick-start">Quick Start</a> for details.</p>
+<p>For each API, we provide <code>curl</code> examples to illustrate the usage. We also provide <code>python</code> and <code>javascript</code> examples, please refer to https://github.com/haiwen/webapi-examples for details.</p>
+<h2 id="status-code"><a id="status-code"></a>Status Code</h2>
+<ul>
+<li>200: OK</li>
+<li>201: CREATED</li>
+<li>202: ACCEPTED</li>
+<li>301: MOVED_PERMANENTLY</li>
+<li>400: BAD_REQUEST</li>
+<li>403: FORBIDDEN</li>
+<li>404: NOT_FOUND</li>
+<li>409: CONFLICT</li>
+<li>429: TOO_MANY_REQUESTS</li>
+<li>440: REPO_PASSWD_REQUIRED</li>
+<li>441: REPO_PASSWD_MAGIC_REQUIRED</li>
+<li>500: INTERNAL_SERVER_ERROR</li>
+<li>520: OPERATION_FAILED</li>
+</ul>
+<h2 id="quick-start"><a id="quick-start"></a>Quick Start</h2>
+<p><strong>ping</strong></p>
+<pre><code>curl https://cloud.seafile.com/api2/ping/
+
+"pong"
+</code></pre>
+<p><strong>obtain auth token</strong></p>
+<pre><code>curl -d "username=username@example.com&amp;password=123456" https://cloud.seafile.com/api2/auth-token/
+
+{"token": "24fd3c026886e3121b2ca630805ed425c272cb96"}
+</code></pre>
+<p><strong>auth ping</strong></p>
+<pre><code>curl -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' https://cloud.seafile.com/api2/auth/ping/
+
+"pong"
+</code></pre>
+<h2 id="account"><a id="account"></a>Account</h2>
+<h3 id="list-accounts"><a id="list-accounts"></a>List Accounts</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/accounts/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>start (default to 0)</li>
+<li>limit (default to 100)</li>
+<li>scope (default None, accepted values: 'LDAP' or 'DB')</li>
+</ul>
+<p>To retrieve all users, just set both <code>start</code> and <code>limit</code> to <code>-1</code>.</p>
+<p>If scope parameter is passed then accounts will be searched inside the specific scope, otherwise it will be used the old approach: first LDAP and, if no account is found, DB.</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>[
+{
+    "email": "foo@foo.com"
+},
+{
+    "email": "bar@bar.com"
+}
+]
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 Permission error, only administrator can perform this action</li>
+</ul>
+<h3 id="get-account-info"><a id="get-account"></a>Get Account Info</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/accounts/{email}/</p>
+<p><strong>Request parameters</strong></p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/user@mail.com/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+"is_staff": false,
+"is_active": true,
+"id": 2,
+"create_time": 1356061187741686,
+"usage": 651463187,
+"total": 107374182400,
+"email": "user@mail.com"
+}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 Permission error, only administrator can perform this action</li>
+</ul>
+<h3 id="check-account-info"><a id="check-account-info"></a>Check Account Info</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/account/info/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/account/info/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+"usage": 26038531,
+"total": 104857600,
+"email": "user@example.com"
+}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 Invalid token</li>
+</ul>
+<h3 id="create-account"><a id="create-account"></a>Create Account</h3>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/accounts/{email}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>password</li>
+<li>is_staff (defaults to False)</li>
+<li>is_active (defaults to True)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -X PUT -d "password=123456" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/newaccount@gmail.com/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 201 CREATED
+&lt; Location: https://cloud.seafile.com/api2/accounts/newaccount@gmail.com/
+...
+
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<pre><code>Response code 201(Created) is returned and the Location header provides shared link.
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 Permission error, only administrator can perform this action</li>
+</ul>
+<h3 id="update-account"><a id="update-account"></a>Update Account</h3>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/accounts/{email}/</p>
+<p><strong>Request parameters</strong></p>
+<p>At least one of followings:</p>
+<ul>
+<li>password</li>
+<li>is_staff</li>
+<li>is_active</li>
+<li>name</li>
+<li>note</li>
+<li>storage</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -X PUT -d "password=654321&amp;is_staff=true&amp;storage=1073741824" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/user@mail.com/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<pre><code>Response code 200(OK) is returned.
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Bad Request, keyword password is required</li>
+<li>403 Permission error, only administrator can perform this action</li>
+</ul>
+<h3 id="migrate-account"><a id="migrate-account"></a>Migrate Account</h3>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/accounts/{email}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>op</li>
+<li>to_user this user must exist</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -d "op=migrate&amp;to_user=user2@mail.com" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/user@mail.com/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<pre><code>Response code 200(OK) is returned.
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Bad Request, arguments are missing or invalid</li>
+<li>403 Permission error, only administrator can perform this action</li>
+</ul>
+<h3 id="delete-account"><a id="delete-account"></a>Delete Account</h3>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/accounts/{email}/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -X DELETE -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/newaccount@gmail.com/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"success"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 Permission error, only administrator can perform this action</li>
+</ul>
+<h3 id="get-server-information"><a id="server-info"></a>Get Server Information</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/server-info</p>
+<p><em>Note</em>:</p>
+<ul>
+<li>No authentication required.</li>
+<li>Added in seafile community edition server <code>4.0.5</code> or pro edition server <code>4.0.3</code></li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl https://cloud.seafile.com/api2/server-info/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<p>Sample response from a seafile community edition server:</p>
+<pre><code>{
+    "version": "4.0.6",
+    "features": [
+    "seafile-basic",
+    ]
+}
+</code></pre>
+<p>Sample response from a seafile pro edition server:</p>
+<pre><code>{
+    "version": "4.0.6",
+    "features": [
+    "seafile-basic",
+    "seafile-pro",
+    "office-preview",
+    "file-search"
+    ]
+}
+</code></pre>
+<h2 id="starred-files"><a id="starred-files"></a>Starred Files</h2>
+<h3 id="list-starred-files"><a id="list-starred-files"></a>List starred files</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/starredfiles/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e6199b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/starredfiles/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>[
+{
+    "repo": "99b758e6-91ab-4265-b705-925367374cf0",
+    "mtime": 1355198150,
+    "org": -1,
+    "path": "/foo/bar.doc",
+    "dir": false,
+    "size": 0
+},
+{
+    "repo": "99b758e6-91ab-4265-b705-925367374cf0",
+    "mtime": 1353751237,
+    "org": -1,
+    "path": "/add_folder-blue.png",
+    "dir": false,
+    "size": 3170
+}
+]
+</code></pre>
+<h3 id="star-a-file"><a id="star-a-file"></a>Star A File</h3>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/starredfiles/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo_id (post)</li>
+<li>p (post)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -d "repo_id=dae8cecc-2359-4d33-aa42-01b7846c4b32&amp;p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/starredfiles/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 201 CREATED
+&lt; Location: https://cloud.seafile.com/api2/starredfiles/
+...
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code is 201(Created) and Location header provides url of starred file list.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 <code>repo_id</code> or <code>p</code> is missing, or <code>p</code> is not valid file path(e.g. /foo/bar/).</li>
+</ul>
+<h3 id="unstar-a-file"><a id="unstar-a-file"></a>Unstar A File</h3>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/starredfiles/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo_id</li>
+<li>p</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X DELETE -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' 'https://cloud.seafile.com/api2/starredfiles/?repo_id=dae8cecc-2359-4d33-aa42-01b7846c4b32&amp;p=/foo.md'
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code is 200(OK), and a string named "success" is returned.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 <code>repo_id</code> or <code>p</code> is missing, or <code>p</code> is not valid file path(e.g. /foo/bar/).</li>
+</ul>
+<h2 id="group"><a id="group"></a>Group</h2>
+<h3 id="list-groups"><a id="list-groups"></a>List Groups</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/groups/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "replynum": 0,
+    "groups": [
+        {
+            "ctime": 1398134171327948,
+            "creator": "user@example.com",
+            "msgnum": 0,
+            "mtime": 1398231100,
+            "id": 1,
+            "name": "lian"
+        },
+        {
+            "ctime": 1398236081042441,
+            "creator": "user@example.com",
+            "msgnum": 0,
+            "mtime": 0,
+            "id": 2,
+            "name": "123"
+        }
+    ]
+}
+</code></pre>
+<h3 id="add-a-group"><a id="add-a-group"></a>Add A Group</h3>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/groups/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>group_name</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X PUT -d "group_name=newgroup" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{"group_id": 3, "success": true}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 There is already a group with that name.</li>
+</ul>
+<h3 id="delete-group"><a id="delete-group"></a>Delete Group</h3>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/groups/{group_id}/</p>
+<p><strong>Request parameters</strong></p>
+<p>None</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>200 if everything is fine.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 if ad group id format</li>
+<li>404 if Group not found</li>
+<li>403 if Forbid to delete group</li>
+<li>520 if Failed to remove group (generic error)</li>
+</ul>
+<h3 id="rename-group"><a id="rename-group"></a>Rename Group</h3>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/groups/{group_id}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>operation (value must be 'rename')</li>
+<li>newname (the new name for the group)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d "operation=rename&amp;newname=pinkfloyd_lovers" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>200 if everything is fine.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>404 if Group not found</li>
+<li>403 if Forbid to rename group</li>
+<li>400 if Newname is missing or if Group name is not valid of if There is already a group with that name or Operation can only be rename.</li>
+</ul>
+<h3 id="group-member"><a id="group-member"></a>Group Member</h3>
+<h4 id="add-a-group-member"><a id="add-a-group-member"></a>Add A Group Member</h4>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/groups/{group_id}/members/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>user_name</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X PUT -d "user_name=user@example.com"-H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/members/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{"success": true}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 invalid group id</li>
+<li>403 only administrators can add group members</li>
+<li>404 unable to find group</li>
+</ul>
+<h4 id="delete-a-group-member"><a id="delete-a-group-member"></a>Delete A Group Member</h4>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/groups/{group_id}/members/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>user_name</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X DELETE -d "user_name=user@example.com" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/members/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{"success": true}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 invalid group id</li>
+<li>403 only administrators can remove group members</li>
+<li>404 unable to find group</li>
+</ul>
+<h3 id="group-message"><a id="group-message"></a>Group Message</h3>
+<h4 id="get-group-messages"><a id="get-group-messages"></a>Get Group Messages</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/group/msgs/{group_id}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>group_id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/group/msgs/1/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "next_page": -1,
+    "msgs": [
+        {
+            "reply_cnt": 0,
+            "timestamp": 1398230602,
+            "replies": [],
+            "from_email": "user@example.com",
+            "msgid": 1,
+            "msg": "test discuss",
+            "nickname": "user"
+        }
+    ]
+}
+</code></pre>
+<h4 id="get-group-message-detail"><a id="get-group-message-detail"></a>Get Group Message Detail</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/group/{group_id}/msg/{msg_id}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>group_id</li>
+<li>msg_id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/group/1/msg/1/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "reply_cnt": 2,
+    "timestamp": 1398230602,
+    "replies": [
+        {
+            "msg": "this is another test",
+            "timestamp": 1398232319,
+            "nickname": "user",
+            "msgid": 1,
+            "from_email": "user@example.com"
+        },
+        {
+            "msg": "this is another test",
+            "timestamp": 1398232508,
+            "nickname": "user",
+            "msgid": 3,
+            "from_email": "user@example.com"
+        }
+    ],
+    "from_email": "user@example.com",
+    "msgid": 1,
+    "msg": "test discuss",
+    "nickname": "user"
+}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>404 message not found</li>
+</ul>
+<h4 id="send-a-group-message"><a id="send-a-group-message"></a>Send A Group Message</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/group/msgs/{group_id}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>message</li>
+<li>group_id</li>
+<li>repo_id(optional)</li>
+<li>path(optional)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d "message=this is another test&amp;repo_id=c7436518-5f46-4296-97db-2fcba4c8c8db&amp;path=/123.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/group/msgs/1/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "msgid": 3
+}
+</code></pre>
+<h4 id="reply-a-group-message"><a id="reply-a-group-message"></a>Reply A Group Message</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/group/{group_id}/msg/{msg_id}</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>group_id</li>
+<li>msg_id</li>
+<li>message</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d "message=this is a reply" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/group/1/msg/1/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "msgid": 3
+}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>404 message not found</li>
+</ul>
+<h4 id="get-group-message-replies"><a id="get-group-message-replies"></a>Get Group Message Replies</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/new_replies/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/new_replies/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>[
+    {
+        "reply_cnt": 1,
+        "timestamp": 1398231100,
+        "replies": [
+            {
+                "msg": "@user test reply",
+                "timestamp": 1398234493,
+                "nickname": "123",
+                "msgid": 5,
+                "from_email": "user@example.com"
+            }
+        ],
+        "from_email": "user@example.com",
+        "att": {
+            "repo": "c7436518-5f46-4296-97db-2fcba4c8c8db",
+            "path": "/123.md",
+            "type": "file",
+            "src": "recommend"
+        },
+        "msgid": 3,
+        "msg": "this is another test",
+        "nickname": "user"
+    }
+]
+</code></pre>
+<h2 id="share"><a id="share"></a>Share</h2>
+<h3 id="file-share-link"><a id="file-share-link"></a>File Share Link</h3>
+<h4 id="list-file-share-links"><a id="list-file-share-links"></a>List File Share Links</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/shared-links/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-links/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{"fileshares": [{"username": "user@example.com", "repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4", "ctime": null, "s_type": "d", "token": "e410827494", "view_cnt": 0, "path": "/123/"}, {"username": "user@example.com", "repo_id": "affc837f-7fdd-4e91-b88a-32caf99897f2", "ctime": null, "s_type": "f", "token": "0ae587a7d1", "view_cnt": 0, "path": "/lian123.md"}]}
+</code></pre>
+<h4 id="create-file-share-link"><a id="create-file-share-link"></a>Create File Share Link</h4>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/shared-link/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p (Path to the file)</li>
+<li>share_type (optional, <code>download</code> or <code>upload</code>, default <code>download</code>)</li>
+<li>password (optional)</li>
+<li>expire (optional)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<p>Create download link for file</p>
+<pre><code>curl -v  -X PUT -d "p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
+</code></pre>
+<p>Create download link for directory with password and expire date</p>
+<pre><code>curl -v  -X PUT -d "password=password&amp;expire=6&amp;p=/123/" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
+</code></pre>
+<p>Create upload link for directory</p>
+<pre><code>curl -v -X PUT -d "share_type=upload&amp;p=/123/" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 201 CREATED
+&lt; Location: https://cloud.seafile.com/f/9b437a7e55/
+...
+</code></pre>
+<p><strong>Success</strong></p>
+<pre><code>Response code 201(Created) is returned and the Location header provides shared link.
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing</li>
+<li>400 Password(if link is encrypted) is missing</li>
+<li>500 Internal server error</li>
+</ul>
+<h4 id="delete-file-share-link"><a id="delete-file-share-link"></a>Delete File Share Link</h4>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/shared-links/?t=0ae587a7d1</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>t</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-links/?t=0ae587a7d1"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+</code></pre>
+<h4 id="send-share-link-email"><a id="send-share-link-email"></a>Send Share Link Email</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/send-share-link/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>token</li>
+<li>email</li>
+<li>extra_msg (not necessary)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d "email=sample@eamil.com,invalid-email&amp;token=4cbd625c5e" -H 'Authorization: Token ef12bf1e66a1aa797a1d6556fdc9ae84f1e9249f' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/send-share-link/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    &quot;failed&quot;: [
+        {
+            &quot;email&quot;: &quot;invalid-email&quot;,
+            &quot;error_msg&quot;: &quot;email invalid.&quot;
+        }
+    ],
+    &quot;success&quot;: [
+        &quot;sample@eamil.com&quot;
+    ]
+}
+</code></pre>
+
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 token/repo_id invalid</li>
+<li>403 Permission denied.</li>
+<li>403 Sending shared link failed. Email service is not properly configured, please contact administrator.</li>
+<li>404 token/library not found</li>
+</ul>
+<h4 id="send-upload-link-email"><a id="send-upload-link-email"></a>Send Upload Link Email</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/send-upload-link/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>token</li>
+<li>email</li>
+<li>extra_msg (not necessary)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d "email=sample@eamil.com,invalid-email&amp;token=4cbd625c5e" -H 'Authorization: Token ef12bf1e66a1aa797a1d6556fdc9ae84f1e9249f' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/send-upload-link/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    &quot;failed&quot;: [
+        {
+            &quot;email&quot;: &quot;invalid-email&quot;,
+            &quot;error_msg&quot;: &quot;email invalid.&quot;
+        }
+    ],
+    &quot;success&quot;: [
+        &quot;sample@eamil.com&quot;
+    ]
+}
+</code></pre>
+
+<ul>
+<li>400 token/repo_id invalid</li>
+<li>403 Permission denied.</li>
+<li>403 Sending shared link failed. Email service is not properly configured, please contact administrator.</li>
+<li>404 token/library not found</li>
+</ul>
+<h4 id="list-direntry-in-dir-download-link"><a id="list-direntry-in-dir-download-link"></a>List Direntry in Dir Download Link</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/d/{token}/dir/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>token (upload link token)</li>
+<li>p (sub folder path)</li>
+<li>password (if link is encrypted)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/d/3af7c46595/dir/?p=/subfolder/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>[{"mtime": 1436846750, "type": "dir", "name": "sadof", "id": "1806dbdb700b7bcd49e6275107c7ccf7b3ea1776"}, {"id": "bdb06f6de972c42893fda590ac954988b562429c", "mtime": 1436431020, "type": "file", "name": "test.mdert", "size": 20}]
+</code></pre>
+<h3 id="shared-libraries"><a id="shared-libs"></a>Shared Libraries</h3>
+<h4 id="list-shared-libraries"><a id="list-shared-libs"></a>List Shared Libraries</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/shared-repos/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/shared-repos/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>[{"repo_id": "7d42522b-1f6f-465d-b9c9-879f8eed7c6c", "share_type": "personal", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1361072500, "repo_desc": "ff", "group_id": 0, "repo_name": "\u6d4b\u8bd5\u4e2d\u6587pdf"}, {"repo_id": "79bb29cd-b683-4844-abaf-433952723ca5", "share_type": "group", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1359182468, "repo_desc": "test", "group_id": 1, "repo_name": "test_enc"}]
+</code></pre>
+<h4 id="list-be-shared-libraries"><a id="list-be-shared-libs"></a>List Be Shared Libraries</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/beshared-repos/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/beshared-repos/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"[{"user": "user@example.com", "repo_id": "989e3952-9d6f-4427-ab16-4bf9b53212eb", "share_type": "personal", "permission": "rw", "encrypted": false, "repo_desc": "lib shared to imwhatiam", "enc_version": false, "last_modified": 1398218747, "is_virtual": false, "group_id": 0, "repo_name": "lib shared to imwhatiam"}]"
+</code></pre>
+<h4 id="share-a-library"><a id="share-a-library"></a>Share A Library</h4>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/shared-repos/{repo-id}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>share_type ('personal', 'group' or 'public')</li>
+<li>user (or users)</li>
+<li>group_id</li>
+<li>permission</li>
+</ul>
+<p>If share_type is 'personal' then 'user' or 'users' param are required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.</p>
+<p>'user' or 'users' parameters can be a comma separated list of emails, in this case the share will be done for more users at the same time. If a problem is encountered during multiple users sharing then the sharing process is aborted.</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X PUT -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-repos/7d42522b-1f6f-465d-b9c9-879f8eed7c6c/?share_type=group&amp;user=user@example.com&amp;group_id=1&amp;permission=rw"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"success"
+</code></pre>
+<h4 id="unshare-a-library"><a id="unshare-a-library"></a>Unshare A Library</h4>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/shared-repos/{repo-id}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>share_type ('personal', 'group' or 'public')</li>
+<li>user</li>
+<li>group_id</li>
+</ul>
+<p>If share_type is 'personal' then 'user' param is required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-repos/7d42522b-1f6f-465d-b9c9-879f8eed7c6c/?share_type=personal&amp;user=user@example.com&amp;group_id=0"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"success"
+</code></pre>
+<h2 id="library"><a id="library"></a>Library</h2>
+<h3 id="library_1"><a id="library-1"></a>Library</h3>
+<h4 id="get-default-library"><a id="get-default-lib"></a>Get Default Library</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/default-repo/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/default-repo/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "repo_id": "691b3e24-d05e-43cd-a9f2-6f32bd6b800e",
+    "exists": true
+}
+</code></pre>
+<h4 id="create-default-library"><a id="create-default-lib"></a>Create Default Library</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/default-repo/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X POST -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/default-repo/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "repo_id": "691b3e24-d05e-43cd-a9f2-6f32bd6b800e",
+    "exists": true
+}
+</code></pre>
+<h4 id="list-libraries"><a id="list-libraries"></a>List Libraries</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>[
+{
+    "permission": "rw",
+    "encrypted": false,
+    "mtime": 1400054900,
+    "owner": "user@mail.com",
+    "id": "f158d1dd-cc19-412c-b143-2ac83f352290",
+    "size": 0,
+    "name": "foo",
+    "type": "repo",
+    "virtual": false,
+    "desc": "new library",
+    "root": "0000000000000000000000000000000000000000"
+},
+{
+    "permission": "rw",
+    "encrypted": false,
+    "mtime": 1400054802,
+    "owner": "user@mail.com",
+    "id": "0536b11a-a5fd-4482-9314-728cb3472f54",
+    "size": 0,
+    "name": "foo",
+    "type": "repo",
+    "virtual": false,
+    "desc": "new library",
+    "root": "0000000000000000000000000000000000000000"
+}
+]
+</code></pre>
+<h4 id="get-library-info"><a id="get-library-info"></a>Get Library Info</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -G -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/632ab8a8-ecf9-4435-93bf-f495d5bfe975/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+"encrypted": false,
+"password_need": null,
+"mtime": null,
+"owner": "self",
+"id": "632ab8a8-ecf9-4435-93bf-f495d5bfe975",
+"size": 1356155,
+"name": "org",
+"root": "b5227040de360dd22c5717f9563628fe5510cbce",
+"desc": "org file",
+"type": "repo"
+}
+</code></pre>
+<h4 id="get-library-owner"><a id="get-library-owner"></a>Get Library Owner</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/owner/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/owner/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+"owner": "user@example.com"
+}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 Permission error, only administrator can perform this action</li>
+</ul>
+<h4 id="get-library-history"><a id="get-library-history"></a>Get Library History</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/history/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/history/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{"commits": [{"rev_file_size": 0, "rev_file_id": null, "ctime": 1398045167, "creator_name": "imwhatiam123@gmail.com", "creator": "0000000000000000000000000000000000000000", "root_id": "ca2625da6be6e211ddd584615ef3bfaa531e66aa", "rev_renamed_old_path": null, "parent_id": "205c469f0830df09b13024601524058757a43128", "new_merge": false, "repo_id": "691b3e24-d05e-43cd-a9f2-6f32bd6b800e", "desc": "Modified \"api.md\"", "id": "eb62721812e0c3122889b5facde971b353ad176b", "conflict": false, "second_parent_id": null}, {"rev_file_size": 0, "rev_file_id": null, "ctime": 1398045158, "creator_name": "imwhatiam123@gmail.com", "creator": "0000000000000000000000000000000000000000", "root_id": "0b7a31adf4ea8b29ad5a5920420b548da11dd32f", "rev_renamed_old_path": null, "parent_id": "2ba85ee6072efea51a3483843ea7de9b6d1d1eb2", "new_merge": false, "repo_id": "691b3e24-d05e-43cd-a9f2-6f32bd6b800e", "desc": "Added \"api.md\"", "id": "205c469f0830df09b13024601524058757a43128", "conflict": false, "second_parent_id": null}], "page_next": false}
+</code></pre>
+<h4 id="create-library"><a id="create-library"></a>Create Library</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>name</li>
+<li>desc (defaults to "new repo")</li>
+<li>passwd (needed by encrypt library)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -d "name=foo&amp;desc=new library" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+"encrypted": "",
+"enc_version": 0,
+"repo_id": "f15811fd-5c19-412c-b143-2ac83f352290",
+"magic": "",
+"relay_id": "c5e41170db250ea497075e2911104faf0105b7fb",
+"repo_version": 1,
+"relay_addr": "cloud.seafile.com",
+"token": "c1f3defe9ba408cd7964427ec276843e9d10c23b",
+"relay_port": "10001",
+"random_key": "",
+"email": "user@mail.com",
+"repo_name": "foo"
+}
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code 200 and newly created library information are returned.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Library name missing.</li>
+<li>520 Operation failed.</li>
+</ul>
+<h4 id="checkcreate-sub-library"><a id="check/create-sub-library"></a>Check/Create Sub Library</h4>
+<p>check if a dir has a corresponding sub_repo, if it does not have, create one</p>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/dir/sub_repo/?p=/\&amp;name=sub_lib</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>name</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/sub_repo/?p=/\&amp;name=sub_lib
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{"sub_repo_id": "c0a3283c-013c-4a7c-8f68-006f06fa6dec"}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Argument missing</li>
+<li>500 INTERNAL SERVER ERROR</li>
+</ul>
+<h4 id="delete-library"><a id="delete-library"></a>Delete Library</h4>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/repos/{repo-id}/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<p>"success"</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>
+<p>400 Library does not exist.</p>
+</li>
+<li>
+<p>403 Only library owner can perform this operation.</p>
+</li>
+</ul>
+<h4 id="rename-library"><a id="rename-library"></a>Rename Library</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo-id}/?op=rename</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d "repo_name=new-repo-name"  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/op=rename
+</code></pre>
+<p><strong>Sample response</strong></p>
+<p>"success"</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>
+<p>404 Library not found.</p>
+</li>
+<li>
+<p>403 You do not have permission to rename this library.</p>
+</li>
+<li>
+<p>500 Unable to rename library</p>
+</li>
+</ul>
+<h4 id="decrypt-library"><a id="decrypt-library"></a>Decrypt Library</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo-id}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>password</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -d "password=123" -H 'Authorization: Token e6a33d61954f219a96b60f635cf02717964e4385' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/0c2465a5-4753-4660-8a22-65abec9ec8d0/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<p>"success"</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Incorrect password</li>
+<li>409 Repo is not encrypt</li>
+<li>500 Internal server error</li>
+</ul>
+<h4 id="create-public-library"><a id="create-public-lib"></a>Create Public Library</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo-id}/public/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X POST -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/public/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+</code></pre>
+<p><strong>Success</strong></p>
+<pre><code>Response code is 200(OK), and a string "success" is returned.
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>404 Repo not found</li>
+<li>403 Forbid to access this repo</li>
+<li>500 INTERNAL SERVER ERROR, Unable to make repo public</li>
+</ul>
+<h4 id="remove-public-library"><a id="remove-public-lib"></a>Remove Public Library</h4>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/repos/{repo-id}/public/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/public/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+</code></pre>
+<p><strong>Success</strong></p>
+<pre><code>Response code is 200(OK), and a string "success" is returned.
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>404 Repo not found</li>
+<li>403 Forbid to access this repo</li>
+<li>500 INTERNAL SERVER ERROR, Unable to remove public repo</li>
+</ul>
+<h4 id="fetch-library-download-info"><a id="fetch-library-download-info"></a>Fetch library download info</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/download-info/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/download-info/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+"applet_root": "https://localhost:13420",
+"relay_addr": "localhost",
+"token": "46acc4d9ca3d6a5c7102ef379f82ecc1edc629e1",
+"repo_id": "dae8cecc-2359-4d33-aa42-01b7846c4b32",
+"relay_port": "10002",
+"encrypted": "",
+"repo_name": "test",
+"relay_id": "8e4b13b49ca79f35732d9f44a0804940d985627c",
+"email": "user@example.com"
+}
+</code></pre>
+<h4 id="list-virtual-libraries"><a id="list-virtual-libraries"></a>List Virtual Libraries</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/virtual-repos/</p>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/virtual-repos/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{"virtual-repos":
+    [
+        {"virtual_perm": "rw", "store_id": null, "worktree_invalid": false, "encrypted": false, "origin_repo_name": "lian", "last_modify": 0, "no_local_history": false, "head_branch": null, "last_sync_time": 0, "id": "51344de8-456f-4dc7-ac08-718827994252", "size": 0, "share_permission": null, "worktree_changed": false, "worktree_checktime": 0, "origin_path": "/lian", "is_virtual": true, "origin_repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4", "version": 1, "random_key": null, "is_original_owner": true, "shared_email": null, "enc_version": 0, "head_cmmt_id": "bc666fdc60d2352b9f6a0324ac64168d43724eed", "desc": null, "index_corrupted": false, "magic": null, "name": "lian", "worktree": null, "auto_sync": false, "relay_id": null},
+        {"virtual_perm": "rw", "store_id": null, "worktree_invalid": false, "encrypted": false, "origin_repo_name": "lian", "last_modify": 0, "no_local_history": false, "head_branch": null, "last_sync_time": 0, "id": "c0a3283c-013c-4a7c-8f68-006f06fa6dec", "size": 0, "share_permission": null, "worktree_changed": false, "worktree_checktime": 0, "origin_path": "/", "is_virtual": true, "origin_repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4", "version": 1, "random_key": null, "is_original_owner": true, "shared_email": null, "enc_version": 0, "head_cmmt_id": "ff18229aadc9acc73ad481278d5b4c42b3353aa0", "desc": null, "index_corrupted": false, "magic": null, "name": "123", "worktree": null, "auto_sync": false, "relay_id": null}
+    ]
+}
+</code></pre>
+<h4 id="search-libraries"><a id="search-libraries"></a>Search Libraries</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/search/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>q</li>
+<li>per_page (optional)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -G -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/search/?q=keyword
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "has_more": false,
+    "total": 3,
+    "results": [
+        {
+            "repo_id": "691b3e24-d05e-43cd-a9f2-6f32bd6b800e",
+            "name": "api.md",
+            "oid": "8ea78453bb474359cd9d8e2c4c4d8d9cbdcef0a2",
+            "last_modified": 1398045167,
+            "fullpath": "/api.md",
+            "size": 18939
+        },
+        {
+            "repo_id": "c5509062-9bca-4933-a7e0-c6da1d5f82be",
+            "name": "home.md",
+            "oid": "dda57aaffa5179829e064c7d0c142f47a8a65d3b",
+            "last_modified": 1397096831,
+            "fullpath": "/home.md",
+            "size": 1954
+        },
+        {
+            "repo_id": "c5509062-9bca-4933-a7e0-c6da1d5f82be",
+            "name": "\u5e38\u89c1\u5b89\u88c5\u95ee\u9898.md",
+            "oid": "8573f982eeb478b932a55ec13218f4f90a7c5a27",
+            "last_modified": 1397188959,
+            "fullpath": "/\u5e38\u89c1\u5b89\u88c5\u95ee\u9898.md",
+            "size": 1050
+        }
+    ]
+}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>404 Search not supported.</li>
+<li>400 Missing argument q.</li>
+</ul>
+<h3 id="file"><a id="file"></a>File</h3>
+<h4 id="view-file-through-owa"><a id="view-file-through-owa"></a>View File Through Owa</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/owa-file/?path=/foo.docx</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>path</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl  -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' 'https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/owa-file/?path=/foo.docx'
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    &quot;access_token&quot;: &quot;7decacff-6e55-4856-9734-01aaab26ef45&quot;,
+    &quot;action_url&quot;: &quot;http://off1.off.com/wv/wordviewerframe.aspx?WOPIsrc=http%3A%2F%2F192.168.1.124%3A8000%2Fapi2%2Fwopi%2Ffiles%2F2b0750085925fa85238e5f64cfd13ed6f1076bfd%2F&quot;,
+    &quot;access_token_ttl&quot;: 1456906784000
+}
+</code></pre>
+
+<p><strong>After get response</strong></p>
+<p>In order to instantiate the Office Online applications, a host must create an HTML page that will host an iframe element within it pointing to a particular WOPI action URL. And then use a form element and POST the <code>access_token</code> and <code>access_token_ttl</code> values to the Office Online.</p>
+<p>For more info, you can see <a href="http://wopi.readthedocs.org/en/latest/hostpage.html">this official docs</a>.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 path invalid.</li>
+<li>403 permission denied.</li>
+<li>403 Library encrypted.</li>
+<li>403 Office Web App feature not enabled.</li>
+<li>403 Office Web App feature only supported in professional edition.</li>
+<li>404 File/Library not found.</li>
+<li>500 Internal Server Error</li>
+</ul>
+<h4 id="download-file"><a id="download-file"></a>Download File</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>reuse (optional): Set <code>resue</code> to <code>1</code> if you want the generated download link can be accessed more than once in one hour.</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl  -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' 'https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c&amp;reuse=1'
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"https://cloud.seafile.com:8082/files/adee6094/foo.c"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing</li>
+<li>404 File not found</li>
+<li>520 Operation failed.</li>
+</ul>
+<h4 id="get-file-detail"><a id="get-file-detail"></a>Get File Detail</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/detail/?p=/foo.c</p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/detail/?p=/foo.c
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+"id": "013d3d38fed38b3e8e26b21bb3463eab6831194f",
+"mtime": 1398148877,
+"type": "file",
+"name": "foo.py",
+"size": 22
+}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing</li>
+<li>520 Operation failed.</li>
+</ul>
+<h4 id="get-file-history"><a id="get-file-history"></a>Get File History</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/history/?p=/foo.c</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/history/?p=/foo.c
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+"commits":
+    [
+        {
+        "rev_file_size": 0,
+        "repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4",
+        "ctime": 1398149763,
+        "creator_name": "user@example.com",
+        "creator": "0000000000000000000000000000000000000000",
+        "root_id": "b64d413d9894c9206beac3faf9c2a0d75b4a8ebf",
+        "rev_renamed_old_path": null,
+        "parent_id": "8e546762e1657ab22dad83e9cb1e5ea31a767c9a",
+        "new_merge": false,
+        "version": 1,
+        "conflict": false,
+        "desc": "Added \"foo.c\"",
+        "id": "9464f7499bfa7363d563282361339eaf96a93318",
+        "rev_file_id": "0000000000000000000000000000000000000000",
+        "second_parent_id": null
+        },
+        {
+        "rev_file_size": 0,
+        "repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4",
+        "ctime": 1398146059,
+        "creator_name": "user@example.com",
+        "creator": "0000000000000000000000000000000000000000",
+        "root_id": "572413414257c76039897e00aeb35f819471206b",
+        "rev_renamed_old_path": null,
+        "parent_id": "f977bdb0ebb205645c3b42216c2817e511c3f68f",
+        "new_merge": false,
+        "version": 1,
+        "conflict": false,
+        "desc": "Added \"foo.c\"",
+        "id": "a1ec20709675f4dc8db825cdbca296be245d189b",
+        "rev_file_id": "0000000000000000000000000000000000000000",
+        "second_parent_id": null
+        }
+    ]
+}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing</li>
+<li>404 File not found</li>
+</ul>
+<h4 id="download-file-from-a-revision"><a id="download-file-revision"></a>Download File From a Revision</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/revision/?p=/foo.c&amp;commit_id=a1ec20709675f4dc8db825cdbca296be245d189b</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>commit_id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/revision/?p=/foo.c\&amp;commit_id=a1ec20709675f4dc8db825cdbca296be245d189b
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"https://cloud.seafile.com:8082/files/adee6094/foo.c"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing</li>
+<li>404 Revision not found</li>
+</ul>
+<h4 id="create-file"><a id="create-file"></a>Create File</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo.c</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>operation</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -d "operation=create" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.1 201 CREATED
+...
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code is 201, and a string <code>"success"</code> is returned.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 FORBIDDEN, You do not have permission to move file</li>
+<li>520 OPERATION FAILED, fail to create file</li>
+</ul>
+<h4 id="rename-file"><a id="rename-file"></a>Rename File</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo.c</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>operation=rename</li>
+<li>newname</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -d "operation=rename&amp;newname=newfoo.c" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.1 301 MOVED PERMANENTLY
+...
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code is 301, and a string <code>"success"</code> is returned.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 BAD REQUEST, Path is missing or invalid(e.g. p=/) or newname is missing(newname too long)</li>
+<li>403 FORBIDDEN, You do not have permission to rename file</li>
+<li>404 NOT FOUND, repo not found</li>
+<li>409 CONFLICT, the newname is the same to the old</li>
+<li>520 OPERATION FAILED, fail to rename file</li>
+</ul>
+<h4 id="lock-file"><a id="lock-file"></a>Lock File</h4>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>operation</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -X PUT -d "operation=lock&amp;p=/foo.c" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code is 200, and a string <code>"success"</code> is returned.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 BAD REQUEST, Path is missing or invalid(e.g. p=/)</li>
+<li>403 FORBIDDEN, You do not have permission to lock file</li>
+<li>404 NOT FOUND, repo not found</li>
+<li>520 OPERATION FAILED, fail to lock file</li>
+</ul>
+<h4 id="unlock-file"><a id="unlock-file"></a>Unlock File</h4>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>operation</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -X PUT -d "operation=unlock&amp;p=/foo.c" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code is 200, and a string <code>"success"</code> is returned.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 BAD REQUEST, Path is missing or invalid(e.g. p=/)</li>
+<li>403 FORBIDDEN, You do not have permission to lock file</li>
+<li>404 NOT FOUND, repo not found</li>
+<li>520 OPERATION FAILED, fail to unlock file</li>
+</ul>
+<h4 id="move-file"><a id="move-file"></a>Move File</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo.c</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>operation</li>
+<li>dst_repo</li>
+<li>dst_dir</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -d "operation=move&amp;dst_repo=affc837f-7fdd-4e91-b88a-32caf99897f2&amp;dst_dir=/" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.1 301 MOVED PERMANENTLY
+...
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code is 301, and a string <code>"success"</code> is returned.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 BAD REQUEST, Path is missing or invalid(e.g. p=/)</li>
+<li>403 FORBIDDEN, You do not have permission to move file</li>
+<li>404 NOT FOUND, repo not found</li>
+<li>500 INTERNAL SERVER ERROR</li>
+</ul>
+<h4 id="copy-file"><a id="copy-file"></a>Copy File</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo.c</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>operation</li>
+<li>dst_repo</li>
+<li>dst_dir</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -d "dst_repo=73ddb2b8-dda8-471b-b7a7-ca742b07483c&amp;dst_dir=/&amp;file_names=foo.c" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' https://cloud.seafile.com/api2/repos/c7436518-5f46-4296-97db-2fcba4c8c8db/file/?p=/foo.c
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.1 200 OK
+...
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code is 200, and a string <code>"success"</code> is returned.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 BAD REQUEST, Path is missing or invalid(e.g. p=/)</li>
+<li>403 FORBIDDEN, You do not have permission to copy file</li>
+<li>500 INTERNAL SERVER ERROR</li>
+</ul>
+<h4 id="revert-file"><a id="revert-file"></a>Revert File</h4>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/repos/{repo_id}/file/revert/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo_id</li>
+<li>p</li>
+<li>commit_id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -X PUT -d "commit_id=a1ec20709675f4dc8db825cdbca296be245d189b&amp;p=/foo.c" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/file/revert/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+
+{"ret": 0}
+</code></pre>
+<p><strong>Success</strong></p>
+<pre><code>Response code 200(OK) is returned.
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing</li>
+</ul>
+<h4 id="delete-file"><a id="delete-file"></a>Delete File</h4>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X DELETE -v  -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+"success"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing</li>
+<li>520 Operation failed.</li>
+</ul>
+<p><strong>Note</strong></p>
+<p>This can also be used to delete directory.</p>
+<h4 id="upload-file"><a id="upload-file"></a>Upload File</h4>
+<h5 id="get-upload-link"><a id="get-upload-link"></a>Get Upload Link</h5>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/upload-link/?p=/upload-dir</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p (use '/' as default)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/upload-link/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"http://cloud.seafile.com:8082/upload-api/73c5d117-3bcf-48a0-aa2a-3f48d5274ae3"
+</code></pre>
+<p><strong>Errors</strong></p>
+<pre><code>403 Permission denied.
+500 Run out of quota
+</code></pre>
+<h5 id="upload-file_1"><a id="upload-file-1"></a>Upload File</h5>
+<p>After getting the upload link, POST to this link for uploading files.</p>
+<p><strong>POST</strong> http://cloud.seafile.com:8082/upload-api/73c5d117-3bcf-48a0-aa2a-3f48d5274ae3</p>
+<p><strong>Errors</strong></p>
+<pre><code>400 Bad request
+440 Invalid filename
+500 Internal server error
+</code></pre>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -F file=@test.txt -F filename=test.txt -F parent_dir=/ http://cloud.seafile.com:8082/upload-api/73c5d117-3bcf-48a0-aa2a-3f48d5274ae3
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"adc83b19e793491b1c6ea0fd8b46cd9f32e592fc"
+</code></pre>
+<p><strong>Note</strong></p>
+<ul>
+<li>
+<p>New uploaded file's name will be 'test(1).text' if a file with name 'test.txt' already exists in parent directory</p>
+</li>
+<li>
+<p>For python client uploading, see <a href="https://github.com/haiwen/webapi-examples/blob/master/python/upload-file.py">https://github.com/haiwen/webapi-examples/blob/master/python/upload-file.py</a>, or it can be done much more easily with elegant <a href="http://docs.python-requests.org/en/latest/">python requests library</a>, see <a href="https://github.com/haiwen/webapi-examples/blob/master/python/upload-file2.py">https://github.com/haiwen/webapi-examples/blob/master/python/upload-file2.py</a></p>
+</li>
+</ul>
+<h4 id="update-file"><a id="update-file"></a>Update file</h4>
+<h5 id="get-update-link"><a id="get-update-link"></a>Get Update Link</h5>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/update-link/?p=/update-dir</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p (use '/' as default)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/update-link/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"http://cloud.seafile.com:8082/update-api/e69e5ee7-9329-4f42-bf1b-12879bd72c28"
+</code></pre>
+<p><strong>Errors</strong></p>
+<pre><code>403 Permission denied.
+500 Run out of quota
+</code></pre>
+<h5 id="update-file_1"><a id="update-file-1"></a>Update File</h5>
+<p>After getting the update link, POST to this link for updating files.</p>
+<p><strong>POST</strong> http://cloud.seafile.com:8082/update-api/e69e5ee7-9329-4f42-bf1b-12879bd72c28</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>target_file</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -F file=@test.txt -F filename=test.txt -F target_file=/test.txt http://cloud.seafile.com:8082/update-api/e69e5ee7-9329-4f42-bf1b-12879bd72c28
+</code></pre>
+<p><strong>Returns</strong></p>
+<p>The id of the updated file</p>
+<p><strong>Sample response</strong></p>
+<pre><code>"adc83b19e793491b1c6ea0fd8b46cd9f32e592fc"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Bad request</li>
+<li>440 Invalid filename</li>
+<li>500 Internal server error</li>
+</ul>
+<h4 id="get-upload-blocks-link"><a id="get-upload-blks-link"></a>Get Upload Blocks Link</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/upload-blks-link/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/upload-blks-link/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"https://cloud.seafile.com/seafhttp/upload-blks-api/569213db-7297-457a-907d-e2259a277c05"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 Can not access repo</li>
+<li>520 above quota</li>
+</ul>
+<h4 id="get-update-blocks-link"><a id="get-update-blks-link"></a>Get Update Blocks Link</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/update-blks-link/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo-id</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/update-blks-link/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"https://cloud.seafile.com/seafhttp/update-blks-api/402c6d48-fe52-4592-97dd-85f462f03d66"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 Can not access repo</li>
+<li>520 above quota</li>
+</ul>
+<h3 id="directory"><a id="directory">Directory</h3>
+<h4 id="list-directory-entries"><a id="list-directory-entries"></a>List Directory Entries</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/dir/</p>
+<ul>
+<li>repo-id</li>
+<li>p (optional): The path to a directory. If <code>p</code> is missing, then defaults to '/' which is the top directory.</li>
+<li>oid (optional): The object id of the directory. The object id is the checksum of the directory contents.</li>
+<li>t (optional): If set <code>t</code> argument as <code>f</code>, will only return file entries, and <code>d</code> for only dir entries.</li>
+<li>recursive (optional): If set <code>t</code> argument as <code>d</code> <strong>AND</strong> <code>recursive</code> argument as <code>1</code>, return all dir entries recursively</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/dir/?p=/foo
+</code></pre>
+<p><strong>Sample response</strong></p>
+<p>If oid is the same as the current oid of the directory, returns <code>"uptodate"</code> , else returns</p>
+<pre><code>[
+{
+    "id": "0000000000000000000000000000000000000000",
+    "type": "file",
+    "name": "test1.c",
+    "size": 0
+},
+{
+    "id": "e4fe14c8cda2206bb9606907cf4fca6b30221cf9",
+    "type": "dir",
+    "name": "test_dir"
+}
+]
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>404 The path is not exist.</li>
+<li>440 Repo is encrypted, and password is not provided.</li>
+<li>520 Operation failed..</li>
+</ul>
+<h4 id="create-new-directory"><a id="create-new-directory"></a>Create New Directory</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo-id}/dir/</p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+<li>operation=mkdir (post)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d  "operation=mkdir" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 201 CREATED
+&lt; Location: https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+...
+
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code 201(Created) is returned, and Location header provides the url of created directory.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing or invalid(e.g. p=/)</li>
+<li>520 Operation failed.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<p>Newly created directory will be renamed if the name is duplicated.</p>
+<h4 id="rename-directory"><a id="rename-directory"></a>Rename Directory</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo-id}/dir/?p=/foo</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>repo-id</li>
+<li>p (path)</li>
+<li>operation=rename</li>
+<li>newname (the new name of the directory)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d  "operation=rename&amp;newname=pinkfloyd_newfolder" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code 200 if everything is ok</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>403 if You do not have permission to rename a folder</li>
+<li>400 if newname is not given</li>
+<li>520 if Failed to rename directory (generic problem)</li>
+</ul>
+<p><strong>Notes</strong></p>
+<p>If the new name is the same of the old name no operation will be done.</p>
+<h4 id="delete-directory"><a id="delete-directory"></a>Delete Directory</h4>
+<p><strong>DELETE</strong> https://cloud.seafile.com/api2/repos/{repo-id}/dir/</p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -X DELETE -v  -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>...
+&lt; HTTP/1.0 200 OK
+...
+"success"
+</code></pre>
+<p><strong>Success</strong></p>
+<p>Response code is 200(OK), and a string <code>"success"</code> is returned.</p>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing or invalid(e.g. p=/)</li>
+<li>520 Operation failed.</li>
+</ul>
+<p><strong>Note</strong></p>
+<p>This can also be used to delete file.</p>
+<h4 id="download-directory"><a id="Download-directory"></a>Download Directory</h4>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo-id}/dir/download/?p=/foo</p>
+<ul>
+<li>repo-id</li>
+<li>p</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"https://cloud.seafile.com:8082/files/adee6094/foo"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 Path is missing or invalid(e.g. p=/), or unable to download directory, size is too large</li>
+<li>404 Repo(path) not found(exist)</li>
+<li>520 Operation failed.</li>
+</ul>
+<h4 id="share-directory"><a id="share-directory"></a>Share Directory</h4>
+<p><strong>PUT</strong> https://cloud.seafile.com/api2/repos/{repo-id}/dir/shared_items/?p={path}</p>
+<ul>
+<li>repo-id</li>
+<li>path</li>
+<li>permission, <code>r</code> or <code>rw</code></li>
+<li>share_type, <code>user</code> or <code>group</code></li>
+<li>username, necessary if share_type is user</li>
+<li>group_id, necessary if share_type is group</li>
+</ul>
+<p><strong>Sample request for share folder to user</strong></p>
+<pre><code>curl -X PUT -d "username=2@1.com&amp;share_type=user&amp;&amp;perm=r" -H 'Authorization: Token ef12bf1e66a1aa797a1d6556fdc9ae84f1e9249f' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/78c620ee-2989-4427-8eff-7748f4fbebc0/dir/shared_items/?p=/q
+</code></pre>
+<p><strong>Sample response for share folder to user</strong></p>
+<pre><code>{"failed": [], "success": [{"user_info": {"nickname": "2", "name": "2@1.com"}, "share_type": "user", "permission": "r"}]}
+</code></pre>
+<p><strong>Sample request for share folder to group</strong></p>
+<pre><code>curl -X PUT -d "group_id=772&amp;share_type=group&amp;&amp;perm=rw" -H 'Authorization: Token ef12bf1e66a1aa797a1d6556fdc9ae84f1e9249f' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/78c620ee-2989-4427-8eff-7748f4fbebc0/dir/shared_items/?p=/q
+</code></pre>
+<p><strong>Sample response for share folder to group</strong></p>
+<pre><code>{"failed": [], "success": [{"group_info": {"id": 772, "name": "group-2"}, "share_type": "group", "permission": "r"}]}
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 share_type/permission/group_id invalid.</li>
+<li>403 Permission denied.</li>
+<li>404 Library/Folder/Group not found.</li>
+<li>500 Failed to get sub repo.</li>
+</ul>
+<h3 id="multiple-files-directories"><a id="multiple-files-directories">Multiple Files / Directories</h3>
+<h4 id="copy"><a id="multiple-files-directories-copy"></a>Copy</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo_id}/fileops/copy/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>p: source folder path, defaults to <code>"/"</code></li>
+<li>file_names: list of file/folder names to copy. Multiple file/folder names can be seperated by <code>:</code>.</li>
+<li>dst_repo: the destination repo id</li>
+<li>dst_dir: the destination folder in <code>dst_repo</code></li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d "dst_repo=73ddb2b8-dda8-471b-b7a7-ca742b07483c&amp;dst_dir=/&amp;file_names=foo.c:bar.c:dir1:dir2" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' https://cloud.seafile.com/api2/repos/c7436518-5f46-4296-97db-2fcba4c8c8db/fileops/copy/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"success"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 missing argument</li>
+<li>403 You do not have permission to copy file</li>
+<li>404 repo not found</li>
+<li>502 failed to copy file</li>
+</ul>
+<h4 id="move"><a id="multiple-files-directories-move"></a>Move</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo_id}/fileops/move/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>p: source folder path, defaults to <code>"/"</code></li>
+<li>file_names: list of file/folder names to move. Multiple file/folder names can be seperated by <code>:</code>.</li>
+<li>dst_repo: the destination repo id</li>
+<li>dst_dir: the destination folder in <code>dst_repo</code></li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d "dst_repo=73ddb2b8-dda8-471b-b7a7-ca742b07483c&amp;dst_dir=/&amp;file_names=foo.c:bar.c:dir1:dir2" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' https://cloud.seafile.com/api2/repos/c7436518-5f46-4296-97db-2fcba4c8c8db/fileops/move/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"success"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 missing argument</li>
+<li>403 You do not have permission to move file</li>
+<li>404 repo not found</li>
+<li>502 failed to move file</li>
+</ul>
+<h4 id="delete"><a id="multiple-files-directories-delete"></a>Delete</h4>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/repos/{repo_id}/fileops/delete/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>p: source folder path, defaults to <code>"/"</code></li>
+<li>file_names: list of file/folder names to delete. Multiple file/folder names can be seperated by <code>:</code>.</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -d "file_names=foo.c:bar.c:dir1:dir2" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' https://cloud.seafile.com/api2/repos/c7436518-5f46-4296-97db-2fcba4c8c8db/fileops/delete/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"success"
+</code></pre>
+<p><strong>Errors</strong></p>
+<ul>
+<li>400 missing argument</li>
+<li>403 You do not have permission to delete file</li>
+<li>404 repo not found</li>
+<li>502 failed to delete file</li>
+</ul>
+<h2 id="avatar"><a id="avatar"></a>Avatar</h2>
+<h3 id="get-user-avatar"><a id="get-user-avatar"></a>Get User Avatar</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/avatars/user/{user}/resized/{size}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>user</li>
+<li>size</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/avatars/user/user@example.com/resized/80/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "url": "http://127.0.0.1:8000/media/avatars/default.png",
+    "is_default": true,
+    "mtime": 0
+}
+</code></pre>
+<h3 id="get-group-avatar"><a id="get-group-avatar"></a>Get Group Avatar</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/avatars/group/{group_id}/resized/{size}/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>group_id</li>
+<li>size</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/avatars/group/1/resized/80/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>{
+    "url": "http://127.0.0.1:8000/media/avatars/groups/default.png",
+    "is_default": true,
+    "mtime": 0
+}
+</code></pre>
+<h3 id="get-file-activities"><a id="get-file-activities"></a>Get File Activities</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/events/</p>
+<p><strong>Request parameters</strong></p>
+<p>this api will only return first 15 records of activities. if want get more, pass <code>start</code> parameter</p>
+<ul>
+<li>start (default 0)</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/events/"
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code> {"more_offset": 15, "events":[{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398078909, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-cli_3.0.2_i386.tar.gz\"."},{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398075540, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-server_3.0.0_x86-64.tar.gz\"."}], "more": false}
+</code></pre>
+<p><strong>Sample request for more activities</strong></p>
+<pre><code>curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/events/?start=15"
+</code></pre>
+<p><strong>Sample response for more activities</strong></p>
+<pre><code> {"more_offset": 30, "events":[{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398078909, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-cli_3.0.2_i386.tar.gz\"."},{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398075540, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-server_3.0.0_x86-64.tar.gz\"."}], "more": false}
+</code></pre>
+<h3 id="get-thumbnail-image"><a id="get-thumbnail-image"></a>Get Thumbnail Image</h3>
+<p><strong>GET</strong> https://cloud.seafile.com/api2/repos/{repo_id}/thumbnail/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>repo_id</li>
+<li>p</li>
+<li>size</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -H 'Authorization: Token 40f9a510a0629430865dc199a3880898ad2e48fc' https://cloud.seafile.com/api2/repos/fbead5d0-4817-4446-92f3-7ac8e6a8e5f5/thumbnail/?p=/5.jpg\&amp;size=123 &gt; thumbnail.png
+</code></pre>
+<h2 id="add-organization"><a id="add-organization"></a>Add Organization</h2>
+<p>This API is only used internally to create an organization account in seacloud.cc.</p>
+<p><strong>POST</strong> https://cloud.seafile.com/api2/organization/</p>
+<p><strong>Request parameters</strong></p>
+<ul>
+<li>username</li>
+<li>password</li>
+<li>org_name</li>
+<li>prefix</li>
+<li>quota</li>
+<li>member_limit</li>
+</ul>
+<p><strong>Sample request</strong></p>
+<pre><code>curl -v -X POST -d "username=example@example.com&amp;password=example&amp;org_name=example&amp;prefix=example&amp;quota=100&amp;member_limit=10" -H "Authorization: Token ccdff90e4d1efe76b2b3d91c06b027a5cff189d4" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/organization/
+</code></pre>
+<p><strong>Sample response</strong></p>
+<pre><code>"success"
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../web_api_v2.1/" class="btn btn-neutral float-right" title="Web API V2.1">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../code_standard/" class="btn btn-neutral" title="Code Standard"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../code_standard/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../web_api_v2.1/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

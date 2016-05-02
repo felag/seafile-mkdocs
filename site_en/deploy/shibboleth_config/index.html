@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Configure Seafile to use Shibboleth Authentication - Server Seafile Manual</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Configure Seafile to use Shibboleth Authentication";
+    var mkdocs_page_input_path = "deploy/shibboleth_config.md";
+    var mkdocs_page_url = "/deploy/shibboleth_config/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../extra.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Server Seafile Manual</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Summary</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../README/">README</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Overview</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/components/">Seafile Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../overview/file_permission_management/">File permission management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../roadmap/">Roadmap</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contribution/">Contribution</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploying Seafile under Linux</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_sqlite/">Deploying Seafile with SQLite</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_mysql/">Deploying Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_nginx/">Config Seahub with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_nginx/">Enabling Https with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_with_apache/">Config Seahub with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../https_with_apache/">Enabling Https with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_ldap/">Configure Seafile to use LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Configure Seafile to use Shibboleth Authentication</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#install-and-configure-shibboleth-service-provider">Install and Configure Shibboleth Service Provider</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#apache-configuration">Apache Configuration</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#configure-seahub">Configure Seahub</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#verify">Verify</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../upgrade/">Upgrade Seafile server</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Other Deployment Notes</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../start_seafile_at_system_bootup/">Start Seafile at System Bootup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_firewall/">Firewall settings</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../using_logrotate/">Logrotate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../add_memcached/">Add Memcached</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seafile_behind_nat/">Deploy Seafile behind NAT</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy_seahub_at_non-root_domain/">Deploy Seahub at Non-root domain</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../migrate_from_sqlite_to_mysql/">Migrate From SQLite to MySQL</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Common Problems for Setting up Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../new_directory_layout_5_0_0/">New Directory Layout in Seafile Server 5.0.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile under Windows</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_windows/">Deploy with windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/download_and_setup_seafile_windows_server/">Download and Setup Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/using_ldap/">Configure Seafile to use LDAP on Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_mysql/">Deploy Seafile with MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_apache/">Deploy Seafile with Apache</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/deploy_with_nginx/">Deploy Seafile with Nginx</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/install_seafile_server_as_a_windows_service/">Install Seafile Server as a Windows Service</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/ports_used_by_seafile_windows_server/">Ports used by Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/upgrading_seafile_windows_server/">Upgrading Seafile Windows Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/migrate_from_win_to_linux/">Migrate Seafile From Windows To Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_gc/">Garbage Collecting Unused Blocks on Seafile Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_windows/windows_fsck/">Running seaf-fsck on corrupted repositories</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy Seafile Pro Edition</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/download_and_setup_seafile_professional_server/">Download and Setup Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/migrate_from_seafile_community_server/">Migrate from Seafile Community Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrading_seafile_professional_server/">Upgrading Seafile Professional Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/using_ldap_pro/">LDAP Configuration for Seafile Pro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/ldap_group_sync/">Importing Groups from LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/multi_institutions/">Multi-Institutions Support</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_documents_preview/">Enable Office/PDF Documents Online Preview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/office_web_app/">Integrating with Office Web App</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/details_about_file_search/">Details about File Search</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Virus Scan</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan/">Virus scan</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/virus_scan_with_kav4fs/">Virus Scan With Kav4fs</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/web_resumable_upload/">Web Resumable File Upload</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Storage Backends</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_amazon_s3/">Amazon S3 Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_ceph/">Ceph Backend</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_with_swift/">OpenStack Swift Backend</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Cluster Deployment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/deploy_in_a_cluster/">Deploy in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/clustering_with_mariadb_ceph/">Setup with MariaDB and Ceph</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/setup_seafile_cluster_with_nfs/">Setup Seafile cluster with NFS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/enable_search_and_background_tasks_in_a_cluster/">Enable search and background tasks in a cluster</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/upgrade_a_cluster/">Upgrade a cluster</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/real_time_backup/">Real-time Backup Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/configurable_options/">Configurable Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/faq_for_seafile_pro_server/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deploy_pro/seafile_professional_sdition_software_license_agreement/">License</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Configuration and Customization</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/ccnet-conf/">ccnet.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seafile-conf/">seafile.conf</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_settings_py/">seahub_settings.py</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/seahub_customization/">Seahub customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/desktop_customization/">Desktop client customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/sending_email/">Email Sending</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/user_options/">User management options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../config/quota_and_size_options/">Storage Quota and File size limits</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Administration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/account/">Account management</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/logs/">Logs</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/backup_recovery/">Backup and Recovery</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_fsck/">Seafile FSCK</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/seafile_gc/">Seafile GC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../maintain/clean_database/">Clean database</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>WebDAV and FUSE extensions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/webdav/">WebDAV extension</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../extension/fuse/">FUSE extension</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Security and Auditing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/security_features/">Security features</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../security/auditing/">Access logs and auditing</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Developing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/README/">README</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>How to Build Seafile</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/README/">README</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/linux/">Linux</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/freebsd/">FreeBSD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/windows/">Windows</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/osx/">Mac OS X</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/server/">Server</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../build_seafile/rpi/">Raspberry Pi</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/env/">Develop env</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/code_standard/">Code Standard</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api/">Web API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/web_api_v2.1/">Web API V2.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/python_api/">Python API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/php_api/">PHP API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/data_model/">Data Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/server-components/">Server Components</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../develop/sync_algorithm/">Sync algorithm</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Server Seafile Manual</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deploying Seafile under Linux &raquo;</li>
+        
+      
+    
+    <li>Configure Seafile to use Shibboleth Authentication</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="overview">Overview</h2>
+<p><a href="https://shibboleth.net/">Shibboleth</a> is a widely used single sign on (SSO) protocol. Seafile server (Community Edition &gt;= 4.1.0, Pro Edition &gt;= 4.0.6) supports authentication via Shibboleth. It allows users from another organization to log in to Seafile without registering an account on the service provider.</p>
+<p>In this documentation, we assume the reader is familiar with Shibboleth installation and configuration. For introduction to Shibboleth concepts, please refer to https://wiki.shibboleth.net/confluence/display/SHIB2/UnderstandingShibboleth .</p>
+<p>Shibboleth Service Provider (SP) should be installed on the same server as the Seafile server. The official SP from https://shibboleth.net/ is implemented as an Apache module. The module handles all Shibboleth authentication details. Seafile server receives authentication information (username) from fastcgi. The username then can be used as login name for the user.</p>
+<p>Seahub provides a special URL to handle Shibboleth login. The URL is <code>https://your-server/shib-login</code>. Only this URL needs to be configured under Shibboleth protection. All other URLs don't go through the Shibboleth module. The overall workflow for a user to login with Shibboleth is as follows:</p>
+<ol>
+<li>In the Seafile login page, there is a separate "Shibboleth" login button. When the user clicks the button, she/he will be redirected to <code>https://your-server/shib-login</code>.</li>
+<li>Since that URL is controlled by Shibboleth, the user will be redirected to IdP for login. After the user logs in, she/he will be redirected back to <code>https://your-server/shib-login</code>.</li>
+<li>This time the Shibboleth module passes the request to Seahub. Seahub reads the user information from the request and brings the user to her/his home page.</li>
+<li>All later access to Seahub will not pass through the Shibboleth module. Since Seahub keeps session information internally, the user doesn't need to login again until the session expires.</li>
+</ol>
+<p>Since Shibboleth support requires Apache, if you want to use Nginx, you need two servers, one for non-Shibboleth access, another configured with Apache to allow Shibboleth login. In a cluster environment, you can configure your load balancer to direct traffic to different server according to URL. Only the URL <code>https://your-server/shib-login</code> needs to be directed to Apache.</p>
+<p>The configuration includes 3 steps:</p>
+<ol>
+<li>Install and configure Shibboleth Service Provider;</li>
+<li>Configure Apache;</li>
+<li>Configure Seahub.</li>
+</ol>
+<h2 id="install-and-configure-shibboleth-service-provider">Install and Configure Shibboleth Service Provider</h2>
+<p>Installation and configuration of Shibboleth is out of the scope of this documentation. Here are a few references:</p>
+<ul>
+<li>For RedHat and SUSE: https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPLinuxInstall</li>
+<li>For Ubuntu: http://bradleybeddoes.com/2011/08/12/installing-a-shibboleth-2-sp-in-ubuntu-11-04-within-virtualbox/</li>
+</ul>
+<p>Please note that you don't have to follow the Apache configurations in the above links. Just use the Apache config we provide in the next section.</p>
+<h2 id="apache-configuration">Apache Configuration</h2>
+<p>You should create a new virtual host configuration for Shibboleth.</p>
+<pre><code>&lt;IfModule mod_ssl.c&gt;
+    &lt;VirtualHost _default_:443&gt;
+        ServerName seafile.example.com
+        DocumentRoot /var/www
+        #Alias /seafmedia  /home/ubuntu/dev/seahub/media
+        Alias /media /home/user/seafile-server-latest/seahub/media
+
+        ErrorLog ${APACHE_LOG_DIR}/seahub.error.log
+        CustomLog ${APACHE_LOG_DIR}/seahub.access.log combined
+
+        SSLEngine on
+        SSLCertificateFile  /path/to/ssl-cert.pem
+        SSLCertificateKeyFile /path/to/ssl-key.pem
+
+        &lt;Location /Shibboleth.sso&gt;
+        SetHandler shib
+        &lt;/Location&gt;
+
+        &lt;Location /api2&gt;
+        AuthType None
+        Require all granted
+        Allow from all
+        satisfy any
+        &lt;/Location&gt;
+
+        RewriteEngine On
+        &lt;Location /media&gt;
+        Require all granted
+        &lt;/Location&gt;
+
+        &lt;Location /shib-login&gt;
+        AuthType shibboleth
+        ShibRequestSetting requireSession true
+        Require valid-user
+        &lt;/Location&gt;
+
+        #
+        # seafile fileserver
+        #
+        ProxyPass /seafhttp http://127.0.0.1:8082
+        ProxyPassReverse /seafhttp http://127.0.0.1:8082
+        RewriteRule ^/seafhttp - [QSA,L]
+
+        #
+        # seahub
+        #
+        RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_URI} !^/Shibboleth.sso
+        RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    &lt;/VirtualHost&gt;
+&lt;/IfModule&gt;
+
+</code></pre>
+
+<p>After restarting Apache, you should be able to get the Service Provider metadata by accessing https://seafile.example.com/Shibboleth.sso/Metadata . This metadata should be uploaded to the Identity Provider (IdP) server.</p>
+<h2 id="configure-seahub">Configure Seahub</h2>
+<p>Seahub extracts the username from the <code>REMOTE_USER</code> environment variable. So you should modify your SP's shibboleth2.xml (/etc/shibboleth/shibboleth2.xml on Ubuntu) config file, so that Shibboleth translates your desired attribute into <code>REMOTE_USER</code> environment variable.</p>
+<pre><code>    &lt;ApplicationDefaults entityID=&quot;https://your-server/shibboleth&quot;
+        REMOTE_USER=&quot;xxxx&quot;&gt;
+</code></pre>
+
+<p>In Seafile, only one of the following two attributes can be used for username: <code>eppn</code>, and <code>mail</code>. <code>eppn</code> stands for "Edu Person Principal Name". It is usually the UserPrincipalName attribute in Active Directory. It's not necessarily a valid email address. <code>mail</code> is the user's email address. You should set <code>REMOTE_USER</code> to either one of these attributes.</p>
+<p>Now we have to tell Seahub how to do with the authentication information passed in by Shibboleth.</p>
+<p>Add the following configuration to seahub_settings.py.</p>
+<pre><code>EXTRA_AUTHENTICATION_BACKENDS = (
+    'shibboleth.backends.ShibbolethRemoteUserBackend',
+)
+EXTRA_MIDDLEWARE_CLASSES = (
+    'shibboleth.middleware.ShibbolethRemoteUserMiddleware',
+)
+
+ENABLE_SHIB_LOGIN = True
+
+SHIBBOLETH_ATTRIBUTE_MAP = {
+    # Change eppn to mail if you use mail attribute for REMOTE_USER
+    &quot;eppn&quot;: (False, &quot;username&quot;),
+}
+</code></pre>
+
+<p>Since version 5.0, Seahub can process additional user attributes from Shibboleth. These attributes are saved into Seahub's database, as user's properties. They're all not mandatory. The internal user properties Seahub now supports are:</p>
+<ul>
+<li>givenname</li>
+<li>surname</li>
+<li>contact_email: used for sending notification email to user if username is not a valid email address (like eppn).</li>
+<li>institution: used to identify user's institution</li>
+</ul>
+<p>You can specify the mapping between Shibboleth attributes and Seahub's user properties in seahub_settings.py:</p>
+<pre><code>SHIBBOLETH_ATTRIBUTE_MAP = {
+    &quot;eppn&quot;: (False, &quot;username&quot;),
+    &quot;givenname&quot;: (False, &quot;givenname&quot;),
+    &quot;sn&quot;: (False, &quot;surname&quot;),
+    &quot;mail&quot;: (False, &quot;contact_email&quot;),
+    &quot;organization&quot;: (False, &quot;institution&quot;),
+}
+</code></pre>
+
+<p>In the above config, the hash key is Shibboleth attribute name, the second element in the hash value is Seahub's property name. You can adjust the Shibboleth attribute name for your own needs. <strong><em>Note that you may have to change attribute-map.xml in your Shibboleth SP, so that the desired attributes are passed to Seahub. And you have to make sure the IdP sends these attributes to the SP.</em></strong></p>
+<p>Since version 5.1.1, we added an option <code>SHIB_ACTIVATE_AFTER_CREATION</code> (defaults to <code>True</code>) which control the user status after shibboleth connection. If this option set to <code>False</code>, user will be inactive after connection, and system admins will be notified by email to activate that account.</p>
+<h2 id="verify">Verify</h2>
+<p>After restarting Apache and Seafile services, you can then test the shibboleth login workflow.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../upgrade/" class="btn btn-neutral float-right" title="Upgrade Seafile server">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../using_ldap/" class="btn btn-neutral" title="Configure Seafile to use LDAP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../using_ldap/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../upgrade/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
